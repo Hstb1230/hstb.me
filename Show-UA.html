@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个人的星空">
+    <meta name="keyword" content="Hstb">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="alternate" type="application/atom+xml" title="Hstb" href="/atom.xml">
+    <link rel="stylesheet" href="/css/animate.min.css">
+    <!--link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" -->
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <title>
+        
+        在多说中显示评论者的UA｜Hstb的小世界
+        
+    </title>
+
+    <link rel="canonical" href="//i.hstb1230.com/Show-UA.html">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/blog-style.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+	
+	<script type="text/javascript">
+	  if(window.location.port!=4000){ 
+	    var host = window.location.host;
+	    if (host!='i.hstb.me') {
+	      var path = window.location.pathname;
+		  window.location.href = 'https://i.hstb.me' + path;
+	    }
+	  }
+	</script>
+</head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//img.1sls.cn/Pic/jpeg/f57345a8d105fba7bb2811f85091f030')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hstb
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="//img.1sls.cn/RandImg/Slideshow">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('//img.1sls.cn/RandImg/Slideshow')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>在多说中显示评论者的UA</h1>
+                    
+                    <span class="meta">
+                         作者 Hstb
+                        <span>
+                          日期 2017-01-21
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#随笔"
+                           title="随笔">随笔</a>
+                        
+                        <a class="tag" href="/tags/#分享"
+                           title="分享">分享</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            在多说中显示评论者的UA
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
+<p>以前看见评论框会显示UA和OS时感觉挺高大的(<em>/ω╲</em>)<br>就去问度娘方法，得到后一直尝试，却从未成功</p>
+<p>明明都是<del>World</del>WordPress，为啥我不行ㄟ( ▔, ▔ )ㄏ<br>于是下定决心，弃坑😅</p>
+<p>最近改评论框的时候才想起它，<br>又去百度了一波，最终弄好了( ￣ー￣)<br>不过这次用的是Hexo，<br>是不是WordPress有问题o(一︿一+)o</p>
+<h1 id="显示UA-amp-OS"><a href="#显示UA-amp-OS" class="headerlink" title="显示UA &amp; OS"></a>显示UA &amp; OS</h1><hr>
+<blockquote><p><strong>查看代码时请使用电脑</strong></p>
+<footer><strong>来自手机の友情提示</strong></footer></blockquote>
+<h2 id="JS本地化"><a href="#JS本地化" class="headerlink" title="JS本地化"></a>JS本地化</h2><ul>
+<li>将多说核心JS（embed.js）本地化 <a href="https://www.baidu.com/s?ie=UTF-8&wd=%E5%A4%9A%E8%AF%B4%E6%A0%B8%E5%BF%83js%E6%9C%AC%E5%9C%B0%E5%8C%96" target="_blank" rel="external">（百度一下?）</a></li>
+</ul>
+<h2 id="编辑JS"><a href="#编辑JS" class="headerlink" title="编辑JS"></a>编辑JS</h2><ul>
+<li>编辑已经本地化的多说核心JS <a href="http://static.duoshuo.com/embed.js" target="_blank" rel="external">（embed.js）</a>:</li>
+</ul>
+<h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><ul>
+<li>在embed.js头部加入以下代码 || 引用 <a href="https://i.hstb1230.com/js/ua.js" target="_blank" rel="external">js文件</a>：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//移动客户端判断开始，作用：在移动客户端显示不同样式</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskcheckMobile</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> isiPad = navigator.userAgent.match(<span class="regexp">/iPad/i</span>) != <span class="literal">null</span>;</div><div class="line">    <span class="keyword">if</span> (isiPad) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> isMobile = navigator.userAgent.match(<span class="regexp">/iphone|android|phone|mobile|wap|netfront|x11|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i</span>) != <span class="literal">null</span>;</div><div class="line">    <span class="keyword">if</span> (isMobile) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//移动客户端判断结束</span></div><div class="line"><span class="comment">//显UA开始</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskua</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> r = <span class="keyword">new</span> <span class="built_in">Array</span>;</div><div class="line">    <span class="keyword">var</span> outputer = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (r = e.match(<span class="regexp">/FireFox\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_firefox"&gt;&lt;i class="fa fa-firefox"&gt;&lt;/i&gt; Mozilla FireFox'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Maxthon([\d]*)\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_maxthon"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Maxthon'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/BIDUBrowser([\d]*)\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_ucweb"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 百度浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/UBrowser([\d]*)\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_ucweb"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; UCBrowser'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MetaSr/ig</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_sogou"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 搜狗浏览器'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/2345Explorer/ig</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_2345explorer"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 2345浏览器'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/2345chrome/ig</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_2345chrome"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 2345浏览器'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/LBBROWSER/ig</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_lbbrowser"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 猎豹浏览器'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MicroMessenger\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-weixin"&gt;&lt;/i&gt; 微信'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('/')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/QQBrowser\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('/')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/QQ\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_qq"&gt;&lt;i class="fa fa-qq"&gt;&lt;/i&gt; QQ浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('/')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MiuiBrowser\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_mi"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; Miui浏览器'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('/')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Edge([\d]*)\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-edge"&gt;&lt;/i&gt; Edge'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('.')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Chrome([\d]*)\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_chrome"&gt;&lt;i class="fa fa-chrome"&gt;&lt;/i&gt; Chrome'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">        <span class="comment">/*.split('.')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/safari\/([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_apple"&gt;&lt;i class="fa fa-safari"&gt;&lt;/i&gt; Apple Safari'</span> + <span class="string">'|'</span> + r1[<span class="number">1</span>]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Opera[\s|\/]([^\s]+)/ig</span>)) &#123;</div><div class="line">        <span class="keyword">var</span> r1 = r[<span class="number">0</span>].split(<span class="string">"/"</span>);</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_opera"&gt;&lt;i class="fa fa-opera"&gt;&lt;/i&gt; Opera'</span> + <span class="string">'|'</span> + r[<span class="number">1</span>]</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/Trident\/7.0/gi</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-internet-explorer"&gt;&lt;/i&gt; Internet Explorer 11'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (r = e.match(<span class="regexp">/MSIE\s([^\s|;]+)/gi</span>)) &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_ie"&gt;&lt;i class="fa fa-internet-explorer"&gt;&lt;/i&gt; Internet Explorer'</span> + <span class="string">'|'</span> + r[<span class="number">0</span>]</div><div class="line">        <span class="comment">/*.replace('MSIE', '').split('.')[0]*/</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        outputer = <span class="string">'&lt;span class="ua_other"&gt;&lt;i class="fa fa-globe"&gt;&lt;/i&gt; 其它浏览器'</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (sskcheckMobile()) &#123;</div><div class="line">        Mobile = <span class="string">'&lt;br&gt;&lt;br&gt;'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        Mobile = <span class="string">''</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> outputer + <span class="string">"&lt;/span&gt;"</span> + Mobile;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sskos</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> os = <span class="string">''</span>;</div><div class="line">    <span class="keyword">if</span> (e.match(<span class="regexp">/win/ig</span>)) &#123;</div><div class="line">        <span class="keyword">if</span> (e.match(<span class="regexp">/nt 5.1/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_xp"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows XP'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.1/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_7"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 7'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.2/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_8"&gt;&lt;i class="fa fa-windows"&gt;&lt;/i&gt; Windows 8'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.3/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_8_1"&gt;&lt;i class="fa fa-windows"&gt;&lt;/i&gt; Windows 8.1'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 10.0/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_8_1"&gt;&lt;i class="fa fa-windows"&gt;&lt;/i&gt; Windows 10'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 6.0/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_vista"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows Vista'</span></div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/nt 5/ig</span>)) &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_2000"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows 2000'</span></div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            os = <span class="string">'&lt;span class="os_windows"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Windows'</span></div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/android/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_android"&gt;&lt;i class="fa fa-android"&gt;&lt;/i&gt; Android'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/ubuntu/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_ubuntu"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Ubuntu'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/linux/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_linux"&gt;&lt;i class="fa fa-linux"&gt;&lt;/i&gt; Linux'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/mac/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_mac"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Mac'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/unix/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_unix"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; Unix'</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.match(<span class="regexp">/symbian/ig</span>)) &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_nokia"&gt;&lt;i class="fa fa-mobile"&gt;&lt;/i&gt; Nokia'</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        os = <span class="string">'&lt;span class="os_other"&gt;&lt;i class="fa fa-desktop"&gt;&lt;/i&gt; 其它操作系统'</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> os + <span class="string">"&lt;/span&gt;"</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//显UA结束</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><ul>
+<li>在embed.js中查找以下代码<br>—如果找不到请先 <a href="http://tool.chinaz.com/Tools/JsFormat.aspx" target="_blank" rel="external">点此格式化JS</a><blockquote><p><strong>data-qqt-account=”‘ + (r.qqt_account || “”) + ‘“&gt;’ + u(r.name) + ““),</strong></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="添加-1"><a href="#添加-1" class="headerlink" title="添加"></a>添加</h3><ul>
+<li>在此之后添加如下代码（显示时<strong>OS在前，UA在后</strong>）:<blockquote><p><strong>t += “<span class="\"ua\"">“ +  sskos(s.agent) + “</span><span class="\"ua\"">“ + sskua(s.agent) + “</span>“,</strong></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="编辑CSS"><a href="#编辑CSS" class="headerlink" title="编辑CSS"></a>编辑CSS</h2><h3 id="添加-2"><a href="#添加-2" class="headerlink" title="添加"></a>添加</h3><ul>
+<li>在 [ CSS文件 || 多说后台管理-自定义CSS ] 中加入代码：<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*多说UA开始*/</span></div><div class="line"><span class="selector-tag">span</span><span class="selector-class">.ua</span> &#123;</div><div class="line">	<span class="attribute">margin</span>:<span class="number">0</span> <span class="number">1px</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#FFFFFF</span><span class="meta">!important</span>;</div><div class="line">	<span class="comment">/*text-transform:Capitalize!important;</span></div><div class="line"><span class="comment">	float:right!important;</span></div><div class="line"><span class="comment">	line-height:18px!important;</span></div><div class="line"><span class="comment">	*/</span></div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_other</span><span class="selector-class">.os_other</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#ccc</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">color</span>:<span class="number">#fff</span>;</div><div class="line">	<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#BBB</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_ie</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#428bca</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#357ebd</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_firefox</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#f0ad4e</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#eea236</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_maxthon</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#7373B9</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#7373B9</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_ucweb</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#FF740F</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#d43f3a</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_sogou</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#78ACE9</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_2345explorer</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#2478B8</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_2345chrome</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#F9D024</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_mi</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#FF4A00</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_lbbrowser</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#FC9D2E</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_chrome</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#EE6252</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_qq</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#3D88A8</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_apple</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#E95620</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#4cae4c</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ua_opera</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#d9534f</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#d43f3a</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_vista</span>,<span class="selector-class">.os_2000</span>,<span class="selector-class">.os_windows</span>,<span class="selector-class">.os_xp</span>,<span class="selector-class">.os_7</span>,<span class="selector-class">.os_8</span>,<span class="selector-class">.os_8_1</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#39b3d7</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#46b8da</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_android</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#98C13D</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#01B171</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_ubuntu</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#DD4814</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#01B171</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_linux</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#3A3A3A</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#1F1F1F</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_mac</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#666666</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#1F1F1F</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_unix</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#006600</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#1F1F1F</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.os_nokia</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>:<span class="number">#014485</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-color</span>:<span class="number">#1F1F1F</span><span class="meta">!important</span>;</div><div class="line">	<span class="attribute">border-radius</span>:<span class="number">4px</span>;</div><div class="line">	<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*多说UA结束*/</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="引用（可选）"><a href="#引用（可选）" class="headerlink" title="引用（可选）"></a>引用（可选）</h3><ul>
+<li>在HTML中引用这两个CSS文件（<strong>如果需要显示图标</strong>）：<br><strong><code>//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css</code> </strong><br><strong><code>//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css</code> </strong><br>—<strong>不建议将这两个CSS文件本地化，容易出现引用失败问题</strong><br>—<a href="http://fontawesome.io/icons/" title="Font Awesome Icons" target="_blank" rel="external">[点击这里]</a>可以看到更多图标(675+)，<strong>使用时请在<code>&lt;span class=&quot;ua_ie&quot;&gt;</code> 、<code>&lt;span class=&quot;os_xp&quot;&gt;</code> 等代码后加入图标代码</strong>，如（浅红色标签）：<br><i class="fa fa-apple" aria-hidden="true"></i> Apple <code>&lt;i class=&quot;fa fa-apple&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-android" aria-hidden="true"></i> Android <code>&lt;i class=&quot;fa fa-android&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-chrome" aria-hidden="true"></i> Chrome <code>&lt;i class=&quot;fa fa-chrome&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-desktop" aria-hidden="true"></i> Desktop <code>&lt;i class=&quot;fa fa-desktop&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-internet-explorer" aria-hidden="true"></i> InternetExplorer <code>&lt;i class=&quot;fa fa-internet-explorer&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code> </li>
+</ul>
+<hr>
+<h1 id="显示博主标志"><a href="#显示博主标志" class="headerlink" title="显示博主标志"></a>显示博主标志</h1><hr>
+<h2 id="JS本地化-1"><a href="#JS本地化-1" class="headerlink" title="JS本地化"></a>JS本地化</h2><ul>
+<li>参见上文</li>
+</ul>
+<h2 id="编辑JS-1"><a href="#编辑JS-1" class="headerlink" title="编辑JS"></a>编辑JS</h2><h3 id="添加-3"><a href="#添加-3" class="headerlink" title="添加"></a>添加</h3><ul>
+<li>在embed.js头部加入以下代码 || 引用 <a href="https://i.hstb1230.com/js/ua.js" target="_blank" rel="external">js文件</a>：<pre><code class="JavaScript"><span class="comment">//管理员判断开始</span>
+<span class="function"><span class="keyword">function</span> <span class="title">sskadmin</span>(<span class="params">e</span>) </span>{
+<span class="keyword">var</span> ssk = <span class="string">''</span>;
+<span class="keyword">if</span> (e.user_id == 【多说ID】) {
+  ssk = <span class="string">'&lt;span class="sskadmin"&gt; '</span> + <span class="string">'博主'</span> + <span class="string">'&lt;/span&gt; '</span>   
+}
+<span class="keyword">return</span> ssk;
+}
+<span class="comment">//管理员判断结束</span>
+</code></pre>
+</li>
+<li><strong>请将‘【多说ID】’替换为自己（博主）的多说ID</strong></li>
+<li><strong>‘博主’可以替换为任意文字</strong>，比如站长，管理员之类的</li>
+<li><strong>如需显示博主图标<i class="fa fa-user-o" aria-hidden="true"></i>请在<code>&lt;span class=&quot;sskadmin&quot;&gt;</code> 后加入代码 &amp;&amp; 引用上文所说的两个CSS文件：</strong><blockquote>
+<p><strong> <code>&lt;i class=&quot;fa fa-user-o&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;</code> </strong></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="搜索-1"><a href="#搜索-1" class="headerlink" title="搜索"></a>搜索</h3><ul>
+<li>在embed.js中搜索代码：<br>—如果找不到，请先 <a href="http://tool.chinaz.com/Tools/JsFormat.aspx" target="_blank" rel="external">点此格式化JS</a><blockquote>
+<p><strong><code>data-qqt-account=&quot;&#39; + (r.qqt_account || &quot;&quot;) + &#39;&quot;&gt;&#39; + u(r.name) + &quot;&lt;/span&gt;&quot;),</code> </strong></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="添加-4"><a href="#添加-4" class="headerlink" title="添加"></a>添加</h3><ul>
+<li>在此之后加入代码：<strong><code>t += sskadmin(r),</code> </strong></li>
+</ul>
+<p><strong>保存代码，刷新一下</strong></p>
+<p>效果图：<br><img src="https://img.1sls.cn/Pic/png/3ae74f51a8a666f5e0fd30ebe0851c48"></p>
+<ul>
+<li>UAの配色看起来可能有点怪，自行调整下吧~</li>
+<li>差点忘记说方法，千万别打我<code>_(:з」∠)_</code> </li>
+</ul>
+<ol>
+<li>在css查找对应样式（class），如<code>&lt;span class=&quot;os_android&quot;&gt;</code> 对应<code>.os_android</code> ：<pre><code class="CSS"><span class="selector-class">.os_android</span> {
+ <span class="attribute">background-color</span>:<span class="number">#98C13D</span><span class="meta">!important</span>;<span class="comment">/*背景色*/</span>
+ <span class="attribute">border-color</span>:<span class="number">#01B171</span><span class="meta">!important</span>;
+ <span class="attribute">border-radius</span>:<span class="number">4px</span>;
+ <span class="attribute">padding</span>:<span class="number">0</span> <span class="number">5px</span><span class="meta">!important</span>;
+}
+</code></pre>
+</li>
+<li>将<code>background-color:#98C13D!important;</code> 中的<code>#98C13D</code> 替换成<del>顺眼</del>喜欢的<a href="http://www.114la.com/other/rgb.htm" title="RGB颜色查询对照表" target="_blank" rel="external">[颜色代码]</a></li>
+</ol>
+<ul>
+<li>如果显示的UA有误，请 <a href="http://ssk.91txh.com/useragent.php" title="浏览器及操作系统信息更正" target="_blank" rel="external">[访问此站]</a> 复制User-Agent信息并评论在下方</li>
+</ul>
+<hr>
+<blockquote><p><strong>声明，本文内容参考自<br>搜索客の <a href="http://ssk.91txh.com/209" title="多说回复后显示浏览器及操作系统信息" target="_blank" rel="external">多说回复后显示浏览器及操作系统信息</a> &amp;&amp; <a href="http://ssk.91txh.com/207" title="多说社会化评论框添加 站长回复 标记" target="_blank" rel="external">多说社会化评论框添加”站长回复”标记</a></strong></p>
+</blockquote>
+
+                <hr>
+                
+
+                <ul class="pager">
+				    <script type="text/javascript">
+					function tonext() {
+					    var state = { 'page_id': 1, 'user_id': 5 };
+						var title = '';
+						var nexturl = document.getElementById("next");
+						var url = next.href;
+						//history.pushState(state, title, url);
+						//return false;
+						return true;
+					}
+					</script>
+                    
+                    <li class="previous">
+                        <a href="/PhotoToHtml.html" data-toggle="tooltip" data-placement="top"
+                           title="将图片转为Html网页">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a id="next" onclick="tonext();" href="/Hello-2017.html" data-toggle="tooltip" data-placement="top"
+                           title="Hello 2017">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+				
+				
+
+                
+
+                
+
+                
+                <!-- gitment 评论框 start -->
+                <div id="container"></div>
+				<link rel="stylesheet" href="/css/gitment.css">
+				<script src="/js/gitment.js"></script>
+				<script>
+				var gitment = new Gitment({
+				id: 'Show-UA',
+				owner: 'Hstb1230',
+				repo: 'hstb1230.github.io',
+				oauth: {
+				client_id: '54e7459b39803a59182c',
+				client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+				},
+				'title': '在多说中显示评论者的UA',
+				'desc': '',
+				'perPage': '10',
+				'maxCommentHeight': '250',
+				})
+				gitment.render('container')
+				</script>
+                <!-- gitment 评论框 end -->
+                
+
+                
+				
+				
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显示UA-amp-OS"><span class="toc-text">显示UA & OS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS本地化"><span class="toc-text">JS本地化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑JS"><span class="toc-text">编辑JS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加"><span class="toc-text">添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加-1"><span class="toc-text">添加</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑CSS"><span class="toc-text">编辑CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加-2"><span class="toc-text">添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用（可选）"><span class="toc-text">引用（可选）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#显示博主标志"><span class="toc-text">显示博主标志</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS本地化-1"><span class="toc-text">JS本地化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑JS-1"><span class="toc-text">编辑JS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#添加-3"><span class="toc-text">添加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索-1"><span class="toc-text">搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加-4"><span class="toc-text">添加</span></a></li></ol></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#随笔"
+                           title="随笔">随笔</a>
+                        
+                        <a class="tag" href="/tags/#分享"
+                           title="分享">分享</a>
+                        
+                    </div>
+                </section>
+                
+
+				
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/hstb_i">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/ymfy">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/745412309">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/hstb1230">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; <a href="/">Hstb</a> 2017<span id="busuanzi_container_site_pv" style="font-size: 12px;"> | PV: <span id="busuanzi_value_site_pv"></span> Times</span><br>
+                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/blog.js"></script>
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("/js/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-85067626-1';
+    var _gaDomain = 'i.hstb1230.com';
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    var _baId = '4660d5d28ff4f15c17bbe0619d9dda03';
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?" + _baId;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','/js/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+</body>
+
+</html>
