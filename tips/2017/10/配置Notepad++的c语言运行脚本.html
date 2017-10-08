@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-85067626-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?4660d5d28ff4f15c17bbe0619d9dda03"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="i.hstb1230.com">
+    
+    
+    <link rel="canonical" href="https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html">
+    
+    
+    <title>配置Notepad++的c语言运行脚本 | Tips | 学一些小技巧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="环境配置,Notepad++,C语言">
+    <meta name="description" content="上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。 因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。 后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。">
+<meta name="keywords" content="环境配置,Notepad++,C语言">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置Notepad++的c语言运行脚本">
+<meta property="og:url" content="https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html">
+<meta property="og:site_name" content="Tips">
+<meta property="og:description" content="上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。 因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。 后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-05T08:20:49.743Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配置Notepad++的c语言运行脚本">
+<meta name="twitter:description" content="上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。 因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。 后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Tips" href="/tips/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/tips/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个不知所措的逗比</h6>
+          <a href="mailto:i@hstb.me" title="i@hstb.me" class="mail">i@hstb.me</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/hstb1230" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb.me/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">配置Notepad++的c语言运行脚本</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">配置Notepad++的c语言运行脚本</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-04T17:41:36.000Z" itemprop="datePublished" class="page-time">
+  2017-10-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/环境配置/">环境配置</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-配置Notepad++的c语言运行脚本"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">配置Notepad++的c语言运行脚本</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-05 01:41:36" datetime="2017-10-04T17:41:36.000Z"  itemprop="datePublished">2017-10-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/环境配置/">环境配置</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。<br>因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。</p>
+<p>因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，<br>但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。</p>
+<p>后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。</p>
+<a id="more"></a>
+<p>然后上网查方法，看到的教程都是这样给的：</p>
+<blockquote>
+<ol>
+<li><p>复制以下代码，取名<code>编译C</code>：<br><code>cmd /k gcc -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT</code></p>
+</li>
+<li><p>复制以下代码，取名<code>运行C</code>：<br><code>cmd /c &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &amp; PAUSE &amp; EXIT</code></p>
+</li>
+</ol>
+</blockquote>
+<p>仔细分析下，就会发现调试需要分两步操作，有点麻烦</p>
+<p>所以我改了一下代码，将编译运行一步到位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmd /k gcc -o <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> <span class="string">"<span class="variable">$(FULL_CURRENT_PATH)</span>"</span>  &amp;&amp;  <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> &amp; PAUSE &amp; EXIT</div></pre></td></tr></table></figure></p>
+<p>不过这样做有一个缺点，就是编译出错时，仍然会运行一次程序，如果之前又编译成功过，那么就有可能会误导你。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-05T08:20:49.743Z" itemprop="dateUpdated">2017-10-05 16:20:49</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html" target="_blank" rel="external">https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb.me/tips">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/C语言/">C语言</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/Notepad/">Notepad++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/环境配置/">环境配置</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&title=《配置Notepad++的c语言运行脚本》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&title=《配置Notepad++的c语言运行脚本》 — Tips&source=上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《配置Notepad++的c语言运行脚本》 — Tips&url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'Notepad-cScript',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': '配置Notepad++的c语言运行脚本',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏我点饭吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UV：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PV：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/tips/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i>4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&title=《配置Notepad++的c语言运行脚本》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&title=《配置Notepad++的c语言运行脚本》 — Tips&source=上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《配置Notepad++的c语言运行脚本》 — Tips&url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3aQZLCMAwEQP7/afa6W1uEGctO5dA5UUCC2gfLSHq94uv967p+//3v+v/963fyX9924eHh4Q1C/xTc9afXoX96WgK+fp1EhYeHh3eO92lHzYNo8cm9+aJ8fB8PDw/vAbzrIJLvJJj2m3h4eHhP5iVFhPxo3t6Lh4eH9xxee7RtN/ek1pqUhg/WWvDw8PBiXt5Fes7rI/09PDw8vHFXvS0EtMfrvLy7GC0eHh7eAd7a2FPOmxzN1xIDHh4e3mneruZTW5adFBqSJcbDw8M7zcs35bytlTAm41wRFQ8PD+9G3lqgSdB5CsmX4Mt/BTw8PLytvPZYfGKgarLEi80wPDw8vK28vAg7KVjkqWV+lMfDw8PbyztxLG6f1qaB4jiOh4eHdwuvbVC1B9w89EnKwcPDw7uHlz8oubddsrb8ES0uHh4e3jHeddsp38ST4+9kyfKj/J9iBB4eHt4B3rwBlhdk1wJtl+y1lrvw8PDwAt6uAal8UeZd/vp4jYeHh7eVt1YgWEsnk0Zangw+jg7g4eHhbeUlw0xrm3jd7C9bYl9ixsPDwzvAK/7Sx4XdSbKZD10VuQUPDw9vibdrC86HotaWtV10PDw8vHO8tqnfDqq2Qwl5YmjTBh4eHt5eXt4ASwLKS7drR/M6Bjw8PLzDvDa4XVt/npDakS88PDy8O3ltESE55k7SRj5AgIeHh3cPL39cXrptk8QaIDpS4+Hh4W3ivcurHSNoxxTWShLFTBkeHh7emDdpz+c/nAc3f71t+gAPDw8vqHNOGlRryPl4QTFZhoeHh3eAN2+MTUoPk9z15Tl4eHh4D+Dlm3JbhI02+jhmPDw8vKfx2m09X4J54QMPDw/vHl479jS5a358rxMDHh4e3lZe+4d/nlrWEkw+5oWHh4d3jPcD9MoDJ/bBcG8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

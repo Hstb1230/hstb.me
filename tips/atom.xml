@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Tips</title>
+  <icon>https://www.gravatar.com/avatar/4c88b0402238088fdd1189be32a2a9a0</icon>
+  <subtitle>学一些小技巧</subtitle>
+  <link href="/tips/atom.xml" rel="self"/>
+  
+  <link href="https://i.hstb.me/tips/"/>
+  <updated>2017-10-05T08:20:49.743Z</updated>
+  <id>https://i.hstb.me/tips/</id>
+  
+  <author>
+    <name>Hstb</name>
+    <email>i@hstb.me</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>配置Notepad++的c语言运行脚本</title>
+    <link href="https://i.hstb.me/tips/2017/10/%E9%85%8D%E7%BD%AENotepad++%E7%9A%84c%E8%AF%AD%E8%A8%80%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC.html"/>
+    <id>https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html</id>
+    <published>2017-10-04T17:41:36.000Z</published>
+    <updated>2017-10-05T08:20:49.743Z</updated>
+    
+    <content type="html"><![CDATA[<p>上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。<br>因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。</p><p>因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，<br>但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。</p><p>后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。</p><a id="more"></a><p>然后上网查方法，看到的教程都是这样给的：</p><blockquote><ol><li><p>复制以下代码，取名<code>编译C</code>：<br><code>cmd /k gcc -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT</code></p></li><li><p>复制以下代码，取名<code>运行C</code>：<br><code>cmd /c &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &amp; PAUSE &amp; EXIT</code></p></li></ol></blockquote><p>仔细分析下，就会发现调试需要分两步操作，有点麻烦</p><p>所以我改了一下代码，将编译运行一步到位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmd /k gcc -o <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> <span class="string">"<span class="variable">$(FULL_CURRENT_PATH)</span>"</span>  &amp;&amp;  <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> &amp; PAUSE &amp; EXIT</div></pre></td></tr></table></figure></p><p>不过这样做有一个缺点，就是编译出错时，仍然会运行一次程序，如果之前又编译成功过，那么就有可能会误导你。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。&lt;br&gt;因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。&lt;/p&gt;
+&lt;p&gt;因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，&lt;br&gt;但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。&lt;/p&gt;
+&lt;p&gt;后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="环境配置" scheme="https://i.hstb.me/tips/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="环境配置" scheme="https://i.hstb.me/tips/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="Notepad++" scheme="https://i.hstb.me/tips/tags/Notepad/"/>
+    
+      <category term="C语言" scheme="https://i.hstb.me/tips/tags/C%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+</feed>
