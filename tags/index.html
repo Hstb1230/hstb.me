@@ -37,7 +37,7 @@
 	<script type="text/javascript">
 	  if(window.location.port!=4000){ 
 	    var host = window.location.host;
-	    if (host!='i.hstb.me') {
+	    if (host!='i.hstb.me' && host!='hstb1230.github.io') {
 	      var path = window.location.pathname;
 		  window.location.href = 'https://i.hstb.me' + path;
 	    }
@@ -99,7 +99,7 @@
                         
 							
                         <li>
-                            <a href="/tips/">tips</a>
+                            <a href="/about/">About</a>
                         </li>
 							
 						
@@ -107,7 +107,7 @@
                         
 							
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/tips/">tips</a>
                         </li>
 							
 						
@@ -190,11 +190,11 @@
             <!-- 标签云 -->
             <div id='tag_cloud' class="tags">
                 
-                <a href="#分享" title="分享" rel="5">分享</a>
+                <a href="#随笔" title="随笔" rel="2">随笔</a>
                 
-                <a href="#教程" title="教程" rel="0">教程</a>
+                <a href="#技术" title="技术" rel="2">技术</a>
                 
-                <a href="#随笔" title="随笔" rel="3">随笔</a>
+                <a href="#分享" title="分享" rel="3">分享</a>
                 
                 <a href="#心情" title="心情" rel="1">心情</a>
                 
@@ -202,29 +202,101 @@
                 
                 <a href="#站点" title="站点" rel="1">站点</a>
                 
-                <a href="#技术" title="技术" rel="2">技术</a>
+                <a href="#PHP" title="PHP" rel="1">PHP</a>
                 
-                <a href="#电台" title="电台" rel="1">电台</a>
+                <a href="#图像操作" title="图像操作" rel="1">图像操作</a>
                 
-                <a href="#通告" title="通告" rel="2">通告</a>
+                <a href="#环境配置" title="环境配置" rel="1">环境配置</a>
                 
-                <a href="#新年" title="新年" rel="1">新年</a>
+                <a href="#Notepad++" title="Notepad++" rel="1">Notepad++</a>
                 
-                <a href="#发布" title="发布" rel="1">发布</a>
-                
-                <a href="#文库" title="文库" rel="1">文库</a>
-                
-                <a href="#插件" title="插件" rel="1">插件</a>
-                
-                <a href="#源码" title="源码" rel="1">源码</a>
-                
-                <a href="#Plan" title="Plan" rel="1">Plan</a>
+                <a href="#C语言" title="C语言" rel="1">C语言</a>
                 
                 <a href="#接口" title="接口" rel="1">接口</a>
+                
+                <a href="#电台" title="电台" rel="0">电台</a>
+                
+                <a href="#通告" title="通告" rel="0">通告</a>
+                
+                <a href="#新年" title="新年" rel="0">新年</a>
+                
+                <a href="#发布" title="发布" rel="0">发布</a>
+                
+                <a href="#文库" title="文库" rel="0">文库</a>
+                
+                <a href="#Plan" title="Plan" rel="0">Plan</a>
+                
+                <a href="#教程" title="教程" rel="0">教程</a>
+                
+                <a href="#插件" title="插件" rel="0">插件</a>
+                
+                <a href="#源码" title="源码" rel="0">源码</a>
                 
             </div>
 
             <!-- 标签列表 -->
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="随笔">
+                    <span class="tag-text">随笔</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/Hello-2017.html">
+                        <h2 class="post-title">
+                            Hello 2017
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            你好，再见
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/Show-UA.html">
+                        <h2 class="post-title">
+                            在多说中显示评论者的UA
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="技术">
+                    <span class="tag-text">技术</span>
+                </span>
+                
+                <div class="post-preview">
+                    <a href="/PhotoToHtml.html">
+                        <h2 class="post-title">
+                            将图片转为Html网页
+                        </h2>
+                        
+                        <h3 class="post-subtitle">
+                            比例真的很重要啊
+                        </h3>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+                <div class="post-preview">
+                    <a href="/Chat-Api.html">
+                        <h2 class="post-title">
+                            发个聊天接口吧
+                        </h2>
+                        
+                    </a>
+                </div>
+                <hr>
+                
+            </div>
             
             <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="分享">
@@ -256,82 +328,10 @@
                 <hr>
                 
                 <div class="post-preview">
-                    <a href="/fm-share.html">
-                        <h2 class="post-title">
-                            欢迎食用电台
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/plugin-share-Shield.html">
-                        <h2 class="post-title">
-                            简单的屏蔽插件(已失效)
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
                     <a href="/Chat-Api.html">
                         <h2 class="post-title">
                             发个聊天接口吧
                         </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="教程">
-                    <span class="tag-text">教程</span>
-                </span>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="随笔">
-                    <span class="tag-text">随笔</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/Hello-2017.html">
-                        <h2 class="post-title">
-                            Hello 2017
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            你好，再见
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/Show-UA.html">
-                        <h2 class="post-title">
-                            在多说中显示评论者的UA
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/think.html">
-                        <h2 class="post-title">
-                            一次思考
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            也许就是想多了
-                        </h3>
                         
                     </a>
                 </div>
@@ -403,28 +403,14 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="技术">
-                    <span class="tag-text">技术</span>
+                <span class="fa fa-tag listing-seperator" id="PHP">
+                    <span class="tag-text">PHP</span>
                 </span>
                 
                 <div class="post-preview">
-                    <a href="/PhotoToHtml.html">
+                    <a href="/tips/2017/10/用PHP取图像颜色.html">
                         <h2 class="post-title">
-                            将图片转为Html网页
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            比例真的很重要啊
-                        </h3>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/Chat-Api.html">
-                        <h2 class="post-title">
-                            发个聊天接口吧
+                            用PHP取图像颜色
                         </h2>
                         
                     </a>
@@ -434,14 +420,14 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="电台">
-                    <span class="tag-text">电台</span>
+                <span class="fa fa-tag listing-seperator" id="图像操作">
+                    <span class="tag-text">图像操作</span>
                 </span>
                 
                 <div class="post-preview">
-                    <a href="/fm-share.html">
+                    <a href="/tips/2017/10/用PHP取图像颜色.html">
                         <h2 class="post-title">
-                            欢迎食用电台
+                            用PHP取图像颜色
                         </h2>
                         
                     </a>
@@ -451,24 +437,14 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="通告">
-                    <span class="tag-text">通告</span>
+                <span class="fa fa-tag listing-seperator" id="环境配置">
+                    <span class="tag-text">环境配置</span>
                 </span>
                 
                 <div class="post-preview">
-                    <a href="/fm-share.html">
+                    <a href="/tips/2017/10/配置Notepad++的c语言运行脚本.html">
                         <h2 class="post-title">
-                            欢迎食用电台
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-                <div class="post-preview">
-                    <a href="/doc-coming.html">
-                        <h2 class="post-title">
-                            文库已上线
+                            配置Notepad++的c语言运行脚本
                         </h2>
                         
                     </a>
@@ -478,14 +454,14 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="新年">
-                    <span class="tag-text">新年</span>
+                <span class="fa fa-tag listing-seperator" id="Notepad++">
+                    <span class="tag-text">Notepad++</span>
                 </span>
                 
                 <div class="post-preview">
-                    <a href="/new-2016.html">
+                    <a href="/tips/2017/10/配置Notepad++的c语言运行脚本.html">
                         <h2 class="post-title">
-                            新年快乐
+                            配置Notepad++的c语言运行脚本
                         </h2>
                         
                     </a>
@@ -495,87 +471,15 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="发布">
-                    <span class="tag-text">发布</span>
+                <span class="fa fa-tag listing-seperator" id="C语言">
+                    <span class="tag-text">C语言</span>
                 </span>
                 
                 <div class="post-preview">
-                    <a href="/doc-coming.html">
+                    <a href="/tips/2017/10/配置Notepad++的c语言运行脚本.html">
                         <h2 class="post-title">
-                            文库已上线
+                            配置Notepad++的c语言运行脚本
                         </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="文库">
-                    <span class="tag-text">文库</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/doc-coming.html">
-                        <h2 class="post-title">
-                            文库已上线
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="插件">
-                    <span class="tag-text">插件</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/plugin-share-Shield.html">
-                        <h2 class="post-title">
-                            简单的屏蔽插件(已失效)
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="源码">
-                    <span class="tag-text">源码</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/plugin-share-Shield.html">
-                        <h2 class="post-title">
-                            简单的屏蔽插件(已失效)
-                        </h2>
-                        
-                    </a>
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Plan">
-                    <span class="tag-text">Plan</span>
-                </span>
-                
-                <div class="post-preview">
-                    <a href="/start-c.html">
-                        <h2 class="post-title">
-                            踏上C/C++之路
-                        </h2>
-                        
-                        <h3 class="post-subtitle">
-                            这可能是一条很长很远的路
-                        </h3>
                         
                     </a>
                 </div>
@@ -600,68 +504,80 @@
                 
             </div>
             
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="电台">
+                    <span class="tag-text">电台</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="通告">
+                    <span class="tag-text">通告</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="新年">
+                    <span class="tag-text">新年</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="发布">
+                    <span class="tag-text">发布</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="文库">
+                    <span class="tag-text">文库</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Plan">
+                    <span class="tag-text">Plan</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="教程">
+                    <span class="tag-text">教程</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="插件">
+                    <span class="tag-text">插件</span>
+                </span>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="源码">
+                    <span class="tag-text">源码</span>
+                </span>
+                
+            </div>
+            
 
         </div>
     </div>
 </div>
 
 <!-- Footer -->
-<!-- Footer -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <br>
-                <ul class="list-inline text-center">
-                
-                
-                    <li>
-                        <a target="_blank" href="https://twitter.com/hstb_i">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a target="_blank" href="https://www.zhihu.com/people/ymfy">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa  fa-stack-1x fa-inverse">知</i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-                    <li>
-                        <a target="_blank" href="http://weibo.com/745412309">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                
-                    <li>
-                        <a target="_blank"  href="https://github.com/hstb1230">
-                            <span class="fa-stack fa-lg">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-                
-
-                
-
-                </ul>
+				
                 <p class="copyright text-muted">
                     Copyright &copy; <a href="/">Hstb</a> 2017<span id="busuanzi_container_site_pv" style="font-size: 12px;"> | PV: <span id="busuanzi_value_site_pv"></span> Times</span><br>
                     Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a>

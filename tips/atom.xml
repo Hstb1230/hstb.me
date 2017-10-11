@@ -6,7 +6,7 @@
   <link href="/tips/atom.xml" rel="self"/>
   
   <link href="https://i.hstb.me/tips/"/>
-  <updated>2017-10-05T08:20:49.743Z</updated>
+  <updated>2017-10-08T08:17:35.705Z</updated>
   <id>https://i.hstb.me/tips/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>用PHP取图像颜色</title>
+    <link href="https://i.hstb.me/tips/2017/10/php.html"/>
+    <id>https://i.hstb.me/tips/2017/10/php.html</id>
+    <published>2017-10-05T17:26:38.000Z</published>
+    <updated>2017-10-08T08:17:35.705Z</updated>
+    
+    <content type="html"><![CDATA[<p>对 <a href="https://i.hstb.me/PhotoToHtml.html" title="博客上的一篇文章">将图片转为Html网页</a> 以及发布在Github的 <a href="https://github.com/Hstb1230/img2html" title="无人问津" target="_blank" rel="external">img2html</a> 项目代码的一些补充<br><a id="more"></a><br>对于拥有丰富的扩展和类库的PHP来说，提取图像颜色并非难事，使用自带的<code>GD</code>扩展，借助其中的函数即可完成。</p><p>首先，我们需要借助 <code>imagecreatefrom</code> 开头的函数导入图像，(怎么获取数据就自己来吧，<code>file_get_contents</code> 之类的)</p><blockquote><p>官方文档列出了以下函数：</p><ol><li><code>imagecreatefrombmp</code></li><li><code>imagecreatefromgd2</code></li><li><code>imagecreatefromgd2part</code></li><li><code>imagecreatefromgd</code></li><li><code>imagecreatefromgif</code></li><li><code>imagecreatefromjpeg</code></li><li><code>imagecreatefrompng</code></li><li><code>imagecreatefromstring</code></li><li><code>imagecreatefromwbmp</code></li><li><code>imagecreatefromwebp</code></li><li><code>imagecreatefromxbm</code></li><li><code>imagecreatefromxpm</code></li></ol></blockquote><p>这些函数均只有一个参数，但需要注意的是，</p><blockquote><p>除了 <code>imagecreatefromstring</code> 函数外，其余函数的参数需要为文件的本地路径或网络地址，<br>而 <code>imagecreatefromstring</code> 函数的参数只能为文件数据，<br>并且 <code>imagecreatefromstring</code> 函数可以解析 <code>JPEG</code>，<code>PNG</code>，<code>GIF</code>，<code>WBMP</code> 和 <code>GD2</code> 图片文件。</p></blockquote><p>这里用 <a href="https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396" target="_blank" rel="external">png图片</a> 做解析，因此先<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$img = imagecreatefrompng(<span class="string">'https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396'</span>);</div></pre></td></tr></table></figure></p><p>然后取图像的宽度与高度：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$Y = imagesy($i); <span class="comment">//取高度</span></div><div class="line">$X = imagesx($i); <span class="comment">//取宽度</span></div></pre></td></tr></table></figure></p><p>如果我们要计算图像颜色的平均值，那么:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$rgb = <span class="number">0</span>; <span class="comment">//用于统计颜色总值</span></div><div class="line">$n = $X * $Y; <span class="comment">//用于记录像素点数量</span></div></pre></td></tr></table></figure></p><p>然后先创建一个遍历行的循环：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>再创建一个遍历列的循环，但是需要嵌套在行里，即：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>这时借助 <code>imagecolorat</code> 函数，取出指定像素点的颜色值(十进制)：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">    $rgb += imagecolorat($i,$x,$y); <span class="comment">//取出点($x,$y)的颜色值后，叠加计算</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p><p>然后计算图像的平均颜色值：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rgb = $rgb / $n;</div></pre></td></tr></table></figure></p><p>得到的颜色值是 10进制 的，如果要转换成 16进制，可以借助函数 <code>dechex</code>。</p><p>最后，记得释放资源：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imagedestroy($i);</div></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;对 &lt;a href=&quot;https://i.hstb.me/PhotoToHtml.html&quot; title=&quot;博客上的一篇文章&quot;&gt;将图片转为Html网页&lt;/a&gt; 以及发布在Github的 &lt;a href=&quot;https://github.com/Hstb1230/img2html&quot; title=&quot;无人问津&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;img2html&lt;/a&gt; 项目代码的一些补充&lt;br&gt;
+    
+    </summary>
+    
+      <category term="PHP" scheme="https://i.hstb.me/tips/categories/PHP/"/>
+    
+      <category term="图像操作" scheme="https://i.hstb.me/tips/categories/PHP/%E5%9B%BE%E5%83%8F%E6%93%8D%E4%BD%9C/"/>
+    
+    
+      <category term="PHP" scheme="https://i.hstb.me/tips/tags/PHP/"/>
+    
+      <category term="图像操作" scheme="https://i.hstb.me/tips/tags/%E5%9B%BE%E5%83%8F%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>配置Notepad++的c语言运行脚本</title>
     <link href="https://i.hstb.me/tips/2017/10/%E9%85%8D%E7%BD%AENotepad++%E7%9A%84c%E8%AF%AD%E8%A8%80%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC.html"/>
     <id>https://i.hstb.me/tips/2017/10/配置Notepad++的c语言运行脚本.html</id>
     <published>2017-10-04T17:41:36.000Z</published>
-    <updated>2017-10-05T08:20:49.743Z</updated>
+    <updated>2017-10-06T07:05:53.757Z</updated>
     
     <content type="html"><![CDATA[<p>上个月正式升级为一名学编程的大学生，不出意料，学校教我们C语言。<br>因为暂时不想使用IDE，所以只好自己安装编译器了，受以前初学时候的影响，我用了MinGW。</p><p>因为没有IDE，如果我要编译代码以及运行调试，就需要借助cmd，<br>但是每次都要输一遍cd那些代码，即使是复制黏贴，也是很烦人的，更何况我还懒。</p><p>后面想到把notepad++自带的运行功能与cmd结合一下，应该就方便很多。</p><a id="more"></a><p>然后上网查方法，看到的教程都是这样给的：</p><blockquote><ol><li><p>复制以下代码，取名<code>编译C</code>：<br><code>cmd /k gcc -o &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &quot;$(FULL_CURRENT_PATH)&quot; &amp; PAUSE &amp; EXIT</code></p></li><li><p>复制以下代码，取名<code>运行C</code>：<br><code>cmd /c &quot;$(CURRENT_DIRECTORY)\$(NAME_PART).exe&quot; &amp; PAUSE &amp; EXIT</code></p></li></ol></blockquote><p>仔细分析下，就会发现调试需要分两步操作，有点麻烦</p><p>所以我改了一下代码，将编译运行一步到位：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cmd /k gcc -o <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> <span class="string">"<span class="variable">$(FULL_CURRENT_PATH)</span>"</span>  &amp;&amp;  <span class="string">"<span class="variable">$(CURRENT_DIRECTORY)</span>/<span class="variable">$(NAME_PART)</span>.exe"</span> &amp; PAUSE &amp; EXIT</div></pre></td></tr></table></figure></p><p>不过这样做有一个缺点，就是编译出错时，仍然会运行一次程序，如果之前又编译成功过，那么就有可能会误导你。</p>]]></content>
     
@@ -33,7 +59,9 @@
     
     </summary>
     
-      <category term="环境配置" scheme="https://i.hstb.me/tips/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+      <category term="C语言" scheme="https://i.hstb.me/tips/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+      <category term="环境配置" scheme="https://i.hstb.me/tips/categories/C%E8%AF%AD%E8%A8%80/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
     
     
       <category term="环境配置" scheme="https://i.hstb.me/tips/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>

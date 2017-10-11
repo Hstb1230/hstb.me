@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-85067626-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?4660d5d28ff4f15c17bbe0619d9dda03"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="i.hstb1230.com">
+    
+    
+    <link rel="canonical" href="https://i.hstb.me/tips/2017/10/php.html">
+    
+    
+    <title>用PHP取图像颜色 | Tips | 学一些小技巧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="PHP,图像操作">
+    <meta name="description" content="对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充">
+<meta name="keywords" content="PHP,图像操作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用PHP取图像颜色">
+<meta property="og:url" content="https://i.hstb.me/tips/2017/10/php.html">
+<meta property="og:site_name" content="Tips">
+<meta property="og:description" content="对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-10-08T08:17:35.705Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用PHP取图像颜色">
+<meta name="twitter:description" content="对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充">
+    
+        <link rel="alternate" type="application/atom+xml" title="Tips" href="/tips/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/tips/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个不知所措的逗比</h6>
+          <a href="mailto:i@hstb.me" title="i@hstb.me" class="mail">i@hstb.me</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb.me/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">用PHP取图像颜色</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">用PHP取图像颜色</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-05T17:26:38.000Z" itemprop="datePublished" class="page-time">
+  2017-10-06
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/PHP/">PHP</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/PHP/图像操作/">图像操作</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-php"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">用PHP取图像颜色</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-06 01:26:38" datetime="2017-10-05T17:26:38.000Z"  itemprop="datePublished">2017-10-06</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/PHP/">PHP</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/PHP/图像操作/">图像操作</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>对 <a href="https://i.hstb.me/PhotoToHtml.html" title="博客上的一篇文章">将图片转为Html网页</a> 以及发布在Github的 <a href="https://github.com/Hstb1230/img2html" title="无人问津" target="_blank" rel="external">img2html</a> 项目代码的一些补充<br><a id="more"></a><br>对于拥有丰富的扩展和类库的PHP来说，提取图像颜色并非难事，使用自带的<code>GD</code>扩展，借助其中的函数即可完成。</p>
+<p>首先，我们需要借助 <code>imagecreatefrom</code> 开头的函数导入图像，(怎么获取数据就自己来吧，<code>file_get_contents</code> 之类的)</p>
+<blockquote>
+<p>官方文档列出了以下函数：</p>
+<ol>
+<li><code>imagecreatefrombmp</code></li>
+<li><code>imagecreatefromgd2</code></li>
+<li><code>imagecreatefromgd2part</code></li>
+<li><code>imagecreatefromgd</code></li>
+<li><code>imagecreatefromgif</code></li>
+<li><code>imagecreatefromjpeg</code></li>
+<li><code>imagecreatefrompng</code></li>
+<li><code>imagecreatefromstring</code></li>
+<li><code>imagecreatefromwbmp</code></li>
+<li><code>imagecreatefromwebp</code></li>
+<li><code>imagecreatefromxbm</code></li>
+<li><code>imagecreatefromxpm</code></li>
+</ol>
+</blockquote>
+<p>这些函数均只有一个参数，但需要注意的是，</p>
+<blockquote>
+<p>除了 <code>imagecreatefromstring</code> 函数外，其余函数的参数需要为文件的本地路径或网络地址，<br>而 <code>imagecreatefromstring</code> 函数的参数只能为文件数据，<br>并且 <code>imagecreatefromstring</code> 函数可以解析 <code>JPEG</code>，<code>PNG</code>，<code>GIF</code>，<code>WBMP</code> 和 <code>GD2</code> 图片文件。</p>
+</blockquote>
+<p>这里用 <a href="https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396" target="_blank" rel="external">png图片</a> 做解析，因此先<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$img = imagecreatefrompng(<span class="string">'https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396'</span>);</div></pre></td></tr></table></figure></p>
+<p>然后取图像的宽度与高度：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$Y = imagesy($i); <span class="comment">//取高度</span></div><div class="line">$X = imagesx($i); <span class="comment">//取宽度</span></div></pre></td></tr></table></figure></p>
+<p>如果我们要计算图像颜色的平均值，那么:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$rgb = <span class="number">0</span>; <span class="comment">//用于统计颜色总值</span></div><div class="line">$n = $X * $Y; <span class="comment">//用于记录像素点数量</span></div></pre></td></tr></table></figure></p>
+<p>然后先创建一个遍历行的循环：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>再创建一个遍历列的循环，但是需要嵌套在行里，即：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这时借助 <code>imagecolorat</code> 函数，取出指定像素点的颜色值(十进制)：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">    $rgb += imagecolorat($i,$x,$y); <span class="comment">//取出点($x,$y)的颜色值后，叠加计算</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>然后计算图像的平均颜色值：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rgb = $rgb / $n;</div></pre></td></tr></table></figure></p>
+<p>得到的颜色值是 10进制 的，如果要转换成 16进制，可以借助函数 <code>dechex</code>。</p>
+<p>最后，记得释放资源：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imagedestroy($i);</div></pre></td></tr></table></figure></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-08T08:17:35.705Z" itemprop="dateUpdated">2017-10-08 16:17:35</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb.me/tips/2017/10/php.html" target="_blank" rel="external">https://i.hstb.me/tips/2017/10/php.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb.me/tips">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/PHP/">PHP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/图像操作/">图像操作</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/php.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/php.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/php.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb.me/tips/2017/10/php.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/php.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/tips/2017/10/配置Notepad++的c语言运行脚本.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">配置Notepad++的c语言运行脚本</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'php-getColor',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': '用PHP取图像颜色',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赏我点饭吃吧~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UV：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PV：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/tips/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/php.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/php.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/php.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb.me/tips/2017/10/php.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/php.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwklEQVR42u3awW4CMQxFUf7/p6dS1yW9z8ZupN5ZIQbCGRZPsePXC1/P91V7/W6182dal1y5ctvc53ilRLIOef/tI8mVK3eRS8Ir/WHySNwgV67cO7loueMmJt0SyZUr934uDyBev8iVK/dmblq0nFsbJMLGazW5cuV21x9smNaaqn/W35Ur999zn/CqFTy18Prh1+XKlbvCJduRc5LwQ9PapideSK5cuW3u+XYn5kgZk/4pcuXK3eHyJiaPqs7gRRCscuXKHeMSEA+7T70T5K5cuXIHuDyGPrApwUUUarXIlSt3mMtj5VMnNnwDVPyyXLlyh7m8fuKFk1y5cm/mps2O2qAGoaDolCtX7gqXlyL8dW3Ago+CyZUrd5rbgfaHKnhZJVeu3E1urfipNVD43V8OeOTKlTvM5QVJOriZroweUq5cuYvctEnKP0PGO4JDF7ly5S5y0+YFQfBmR/AYcuXKXeGmgdI5Ug06uOCuXLlyp7n98Kpta85BJleu3Bu4/UGKztYnWEeuXLmXcXkM1XBoIEyuXLkXc9Omar8FI1eu3H0u+Rq/mw5nBH+WXLlyV7hpw5SHFG+OpEe5cuXKHeN+ATkpGzHual+2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
