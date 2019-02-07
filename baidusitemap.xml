@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>https://i.hstb.me/tips/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html</loc>
+    <lastmod>2019-02-07T17:52:57.435Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript取网址请求串</title>
+        <pubTime>2019-02-03T17:23:27.000Z</pubTime>
+        
+        <tag>日常笔记</tag>
+         
+        <tag>JavaScript</tag>
+         
+        <tag>网址</tag>
+         
+         
+           
+             
+              <breadCrumb title="JavaScript" url="https://i.hstb.me/categories/JavaScript/"/>
+          
+             
+              <breadCrumb title="网址" url="https://i.hstb.me/categories/JavaScript/%E7%BD%91%E5%9D%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://i.hstb.me/tips/2017/10/%E5%8D%87%E7%BA%A7HTTPS%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9D%91.html</loc>
+    <lastmod>2018-04-02T12:22:40.241Z</lastmod>
+    <data>
+        <display>
+        <title>升级HTTPS需要注意的坑</title>
+        <pubTime>2017-10-12T16:21:26.000Z</pubTime>
+        
+        <tag>HTTPS</tag>
+         
+         
+           
+             
+              <breadCrumb title="HTTPS" url="https://i.hstb.me/categories/HTTPS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://i.hstb.me/tips/2017/10/%E7%94%A8PHP%E5%8F%96%E5%9B%BE%E5%83%8F%E9%A2%9C%E8%89%B2.html</loc>
     <lastmod>2017-10-08T08:29:33.172Z</lastmod>
     <data>
@@ -27,7 +75,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>https://i.hstb.me/tips/2017/10/%E9%85%8D%E7%BD%AENotepad++%E7%9A%84c%E8%AF%AD%E8%A8%80%E8%BF%90%E8%A1%8C%E8%84%9A%E6%9C%AC.html</loc>
@@ -145,9 +192,9 @@
         <title>在多说中显示评论者的UA</title>
         <pubTime>2017-01-20T19:05:06.000Z</pubTime>
         
-        <tag>随笔</tag>
-         
         <tag>分享</tag>
+         
+        <tag>随笔</tag>
          
          
            

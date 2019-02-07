@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-85067626-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?4660d5d28ff4f15c17bbe0619d9dda03"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="i.hstb1230.com">
+    
+    
+    <link rel="canonical" href="https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html">
+    
+    
+    <title>JavaScript取网址请求串 | Tips | 学一些小技巧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="日常笔记,JavaScript,网址">
+    <meta name="description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
+<meta name="keywords" content="日常笔记,JavaScript,网址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript取网址请求串">
+<meta property="og:url" content="https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html">
+<meta property="og:site_name" content="Tips">
+<meta property="og:description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-07T17:51:58.217Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript取网址请求串">
+<meta name="twitter:description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Tips" href="/tips/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/tips/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个写代码的沙雕网友</h6>
+          <a href="mailto:i@hstb.me" title="i@hstb.me" class="mail">i@hstb.me</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tips/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb.me/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript取网址请求串</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript取网址请求串</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-02-03T17:23:27.000Z" itemprop="datePublished" class="page-time">
+  2019-02-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/JavaScript/">JavaScript</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/JavaScript/网址/">网址</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-JavaScript取网址请求串"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript取网址请求串</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-02-04 01:23:27" datetime="2019-02-03T17:23:27.000Z"  itemprop="datePublished">2019-02-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/JavaScript/">JavaScript</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/tips/categories/JavaScript/网址/">网址</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。<a id="more"></a></p>
+<p>方法：使用<code>substring</code>截取url中在域名后面的文本。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQuery</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> href = <span class="built_in">window</span>.location.href; <span class="comment">// url</span></div><div class="line">  <span class="keyword">var</span> host = <span class="built_in">window</span>.location.host; <span class="comment">// 域名</span></div><div class="line">  <span class="keyword">var</span> query = href.substring(</div><div class="line">    href.lastIndexOf(host) + host.length, <span class="comment">// 要加长度</span></div><div class="line">    href.length );</div><div class="line">  <span class="keyword">return</span> query;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">当前URL：http://localhost/manage/?test#123456</div><div class="line">调用结果：/manage/?test#123456</div></pre></td></tr></table></figure></p>
+<p>使用场景：登录状态失效或不存在时，在跳转到登录页前获取当前功能页地址并传递给接口，登录后成功后跳转至该页面，优化用户体验。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-02-07T17:51:58.217Z" itemprop="dateUpdated">2019-02-08 01:51:58</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html" target="_blank" rel="external">https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb.me/tips">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/日常笔记/">日常笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tips/tags/网址/">网址</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Tips&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Tips&url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/tips/2017/10/升级HTTPS需要注意的坑.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">升级HTTPS需要注意的坑</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'JavaScript-getUrlQuery',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'JavaScript取网址请求串',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        UV：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        PV：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/tips/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Tips&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Tips&url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2019/02/JavaScript取网址请求串.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW7jQAwEwPz/01lgr1nb3eSMnQVKJyOWpSkFEInmfH3Fx/ff4/m3yTnJXX4e+RWGBx4eHt5o6e2lH5EeLeLn1Z4/lEfn52vGw8PDu81LbvD8V/ktkzu263n4dzw8PLyP8pKX+3NSWwzw8PDw/ndeUhhmbfejeyWf8fDw8D7FS8KIWQGYxbLPz7+SteDh4eHFvHYA9hs+X5zv4eHh4S2m6u3LPSkb7WaCzWrx8PDwbvDypSS3Sc6cDc+S5j5aLh4eHt6alwejbWu7CRHyh/UizMXDw8O7wNsM5vNxV/sgNoXhQJHAw8PDC1a+CSPy4jHbWJCHIC/+b3h4eHiHeO0Pkpf4bCvAlVgEDw8P7zLvVP6ZR7T5YKwtTv/IWvDw8PDeyMtjiFlssS8wUUqNh4eHd4g3W0rysm4XPVt61JTj4eHhHeVtXvftcKu9crv5YFgS8PDw8Ba8TWFoo4o2BMl/+yKMwMPDwzvEa/dnnRp0zbYLFMEHHh4e3lt4m0g3LxL7NhoPDw/vs7y8SLShbbupax95vIhx8fDw8A7xbgQHbbSRLzpp2evZHR4eHl7JG+44iLvWfcFom+kXWwfw8PDw1ry8sZ4FDcXIKngoxXrw8PDwLvD2w/tZFJuEC215iB4BHh4e3iFe/uLOn1M+sspji1nLjoeHh3eD1w6lkkBhs+hTjxgPDw/vHq+NWWcboWZxQ9u+vygJeHh4eEd5mzhgf7U2Pi4OPDw8vKO87/LIx1ft51N3xMPDw7vN2xSPtuWdxR/tAxqC8fDw8EpeGwrkDXH7um875GKjFR4eHt4FXrsBazYeawtAmzng4eHh/U5e0nZvis0+GsbDw8P7Pby8qW3P3I/Kiq0DeHh4eId4LSAvD0mg0G5ZuJK14OHh4U3WVgzA2sFVW0jeNNnDw8PD63h/AGpCAycD5LVQAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
