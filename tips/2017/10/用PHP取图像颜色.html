@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     
-<!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-85067626-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->
-
 
     
 
     
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?4660d5d28ff4f15c17bbe0619d9dda03"></script>
-<!-- End Baidu Tongji -->
-
 
 
 
     <meta charset="utf-8">
     
-    <meta name="google-site-verification" content="i.hstb1230.com">
     
-    
-    <link rel="canonical" href="https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html">
+    <link rel="canonical" href="https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html">
     
     
     <title>用PHP取图像颜色 | Tips | 学一些小技巧</title>
@@ -42,11 +26,11 @@ ga('send', 'pageview');
 <meta name="keywords" content="PHP,图像操作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用PHP取图像颜色">
-<meta property="og:url" content="https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html">
+<meta property="og:url" content="https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html">
 <meta property="og:site_name" content="Tips">
 <meta property="og:description" content="对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-04T17:54:39.224Z">
+<meta property="og:updated_time" content="2019-08-07T02:19:28.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用PHP取图像颜色">
 <meta name="twitter:description" content="对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充">
@@ -54,7 +38,7 @@ ga('send', 'pageview');
         <link rel="alternate" type="application/atom+xml" title="Tips" href="/tips/atom.xml">
     
     <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/tips/css/style.css?v=1.6.16">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -77,8 +61,8 @@ ga('send', 'pageview');
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Hstb</h5>
-		  <h6>一个写代码的沙雕网友</h6>
-          <a href="mailto:i@hstb.me" title="i@hstb.me" class="mail">i@hstb.me</a>
+		  <h6>一个敲代码的沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
         </hgroup>
       </div>
     </div>
@@ -114,7 +98,7 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://i.hstb.me/about/"  >
+              <a href="https://i.hstb1230.com/about/"  >
                 <i class="icon icon-lg icon-info-circle"></i>
                 About
               </a>
@@ -189,14 +173,10 @@ ga('send', 'pageview');
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>对 <a href="https://i.hstb.me/PhotoToHtml.html" title="博客上的一篇文章">将图片转为Html网页</a> 以及发布在Github的 <a href="https://github.com/Hstb1230/img2html" title="无人问津" target="_blank" rel="external">img2html</a> 项目代码的一些补充<a id="more"></a></p>
+            <p>对 <a href="https://i.hstb.me/PhotoToHtml.html" title="博客上的一篇文章" target="_blank" rel="noopener">将图片转为Html网页</a> 以及发布在Github的 <a href="https://github.com/Hstb1230/img2html" title="无人问津" target="_blank" rel="noopener">img2html</a> 项目代码的一些补充<a id="more"></a></p>
 <p>对于拥有丰富的扩展和类库的PHP来说，提取图像颜色并非难事，使用自带的<code>GD</code>扩展，借助其中的函数即可完成。</p>
 <p>首先，我们需要借助 <code>imagecreatefrom</code> 开头的函数导入图像，(怎么获取数据就自己来吧，<code>file_get_contents</code> 之类的)</p>
 <blockquote>
@@ -220,32 +200,46 @@ ga('send', 'pageview');
 <blockquote>
 <p>除了 <code>imagecreatefromstring</code> 函数外，其余函数的参数需要为文件的本地路径或网络地址，<br>而 <code>imagecreatefromstring</code> 函数的参数只能为文件数据，<br>并且 <code>imagecreatefromstring</code> 函数可以解析 <code>JPEG</code>，<code>PNG</code>，<code>GIF</code>，<code>WBMP</code> 和 <code>GD2</code> 图片文件。</p>
 </blockquote>
-<p>这里用 <a href="https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396" target="_blank" rel="external">png图片</a> 做解析，因此先<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$img = imagecreatefrompng(<span class="string">'https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396'</span>);</div></pre></td></tr></table></figure></p>
-<p>然后取图像的宽度与高度：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$Y = imagesy($i); <span class="comment">//取高度</span></div><div class="line">$X = imagesx($i); <span class="comment">//取宽度</span></div></pre></td></tr></table></figure></p>
-<p>如果我们要计算图像颜色的平均值，那么:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$rgb = <span class="number">0</span>; <span class="comment">//用于统计颜色总值</span></div><div class="line">$n = $X * $Y; <span class="comment">//用于记录像素点数量</span></div></pre></td></tr></table></figure></p>
-<p>然后先创建一个遍历行的循环：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>再创建一个遍历列的循环，但是需要嵌套在行里，即：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这时借助 <code>imagecolorat</code> 函数，取出指定像素点的颜色值(十进制)：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></div><div class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></div><div class="line">    $rgb += imagecolorat($i,$x,$y); <span class="comment">//取出点($x,$y)的颜色值后，叠加计算</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>然后计算图像的平均颜色值：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$rgb = $rgb / $n;</div></pre></td></tr></table></figure></p>
-<p>得到的颜色值是 10进制 的，如果要转换成 16进制，可以借助函数 <code>dechex</code>。</p>
-<p>最后，记得释放资源：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imagedestroy($i);</div></pre></td></tr></table></figure></p>
+<p>这里用 <a href="https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396" target="_blank" rel="noopener">png图片</a> 做解析，因此先</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$img = imagecreatefrompng(<span class="string">'https://img.1sls.cn/Pic/png/6acc6a5b9267214e5f4f4ae12ad4a396'</span>);</span><br></pre></td></tr></table></figure>
 
+<p>然后取图像的宽度与高度：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$Y = imagesy($i); <span class="comment">//取高度</span></span><br><span class="line">$X = imagesx($i); <span class="comment">//取宽度</span></span><br></pre></td></tr></table></figure>
+
+<p>如果我们要计算图像颜色的平均值，那么:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$rgb = <span class="number">0</span>; <span class="comment">//用于统计颜色总值</span></span><br><span class="line">$n = $X * $Y; <span class="comment">//用于记录像素点数量</span></span><br></pre></td></tr></table></figure>
+
+<p>然后先创建一个遍历行的循环：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再创建一个遍历列的循环，但是需要嵌套在行里，即：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></span><br><span class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时借助 <code>imagecolorat</code> 函数，取出指定像素点的颜色值(十进制)：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> ($y=<span class="number">0</span>; $y&lt;$Y; $y++) &#123; <span class="comment">//循环行</span></span><br><span class="line">  <span class="keyword">for</span> ($x=<span class="number">0</span>; $x&lt;$X; $x++) &#123; <span class="comment">//循环列</span></span><br><span class="line">    $rgb += imagecolorat($i,$x,$y); <span class="comment">//取出点($x,$y)的颜色值后，叠加计算</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后计算图像的平均颜色值：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$rgb = $rgb / $n;</span><br></pre></td></tr></table></figure>
+
+<p>得到的颜色值是 10进制 的，如果要转换成 16进制，可以借助函数 <code>dechex</code>。</p>
+<p>最后，记得释放资源：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imagedestroy($i);</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-02-04T17:54:39.224Z" itemprop="dateUpdated">2019-02-05 01:54:39</time>
+    最后更新时间：<time datetime="2019-08-07T02:19:28.730Z" itemprop="dateUpdated">2019-08-07 10:19:28</time>
 </span><br>
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html" target="_blank" rel="external">https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html</a>
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html" target="_blank" rel="external">https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html</a>
         
     </div>
     <footer>
-        <a href="https://i.hstb.me/tips">
+        <a href="https://i.hstb1230.com/tips">
             <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
             Hstb
         </a>
@@ -271,7 +265,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -281,22 +275,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&via=https://i.hstb1230.com/tips" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -353,7 +347,7 @@ ga('send', 'pageview');
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            id: 'php-getColor',
+            id: 'PHP-getColor',
             owner: 'hstb1230',
             repo: 'hstb1230.github.io',
             oauth: {
@@ -405,15 +399,6 @@ ga('send', 'pageview');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        UV：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        PV：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
@@ -443,7 +428,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -453,22 +438,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&title=《用PHP取图像颜色》 — Tips&source=对 将图片转为Html网页 以及发布在Github的 img2html 项目代码的一些补充" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《用PHP取图像颜色》 — Tips&url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html&via=https://i.hstb1230.com/tips" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/用PHP取图像颜色.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/tips/2017/10/用PHP取图像颜色.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -479,7 +464,7 @@ ga('send', 'pageview');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOUlEQVR42u3awXLDIAxF0fz/T7szXXWmMblPImmB61XGCTaHhYIkHg98Xd/X3f2f1+/75Al3oyZfMmTIWJZxDa8OY/yZMMjcZMiQcQ4jDYXjsMjH8iV4MWcZMmTIwAGXTFeGDBkyPhNw063beGwn9ZUhQ8Y5DBI6iy/AYZSE6Qm5uAwZMhZkpI2BT35+Y39DhgwZizCu8OKpafr21qxkyJCxNYO0Ffn2rlY4I8EXPUeGDBmbMtKjD3wJ+Fhe1Lu9I0OGjK0ZpA3ZD5G1TWR6EE2GDBl7M3hRPv1l7XgreVew25UhQ8biDD6AbyXfPVaGDBlnMsbbrP6RrzSVJRtEGTJknMPoVNfJt7Ww21lQGTJk7Mfgw3iyyo9N1NqiT+7LkCHjAMYDXOnmL2028OMdtwFXhgwZmzLin7YTUb5w8fLJkCHjMEZa9kpfPCvdjVdLhgwZyzJ42lmbEG8VpM9/cWZEhgwZWzB4sEtLY7WUlbcKUNVQhgwZWzB4uT/9tlgyGy4W2uHKkCFjOwZvUtYKZJ3pkpanDBkyzmGQ7SCfUC2Up++67cTKkCFjO0ZncJBellLZuBUqQ4aMTRn9BkCNVAyp4/8NGTJkbMroHM/iafCswNpPsGXIkLEugwfZTgNyVjguHgWTIUPGFoxphx5Kh8Bq83ySysqQIeN4Binrp7/nDc6gkSlDhgwZpWMTtZSYpMoyZMg4h8GbATwl5o1S8vxp5TYZMmQsyJhVy+qX3v64hSlDhoz/yPgCsGCyUJvOT60AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACP0lEQVR42u3aQW7DMAwF0dz/0i7QVYrUznxSLWJqtAoMt9LTghZJPR54HN/j9ffzk+fx+vzszev3Fw8ZMmTclnFcDj79NelsU663iaxNhgwZ+zBIkCVPyN+m85KNkCFDhgwefPnhkvBkyJAhY1Xg4wyCkSFDhoxOEsuXfoCRHkCX5eIyZMi4IaPTGPjr3//U35AhQ8YHM45wdA55vPQWr0qGDBmjGekiSKxLk8/OjK2lyJAh4yYMEhA7Fyz4BbJa8+DHd0OGDBlDGelFCv6chFcegtGMMmTIGM3gwTENphxfTFz52VOGDBm3ZVynmrXDX2ebSFp7WjWUIUPGaMZ1PE4vVfTLc/y3DBky9mGQy1686E/S1HSzrj8DMmTImM3gIbVW3K8dGYuzy5AhYyiDtATWHvJWFfV++W7IkCFjNIMX99OLEUHrsfO+DBkyNmCkPU9+mCNty1oQf1M1lCFDxmgGn54vkSy6c/lMhgwZOzBqZS++FJ6U8sT1tF4oQ4aMcQzegKwdB8kWpIA3/1mGDBnjGGlY5O+nzUt+rHzT35AhQ8ZoRq0o1mkScNibD4AMGTJGM/o1K55e8jSYX+9YVnqTIUPGBzOOcKQXMlJMrV0hQ4aM2Yx+wslDZ7pNPJ2WIUPGDow0yHYaA7XrHSR5liFDxg6MfrJaOyymrQVUaJMhQ8bGjDSV7bRFedFNhgwZMtLjGg+UixucMmTI2IBRS2LTi2K1C2doPTJkyBjNqKWO6eWJNLz226UyZMgYwfgCcVIzCGb+UpEAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -492,7 +477,7 @@ var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
 
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/tips/js/main.min.js?v=1.6.16"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -512,7 +497,7 @@ var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
 </li>
 </template>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/tips/js/search.min.js?v=1.6.16" async></script>
 
 
 
@@ -539,8 +524,6 @@ MathJax.Hub.Queue(function() {
 
 
 
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

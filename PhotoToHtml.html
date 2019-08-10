@@ -2,12 +2,12 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="一个人的星空">
-    <meta name="keyword" content="Hstb">
+    <meta name="keyword" content="Hstb1230">
     <meta name="theme-color" content="#600090">
     <meta name="msapplication-navbutton-color" content="#600090">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -23,7 +23,7 @@
         
     </title>
 
-    <link rel="canonical" href="https://i.hstb.me/PhotoToHtml.html">
+    <link rel="canonical" href="https://i.hstb1230.com/PhotoToHtml.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -82,14 +82,6 @@
                         
 							
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
 							
@@ -107,6 +99,14 @@
 							
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
 							
 						
@@ -173,8 +173,6 @@
                 <div class="post-heading">
                     <h1>将图片转为Html网页</h1>
                     
-                    <h2 class="subheading">比例真的很重要啊</h2>
-                    
                     <span class="meta">
                          作者 Hstb
                         <span>
@@ -183,11 +181,8 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#技术"
-                           title="技术">技术</a>
-                        
-                        <a class="tag" href="/tags/#分享"
-                           title="分享">分享</a>
+                        <a class="tag" href="/tags/#图像处理"
+                           title="图像处理">图像处理</a>
                         
                     </div>
                 </div>
@@ -208,11 +203,11 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <blockquote>
-<p><strong> 前段时间在<a href="https://zhuanlan.zhihu.com/p/26149301" target="_blank" rel="external">知乎</a>上看到了这样一个神奇的东西，于是自己也动手试了一波 </strong></p>
+<p>** 前段时间在<a href="https://zhuanlan.zhihu.com/p/26149301" target="_blank" rel="noopener">知乎</a>上看到了这样一个神奇的东西，于是自己也动手试了一波 **</p>
 </blockquote>
 <p>和那位Python大触不一样的是，我用的是易语言，不过原理应该都一样的。</p>
-<p>最开始想的是， <strong> 把每个像素点的颜色给识别出来，然后转成HTML代码去显示。 </strong></p>
-<p>于是乎，第一个问题就来了，<strong> 怎么识别颜色， </strong></p>
+<p>最开始想的是， ** 把每个像素点的颜色给识别出来，然后转成HTML代码去显示。 **</p>
+<p>于是乎，第一个问题就来了，** 怎么识别颜色， **</p>
 <hr>
 <p>百度一番后，用了位图操作支持库，</p>
 <p>因为取像素点前需要转换图片格式为bmp，所以还借助了类似库存在的模块。</p>
@@ -224,10 +219,11 @@
 <hr>
 <p>然后就是在循环中输出HTML代码了，我是照搬知乎那位的样式，另外加了粗体效果(后面加的)。</p>
 <p>有个很费劲的问题就是，如果用<code>&lt;a&gt;</code>标签，那会显示成一片黑。</p>
-<p>可是输出后的<a href="https://img.1sls.cn/Pic/png/05e00656f2a2310efeefa2bb0dd280bf" target="_blank" rel="external"><u>显示效果</u></a>还是有点窄，于是在将输出的字符变为两个，看上去终于好多了，</p>
+<p>可是输出后的<a href="https://img.1sls.cn/Pic/png/05e00656f2a2310efeefa2bb0dd280bf" target="_blank" rel="noopener"><u>显示效果</u></a>还是有点窄，于是在将输出的字符变为两个，看上去终于好多了，</p>
 <img src="https://img.1sls.cn/Pic/png/0ae4bd70f2cfef3c56fbb1c0050717d8">
+
 <hr>
-<p>因为最开始用的是<a href="https://img.1sls.cn/Pic/jpeg/764d9ddc7085d53b318b209f51d3fe76" target="_blank" rel="external"><u>400*400的小图</u></a>，所以我一直都没注意一些坑爹的问题。</p>
+<p>因为最开始用的是<a href="https://img.1sls.cn/Pic/jpeg/764d9ddc7085d53b318b209f51d3fe76" target="_blank" rel="noopener"><u>400*400的小图</u></a>，所以我一直都没注意一些坑爹的问题。</p>
 <blockquote>
 <p>首先，随着图像尺寸的增大，处理时间也跟着延长，(虽然也可能是易语言的锅)</p>
 </blockquote>
@@ -250,14 +246,15 @@
 </ul>
 <blockquote>
 <p>先弄成2x2,3x3,4x4的色块，然后取平均值，<br>结果发现某些尺寸的图下会出现颜色错乱问题，也就是说那块取出的色相炸了。</p>
+</blockquote>
+<blockquote>
 <p>如果是取出现次数最多的颜色，<br>那么结局还是和上面一样爆炸，不过稍微好一点而已。</p>
 </blockquote>
 <p>中途还发现模块的颜色值转16进制算反了，也是有点迷醉。<br>百度了下颜色值的算法，因为嫌代码长，又怕出现问题所以还是搬了一波：</p>
 <pre><code>色值_字节集 ＝ 到字节集 (颜色值)
 R ＝ 色值_字节集 [1]
 G ＝ 色值_字节集 [2]
-B ＝ 色值_字节集 [3]
-</code></pre><p>既然取色相这方法走不通，(也许是水平不到家)，那换一种：</p>
+B ＝ 色值_字节集 [3]</code></pre><p>既然取色相这方法走不通，(也许是水平不到家)，那换一种：</p>
 <hr>
 <ul>
 <li>更改样式</li>
@@ -265,12 +262,14 @@ B ＝ 色值_字节集 [3]
 <blockquote>
 <p>一直感觉图片有些地方黑的太多，特别是处理一张白图后<br>仔细看了下知乎大触的HTML的CSS代码，自己魔改了一波，似乎好了一点，字符也紧凑了一点</p>
 </blockquote>
-<p><strong> 前面用的图看上去会紧凑，是因为原来的代码丢失了，所以找了张后来的效果截图贴上 </strong></p>
+<p>** 前面用的图看上去会紧凑，是因为原来的代码丢失了，所以找了张后来的效果截图贴上 **</p>
 <p>为了防止被打，所以这里要换一张贴上：</p>
 <img src="https://img.1sls.cn/Pic/jpeg/b87056765eb5e7a3172d63dd90a11e2d">
+
 <p>是不是和原图很接近？</p>
 <p>如果是，请收下这只滑稽</p>
 <img src="https://img.1sls.cn/Pic/gif/1adabd62c780f9720f83b6f76fcdeee4">
+
 <p>还有后面的代码</p>
 <pre><code class="CSS"><span class="selector-tag">body</span> {
     <span class="attribute">margin</span>: <span class="number">0px</span>;
@@ -281,8 +280,7 @@ B ＝ 色值_字节集 [3]
     <span class="attribute">font-size</span>: <span class="number">0.1%</span>;
     //background-color: #000000;
     <span class="selector-tag">font-family</span>: <span class="selector-tag">monospace</span>;
-}
-</code></pre>
+}</code></pre>
 <ul>
 <li>在更改样式的基础上，又加了缩放图片的处理，</li>
 </ul>
@@ -296,14 +294,16 @@ B ＝ 色值_字节集 [3]
 <p>虽然我讲了很多，不过我不打算放源码，而是放<a href="#下载">成品</a></p>
 <p>效果图如下(上部分为原图)</p>
 <img src="https://img.1sls.cn/Pic/png/472adfb1ca99cf45ceece567b4e8215e" class="[效果图]">
+
 <p>最后，想送个超大的滑稽</p>
 <img src="https://img.1sls.cn/Pic/jpeg/7d445d9948591f91fea7cad76032bec5">
+
 <h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><hr>
 <ul>
 <li>直接访问？</li>
 </ul>
 <blockquote>
-<p><a href="https://yun.1sls.cn/s.php?sid=b1wt8" target="_blank" rel="external">https://yun.1sls.cn/s.php?sid=b1wt8</a> 访问密码：1230</p>
+<a href="/PhotoToHtml/img2html.exe" title="img2html.exe">img2html.exe</a>
 </blockquote>
 
                 <hr>
@@ -321,8 +321,8 @@ B ＝ 色值_字节集 [3]
 					</script>
                     
                     <li class="previous">
-                        <a href="/tips/2017/10/配置Notepad++的c语言运行脚本.html" data-toggle="tooltip" data-placement="top"
-                           title="配置Notepad++的c语言运行脚本">&larr; Previous Post</a>
+                        <a href="/Windows10-64bit-build-OpenSSL.html" data-toggle="tooltip" data-placement="top"
+                           title="Windows10 64位编译OpenSSL">&larr; Previous Post</a>
                     </li>
                     
                     
@@ -352,7 +352,7 @@ B ＝ 色值_字节集 [3]
 				client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
 				},
 				'title': '将图片转为Html网页',
-				'desc': '比例真的很重要啊',
+				'desc': '',
 				'perPage': '10',
 				'maxCommentHeight': '250',
 				})
@@ -390,11 +390,8 @@ B ＝ 色值_字节集 [3]
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#技术"
-                           title="技术">技术</a>
-                        
-                        <a class="tag" href="/tags/#分享"
-                           title="分享">分享</a>
+                        <a class="tag" href="/tags/#图像处理"
+                           title="图像处理">图像处理</a>
                         
                     </div>
                 </section>
@@ -424,8 +421,10 @@ B ＝ 色值_字节集 [3]
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
 				
                 <p class="copyright text-muted">
-                    Copyright &copy; <a href="/">Hstb</a> 2019<span id="busuanzi_container_site_pv" style="font-size: 12px;"> | PV: <span id="busuanzi_value_site_pv"></span> Times</span><br>
-                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a>
+                    Copyright &copy; 2015-2019 <a href="/">Hstb的小世界</a>
+					
+					<br />					
+                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a> & Modified by Webmaster
                 </p>
 
             </div>
@@ -479,33 +478,8 @@ B ＝ 色值_字节集 [3]
 <!-- Google Analytics -->
 
 
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-85067626-1';
-    var _gaDomain = 'i.hstb1230.com';
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
 
 <!-- Baidu Tongji -->
-
-<script>
-    var _baId = '4660d5d28ff4f15c17bbe0619d9dda03';
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
 
 <!-- swiftype -->
@@ -518,7 +492,6 @@ B ＝ 色值_字节集 [3]
   _st('install','','2.0.0');
 </script>
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!--wechat title img-->
 <img class="wechat-title-img" src="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">

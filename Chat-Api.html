@@ -2,12 +2,12 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="一个人的星空">
-    <meta name="keyword" content="Hstb">
+    <meta name="keyword" content="Hstb1230">
     <meta name="theme-color" content="#600090">
     <meta name="msapplication-navbutton-color" content="#600090">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="/css/font-awesome.css">
     <title>
         
-        发个聊天接口吧｜Hstb的小世界
+        分享个聊天接口｜Hstb的小世界
         
     </title>
 
-    <link rel="canonical" href="https://i.hstb.me/Chat-Api.html">
+    <link rel="canonical" href="https://i.hstb1230.com/Chat-Api.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -82,14 +82,6 @@
                         
 							
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-							
-						
-                    
-                        
-							
-                        <li>
                             <a href="/archives/">Archives</a>
                         </li>
 							
@@ -107,6 +99,14 @@
 							
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
 							
 						
@@ -171,7 +171,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>发个聊天接口吧</h1>
+                    <h1>分享个聊天接口</h1>
                     
                     <span class="meta">
                          作者 Hstb
@@ -181,14 +181,8 @@
                     </span>
                     <div class="tags text-center">
                         
-                        <a class="tag" href="/tags/#技术"
-                           title="技术">技术</a>
-                        
-                        <a class="tag" href="/tags/#分享"
-                           title="分享">分享</a>
-                        
-                        <a class="tag" href="/tags/#接口"
-                           title="接口">接口</a>
+                        <a class="tag" href="/tags/#Web API"
+                           title="Web API">Web API</a>
                         
                     </div>
                 </div>
@@ -197,7 +191,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            发个聊天接口吧
+            分享个聊天接口
         </span>
     </div>
 </header>
@@ -210,6 +204,8 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote><p>弄了好久，本来想放SAE，但他们的ip被萌萌官方封锁了，<br>而用国外服务器会大大影响调用速度<del>(至于为什么那么慢，你懂的，只可意会不可言传)</del>(๑•́₃ •̀๑)<br>最后放在万网提供的免费虚机上<u> </u><em>(:з」∠)</em></p>
 </blockquote>
+
+
 <p>因为还在上学，所以没时间写开发文档，<del>等寒假的时候再弄吧，到时候我会放到文库里去，</del>现在大家就凑合着用吧(๑•́₃ •̀๑)</p>
 <p><del>16/10/2补充: 结果到现在还是老样子</del></p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
@@ -220,7 +216,7 @@
 </ul>
 <hr>
 <h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><h3 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h3><ol>
-<li><p>请求地址：<a href="http://chat.1sls.cn/v1/" target="_blank" rel="external">http://chat.1sls.cn/v1/</a></p>
+<li><p>请求地址：<a href="http://chat.1sls.cn/v1/" target="_blank" rel="noopener">http://chat.1sls.cn/v1/</a></p>
 </li>
 <li><p>请求方式：GET // Msg参数可用Post提交</p>
 </li>
@@ -235,7 +231,7 @@
 <li><p>id //用户ID<br>&nbsp;</p>
 </li>
 </ul>
-<p>示例链接(返回内容需UTF-8解码):<br><a href="http://chat.1sls.cn/v1/?type=1&amp;id=123456&amp;msg=233" target="_blank" rel="external">http://chat.1sls.cn/v1/?type=1&amp;id=123456&amp;msg=233</a></p>
+<p>示例链接(返回内容需UTF-8解码):<br><a href="http://chat.1sls.cn/v1/?type=1&amp;id=123456&amp;msg=233" target="_blank" rel="noopener">http://chat.1sls.cn/v1/?type=1&amp;id=123456&amp;msg=233</a></p>
 <h3 id="说明-1"><a href="#说明-1" class="headerlink" title="说明"></a>说明</h3><p><del>如果没有提交次要参数，则由接口自动生成，</del></p>
 <p>返回文本为json格式，Status值为200即成功，</p>
 <p>其他的各位慢慢探索吧<del>2333</del></p>
@@ -280,7 +276,7 @@
 				client_id: '54e7459b39803a59182c',
 				client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
 				},
-				'title': '发个聊天接口吧',
+				'title': '分享个聊天接口',
 				'desc': '',
 				'perPage': '10',
 				'maxCommentHeight': '250',
@@ -319,14 +315,8 @@
                     </h5>
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/#技术"
-                           title="技术">技术</a>
-                        
-                        <a class="tag" href="/tags/#分享"
-                           title="分享">分享</a>
-                        
-                        <a class="tag" href="/tags/#接口"
-                           title="接口">接口</a>
+                        <a class="tag" href="/tags/#Web API"
+                           title="Web API">Web API</a>
                         
                     </div>
                 </section>
@@ -356,8 +346,10 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
 				
                 <p class="copyright text-muted">
-                    Copyright &copy; <a href="/">Hstb</a> 2019<span id="busuanzi_container_site_pv" style="font-size: 12px;"> | PV: <span id="busuanzi_value_site_pv"></span> Times</span><br>
-                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a>
+                    Copyright &copy; 2015-2019 <a href="/">Hstb的小世界</a>
+					
+					<br />					
+                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a> & Modified by Webmaster
                 </p>
 
             </div>
@@ -411,33 +403,8 @@
 <!-- Google Analytics -->
 
 
-<script>
-    // dynamic User by Hux
-    var _gaId = 'UA-85067626-1';
-    var _gaDomain = 'i.hstb1230.com';
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
-</script>
-
 
 <!-- Baidu Tongji -->
-
-<script>
-    var _baId = '4660d5d28ff4f15c17bbe0619d9dda03';
-    // Originial
-    var _hmt = _hmt || [];
-    (function() {
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?" + _baId;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-    })();
-</script>
 
 
 <!-- swiftype -->
@@ -450,7 +417,6 @@
   _st('install','','2.0.0');
 </script>
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 <!--wechat title img-->
 <img class="wechat-title-img" src="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">

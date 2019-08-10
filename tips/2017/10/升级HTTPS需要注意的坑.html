@@ -1,34 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     
-<!-- Google Analytics -->
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-85067626-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<!-- End Google Analytics -->
-
 
     
 
     
-<!-- Baidu Tongji -->
-<script>var _hmt = _hmt || []</script>
-<script async src="//hm.baidu.com/hm.js?4660d5d28ff4f15c17bbe0619d9dda03"></script>
-<!-- End Baidu Tongji -->
-
 
 
 
     <meta charset="utf-8">
     
-    <meta name="google-site-verification" content="i.hstb1230.com">
     
-    
-    <link rel="canonical" href="https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html">
+    <link rel="canonical" href="https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html">
     
     
     <title>升级HTTPS需要注意的坑 | Tips | 学一些小技巧</title>
@@ -42,14 +26,14 @@ ga('send', 'pageview');
 <meta name="keywords" content="HTTPS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="升级HTTPS需要注意的坑">
-<meta property="og:url" content="https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html">
+<meta property="og:url" content="https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html">
 <meta property="og:site_name" content="Tips">
 <meta property="og:description" content="只是补充点东西">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img.1sls.cn/Pic/png/c590fd64ef9e17030aadf4f47b7041f8">
 <meta property="og:image" content="https://img.1sls.cn/Pic/png/2003183483e9b65f677d457c94981675">
 <meta property="og:image" content="https://img.1sls.cn/Pic/png/e9b83454df49fcf865547cdc2aba23a8">
-<meta property="og:updated_time" content="2019-02-04T17:54:40.486Z">
+<meta property="og:updated_time" content="2019-08-07T02:19:33.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="升级HTTPS需要注意的坑">
 <meta name="twitter:description" content="只是补充点东西">
@@ -58,7 +42,7 @@ ga('send', 'pageview');
         <link rel="alternate" type="application/atom+xml" title="Tips" href="/tips/atom.xml">
     
     <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <link rel="stylesheet" href="/tips/css/style.css?v=1.6.16">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head -->
@@ -81,8 +65,8 @@ ga('send', 'pageview');
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Hstb</h5>
-		  <h6>一个写代码的沙雕网友</h6>
-          <a href="mailto:i@hstb.me" title="i@hstb.me" class="mail">i@hstb.me</a>
+		  <h6>一个敲代码的沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
         </hgroup>
       </div>
     </div>
@@ -118,7 +102,7 @@ ga('send', 'pageview');
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="https://i.hstb.me/about/"  >
+              <a href="https://i.hstb1230.com/about/"  >
                 <i class="icon icon-lg icon-info-circle"></i>
                 About
               </a>
@@ -193,10 +177,6 @@ ga('send', 'pageview');
 
 
             
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -206,32 +186,37 @@ ga('send', 'pageview');
 <p>那啥，怎么<code>HTTP → HTTPS</code>就不说了哈，我只是想说下升级到 HTTPS 后需要注意的地方。</p>
 <p>众所周知，HTTPS 网页里面不能引用 HTTP 资源，不然会被浏览器标记为<code>不安全</code>，(也就是没有小绿锁，<del>好好的逼格就这样被吃了</del>)，<br>那么，相信很多教程会建议你们把带有<code>http://</code>的内容替换成<code>https://</code>或者<code>//</code>，<br>再高端一点的，会教你们用 <del>世界上最好的</del> <code>PHP</code> 写个代理程序，然后配合 <code>JavaScript</code> 食用，这样做大概是因为某些资源站点不支持 HTTPS 。</p>
 <p>而我就不一样了，作为一个经常长草的静态博客，我既不太想不能用<del>拍簧片</del> PHP，又想看到小绿锁，那我总得找个折中的办法：</p>
-<p>在<code>&lt;head&gt;</code>标签下加上这样一行<code>&lt;meta&gt;</code>标签，就可以让浏览器强制使用 HTTPS 协议获取网页引用的所有资源：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Security-Policy"</span> <span class="attr">content</span>=<span class="string">"upgrade-insecure-requests"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在<code>&lt;head&gt;</code>标签下加上这样一行<code>&lt;meta&gt;</code>标签，就可以让浏览器强制使用 HTTPS 协议获取网页引用的所有资源：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Security-Policy"</span> <span class="attr">content</span>=<span class="string">"upgrade-insecure-requests"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>千万不要和我说你不知道怎么加(手动再见)</p>
-<p>下面是效果对比：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img.1sls.cn/Pic/png/c590fd64ef9e17030aadf4f47b7041f8" alt="添加前的网络访问情况" title="">
-                </div>
-                <div class="image-caption">添加前的网络访问情况</div>
-            </figure></p>
+<p>下面是效果对比：</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://img.1sls.cn/Pic/png/2003183483e9b65f677d457c94981675" alt="" title="">
+                    <img src="https://img.1sls.cn/Pic/png/c590fd64ef9e17030aadf4f47b7041f8" alt="添加前的网络访问情况" title>
+                </div>
+                <div class="image-caption">添加前的网络访问情况</div>
+            </figure>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img.1sls.cn/Pic/png/2003183483e9b65f677d457c94981675" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure> 
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://img.1sls.cn/Pic/png/e9b83454df49fcf865547cdc2aba23a8" alt="添加后的网络访问情况，敢跟我说这是审查元素改出来的效果，请主动把头伸过来，让我给你加个五毛特效" title="">
+                    <img src="https://img.1sls.cn/Pic/png/e9b83454df49fcf865547cdc2aba23a8" alt="添加后的网络访问情况，敢跟我说这是审查元素改出来的效果，请主动把头伸过来，让我给你加个五毛特效" title>
                 </div>
                 <div class="image-caption">添加后的网络访问情况，敢跟我说这是审查元素改出来的效果，请主动把头伸过来，让我给你加个五毛特效</div>
             </figure>
+
 <p>有几点得强调下：</p>
 <ol>
-<li>我没测试过各大浏览器的兼容情况，据我<del>临时百度</del>了解，这是 <a href="https://www.w3.org/TR/2012/CR-CSP-20121115/" target="_blank" rel="external">W3C 在 2012 年发布的新标准里的一个内容</a>，但我想，是个现代浏览器应该都支持。</li>
+<li>我没测试过各大浏览器的兼容情况，据我<del>临时百度</del>了解，这是 <a href="https://www.w3.org/TR/2012/CR-CSP-20121115/" target="_blank" rel="noopener">W3C 在 2012 年发布的新标准里的一个内容</a>，但我想，是个现代浏览器应该都支持。</li>
 <li>不要以为这个 META 标签是万能的，万一你引用的资源站点只支持 HTTP 协议访问，那么不好意思，该丢的只能丢了，建议有条件的还是用代理方式获取对应资源吧。</li>
 </ol>
 <blockquote>
@@ -245,16 +230,16 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-02-04T17:54:40.486Z" itemprop="dateUpdated">2019-02-05 01:54:40</time>
+    最后更新时间：<time datetime="2019-08-07T02:19:33.386Z" itemprop="dateUpdated">2019-08-07 10:19:33</time>
 </span><br>
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html" target="_blank" rel="external">https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html</a>
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html" target="_blank" rel="external">https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html</a>
         
     </div>
     <footer>
-        <a href="https://i.hstb.me/tips">
+        <a href="https://i.hstb1230.com/tips">
             <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
             Hstb
         </a>
@@ -280,7 +265,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -290,22 +275,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&source=没错，就是我，又来水文章的我。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&source=没错，就是我，又来水文章的我。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《升级HTTPS需要注意的坑》 — Tips&url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《升级HTTPS需要注意的坑》 — Tips&url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&via=https://i.hstb1230.com/tips" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -362,7 +347,7 @@ ga('send', 'pageview');
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            id: 'tips/2017/10/升级HTTPS需要注意的坑',
+            id: 'HTTPS-updateNote',
             owner: 'hstb1230',
             repo: 'hstb1230.github.io',
             oauth: {
@@ -414,15 +399,6 @@ ga('send', 'pageview');
         <footer class="footer">
     <div class="top">
         
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        UV：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        PV：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
 
         <p>
             
@@ -452,7 +428,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -462,22 +438,22 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&source=没错，就是我，又来水文章的我。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&title=《升级HTTPS需要注意的坑》 — Tips&source=没错，就是我，又来水文章的我。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《升级HTTPS需要注意的坑》 — Tips&url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html&via=https://i.hstb.me/tips" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《升级HTTPS需要注意的坑》 — Tips&url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html&via=https://i.hstb1230.com/tips" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb.me/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/tips/2017/10/升级HTTPS需要注意的坑.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -488,7 +464,7 @@ ga('send', 'pageview');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuElEQVR42u3a3WqbMRAEUL//S7uQq0JqZWYl2SkcXRXX389RQCuP9vGIx/NrPEbj+7XPv8b37zyX43Fj4OHh4Y0ev77d+gHr111/Z/3EV9NUTAEeHh7eNd56QX91cb64t2t4O30vP8fDw8P7KO/U92dbZDw8PLz/ndcGCvvBBx4eHt5v4+XRQPLSbaixLh55kIGHh4f3Ht7OdvZT/754voeHh4e3caq+XnB3rmpj4tnAw8PDu8HLw4VTcW37rLwkFL8Y8PDw8A7x1q84W8pni34bT/xwLR4eHt41Xh6GzrbLSbFpi1PUlICHh4d3lDc7+mo30+sisVMSfrgDHh4e3gVecnifBwSz87ccH1W5U6+Lh4eHN+LlyPboq52O9kAODw8P7z28ltou37NeqSEADw8P7xrvVEPVLJhIooS8aeAfn+Dh4eFd4+1vc081GSQlp2gLw8PDw7vGa2+XwNbb39nU1BOEh4eHd4GX/37PN7v5dORNA+32Gg8PD+82L98Kt8t9O2XtJEYRBh4eHt4F3s6yO4wJgk92kHh4eHj3eEkMsRNY5MVmp8BEfzE8PDy8Q7xZM1a+6LcFYCtH2R94eHh48QXrG7WRax68zloE8lYDPDw8vBu8Nam+RXC3neaD9RTg4eHhvZ/XloQ2jJi1I8wmHQ8PD+8eL3/FfGlO2hGSp+TfwcPDw/sUL98Wz8rD7AAsDybw8PDw3sPLD5mSY6dZQNDGDe2fAQ8PD+8s71mO9lx+J3rYiYZf/mLAw8PD2+a17VazRoE20r2ymcbDw8M7ypsdeuWhbfvSs3d4OcV4eHh413jtIda6wsyO0/brGB4eHt5v4yWkfPnOwVtPxMPDw/v1vLb1qm1WyIsKHh4e3m3eqTCi2OwGk5JExj8Eynh4eHgXeO2P/Pbwfva/p8oVHh4e3lHeH4mac6gkGSLPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3awU4DMQwE0P7/T4PEFVLGdlwq9PZUwarJyyFOx3k84ufj6zl9Pj3f38lHOX3/Y+PBw8PDa009n2J1sGTSp+U7LVAyZzw8PLxtXlIMkr/ksKTM5GMd/46Hh4f3p7zeNt0rNnh4eHj/lVcNGvKjMx4eHt778+5u05NvqM7hWtaCh4eHF/PmDbDXf35pfw8PDw8vLgnPN9xqaDtf+/Js8fDw8NY2wryFX413c+RG2IGHh4e3wcsnlw/ce2d+PeuHz3h4eHgLvKQNlleY0fDxTl6dAx4eHt4redVrUuWm/uCaQlJO8PDw8DZ41Y24eqEqx1dLS/kYjYeHh3eJ14sAku07me68PEQLh4eHh7fAqw48b4PdDUEuZC14eHh4MS/fyqtH7VuTzi8NHMMIPDw8vKu8/FD7fFq9NlUVXz2g4+Hh4W3wej/+e6FDoc0fH+J/YePh4eGt8XqVZBLIJsfxpBn2y5Lh4eHhLfCq224eDfRaYvlY5WYYHh4e3lVePvX5hJItvncF9jgTPDw8vKu8PIR9vsX3AoUepnyMxsPDw1vg9Rr8k0WZXD4oX7rCw8PDu8rrwSYNqmqo0UtW8PDw8PZ4SajauwrQa1b13mn29/Dw8PBavOq2W72ANfnO6sJFKTUeHh7emFcORsfFI1+CvKjg4eHhvQOv1wbrJR95GciP3YVMFw8PD6/I60UD+SQmy9ELfPHw8PC2eR/FJy8eyRF8ci0gWmg8PDy8BV7+VCfdTJTjsKMaHOPh4eHd5SUDJ//txa+TBYpKCx4eHt4ab9LomkQVvcbYqKbh4eHhvZCXt/mrjaseIykweHh4eO/Au/tmfuEgWe5jGIGHh4e3wKteruoFB3k77Vb4i4eHh7fB2/hFn4QO86UZkfDw8PA6vE/rdQ0B7XhZvwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -501,7 +477,7 @@ var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
 
 </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+<script src="/tips/js/main.min.js?v=1.6.16"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -521,7 +497,7 @@ var BLOG = { ROOT: '/tips/', SHARE: true, REWARD: true };
 </li>
 </template>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+<script src="/tips/js/search.min.js?v=1.6.16" async></script>
 
 
 
@@ -548,8 +524,6 @@ MathJax.Hub.Queue(function() {
 
 
 
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
