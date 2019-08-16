@@ -6,7 +6,7 @@
   <link href="/tips/atom.xml" rel="self"/>
   
   <link href="https://i.hstb1230.com/tips/"/>
-  <updated>2019-08-10T10:10:11.596Z</updated>
+  <updated>2019-08-16T08:12:56.239Z</updated>
   <id>https://i.hstb1230.com/tips/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python3保存requests的cookies</title>
+    <link href="https://i.hstb1230.com/tips/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html"/>
+    <id>https://i.hstb1230.com/tips/2019/08/Python3保存requests的cookies.html</id>
+    <published>2019-08-12T09:07:50.000Z</published>
+    <updated>2019-08-16T08:12:56.239Z</updated>
+    
+    <content type="html"><![CDATA[<p>用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.</p><a id="more"></a><p>所以要提前保存Cookie, 在下次运行脚本时使用.</p><p>目前只看到一个方法, 但是应该不止, 以后会继续补充.</p><h1 id="使用pickle"><a href="#使用pickle" class="headerlink" title="使用pickle"></a>使用pickle</h1><h2 id="保存变量"><a href="#保存变量" class="headerlink" title="保存变量"></a>保存变量</h2><figure class="highlight python"><figcaption><span>pickle-save.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">s = requests.Session()</span><br><span class="line">s.get(<span class="string">'https://aq.qq.com/cn2/index'</span>)</span><br><span class="line">print(s.cookies)</span><br><span class="line"><span class="comment"># 将cookies写到文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'cookie'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(s.cookies, f)</span><br></pre></td></tr></table></figure><h2 id="恢复变量"><a href="#恢复变量" class="headerlink" title="恢复变量"></a>恢复变量</h2><figure class="highlight python"><figcaption><span>pickle-load.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件中读取cookies</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'cookie'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># 使用update方法或者直接赋值</span></span><br><span class="line">    s.cookies.update(pickle.load(f))</span><br><span class="line">    <span class="comment"># s.cookies = pickle.load(f)</span></span><br></pre></td></tr></table></figure><h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><ul><li><a href="/tips/2019/08/Python3保存requests的cookies/pickle-save.py" title="pickle-save.py">pickle-save.py</a></li><li><a href="/tips/2019/08/Python3保存requests的cookies/pickle-load.py" title="pickle-load.py">pickle-load.py</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python3" scheme="https://i.hstb1230.com/tips/categories/Python3/"/>
+    
+      <category term="requests" scheme="https://i.hstb1230.com/tips/categories/Python3/requests/"/>
+    
+      <category term="cookie" scheme="https://i.hstb1230.com/tips/categories/Python3/requests/cookie/"/>
+    
+    
+      <category term="Python3" scheme="https://i.hstb1230.com/tips/tags/Python3/"/>
+    
+      <category term="requests" scheme="https://i.hstb1230.com/tips/tags/requests/"/>
+    
+      <category term="cookie" scheme="https://i.hstb1230.com/tips/tags/cookie/"/>
+    
+      <category term="日常笔记" scheme="https://i.hstb1230.com/tips/tags/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>在Python3的requests中使用自签名证书</title>
@@ -38,11 +70,11 @@
       <category term="HTTPS" scheme="https://i.hstb1230.com/tips/categories/Python3/requests/HTTPS/"/>
     
     
-      <category term="HTTPS" scheme="https://i.hstb1230.com/tips/tags/HTTPS/"/>
-    
       <category term="Python3" scheme="https://i.hstb1230.com/tips/tags/Python3/"/>
     
       <category term="requests" scheme="https://i.hstb1230.com/tips/tags/requests/"/>
+    
+      <category term="HTTPS" scheme="https://i.hstb1230.com/tips/tags/HTTPS/"/>
     
       <category term="proxy" scheme="https://i.hstb1230.com/tips/tags/proxy/"/>
     
