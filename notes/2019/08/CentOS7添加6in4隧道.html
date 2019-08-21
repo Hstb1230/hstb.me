@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html">
+    
+    
+    <title>CentOS7添加6in4隧道 | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="IPV6,隧道">
+    <meta name="description" content="阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道">
+<meta name="keywords" content="IPV6,隧道">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS7添加6in4隧道">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-21T09:50:01.606Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS7添加6in4隧道">
+<meta name="twitter:description" content="阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个敲代码的沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb1230.com/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CentOS7添加6in4隧道</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CentOS7添加6in4隧道</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-08-21T08:37:14.000Z" itemprop="datePublished" class="page-time">
+  2019-08-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/">CentOS7</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/IPTunnel/">IPTunnel</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/IPTunnel/6in4/">6in4</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#脚本信息"><span class="post-toc-text">脚本信息</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#脚本说明"><span class="post-toc-text">脚本说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注意事项"><span class="post-toc-text">注意事项</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#测试"><span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#部分排错"><span class="post-toc-text">部分排错</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-CentOS7添加6in4隧道"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CentOS7添加6in4隧道</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-08-21 16:37:14" datetime="2019-08-21T08:37:14.000Z"  itemprop="datePublished">2019-08-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/">CentOS7</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/IPTunnel/">IPTunnel</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/CentOS7/IPTunnel/6in4/">6in4</a></li></ul></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道</p>
+<a id="more"></a>
+
+
+<h1 id="脚本信息"><a href="#脚本信息" class="headerlink" title="脚本信息"></a>脚本信息</h1><p>保存以下命令为文件(如<code>he-tunnel.sh</code>)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_IP6=<span class="string">"2001:470:abcd:ef::2"</span> </span><br><span class="line">LOCAL_IP4=<span class="string">"192.168.1.1"</span></span><br><span class="line">REMOTE_IP6=<span class="string">"2001:470:abcd:ef::1"</span> </span><br><span class="line">REMOTE_IP4=<span class="string">"1.1.1.1"</span></span><br><span class="line">sudo ip tunnel del he-sit</span><br><span class="line">sudo ip tunnel add he-sit mode sit remote <span class="variable">$REMOTE_IP4</span> <span class="built_in">local</span> <span class="variable">$LOCAL_IP4</span> ttl 255</span><br><span class="line">sudo ip link <span class="built_in">set</span> dev he-sit up</span><br><span class="line">sudo ip -6 addr add <span class="variable">$LOCAL_IP6</span>/64 dev he-sit</span><br><span class="line">sudo ip -6 route add default via <span class="variable">$REMOTE_IP6</span> dev he-sit</span><br></pre></td></tr></table></figure>
+
+<h1 id="脚本说明"><a href="#脚本说明" class="headerlink" title="脚本说明"></a>脚本说明</h1><ul>
+<li><code>LOCAL_IP6</code>：HE分配的<code>Client IPv6 Address</code>(不要带<code>/64</code>)</li>
+<li><code>LOCAL_IP4</code>：用于访问外网的网卡IP，专有网络系列是内网IP，早期的经典网络系列是公网IP</li>
+<li><code>REMOTE_IP6</code>：HE分配的<code>Server IPv6 Address</code>(不要带<code>/64</code>)</li>
+<li><code>REMOTE_IP4</code>：<code>Server IPv4 Address</code>，即服务器IP</li>
+</ul>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>运行脚本前，请先确保主机能ping通HE的服务器IP，<br>如果能ping通，但运行脚本后仍访问不了IPV6网站，请更换其他地区的隧道服务器。</p>
+<p>第一次运行脚本会输出<code>delete tunnel &quot;he-sit&quot; failed: No such device</code>，无需在意。</p>
+<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping6 -I he-sit -c 5 2001:470:abcd:ef::1</span><br></pre></td></tr></table></figure>
+
+<p><code>2001:470:abcd:ef::1</code>为前面的<code>REMOTE_IP6</code>，如果能通就说明配置正确。</p>
+<h1 id="部分排错"><a href="#部分排错" class="headerlink" title="部分排错"></a>部分排错</h1><ul>
+<li><p>运行脚本出现<code>RTNETLINK answers: File exists</code>。</p>
+<blockquote>
+<p>检查是否添加了多个隧道，如果不想删除其他隧道，请将脚本最后一行中的<code>default</code>修改为<code>$REMOTE_IP6/64</code></p>
+</blockquote>
+</li>
+<li><p>刚开始能用电脑ping通服务器地址(这里指自己的服务器)，但是过一段时间就不行了。</p>
+<blockquote>
+<ol>
+<li>检查防火墙是否放通41协议(不是TCP，也不是UDP，只是个协议号)，同时不要忘记检查服务商的安全组策略。</li>
+<li>如果无法操作防火墙，可以加一个定时任务，执行内容为前面的测试脚本。</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<p>参考链接：</p>
+<ul>
+<li><a href="https://github.com/tuna/ipv6.tsinghua.edu.cn/blob/master/isatap.md#linux-%E7%8E%AF%E5%A2%83" target="_blank" rel="noopener">Tsinghua isatap</a></li>
+<li><a href="https://tunnelbroker.net/tunnel_detail.php?tid=548039#tunnelInfoTabs-2" target="_blank" rel="noopener">Example Configurations</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-08-21T09:50:01.606Z" itemprop="dateUpdated">2019-08-21 17:50:01</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IPV6/">IPV6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/隧道/">隧道</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2019/08/Python3保存requests的cookies.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python3保存requests的cookies</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'CentOS7-add6in4Tunnel',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'CentOS7添加6in4隧道',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPV6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQW4bMQwF0Nz/0inQVYE2k/9JyTHQp5VhezR6WogCyY+PeHz+Hu3nP8ffs331a7KGwwMPDw9vtPSvxjPjq3k2vz7/J18zHh4e3m1eHgyeF/38zXOQeF5Vvh48PDy89+E9X2qfw0n+1GZmPDw8vHfjJUf27JvPeODh4eG9Dy+ZLrkct69Pkrz5evDw8PBew7tXALv3+S3qe3h4eP8l73Mx8pBwqqxVrxAPDw/vAi9PpN4IJHVaYZYsxsPDw7vAS+6is8W1jVx56iHfXDw8PLyzvOSVCbtN9W7CQ365x8PDw7vHS1IDZ//fHv35hhbVNjw8PLwFLy8+5aX6Fnn24o6Hh4d3j5eXo/LtyA/3/eYWQQIPDw/vKG9/dW5bBGZHfB4A8PDw8O7xXnOUzwLPpo6Hh4eH9xpe3qfUph424aR99puIh4eHh3eUl7dJzcLJ2at59CweHh7eNd6stJ8D8maFNq0cJXDx8PDwLvDaMn97X03SDftgsMpP4+Hh4ZW8JD1645t9oeuboIWHh4f3Q7w8RZsD8it1e6H/RwEMDw8P7yhv1asVpw/2v7ZJkI9ZnMHDw8OLeW2L1ayNIH+2DQNR8QwPDw/vEG9WuMq3YFbWyknfbBkeHh7eBV57KG+O77w9K6cWm4uHh4d3gdcu5Wy71azZqyDh4eHhHeXNps6vzrO2rdlVHg8PD++VvE0SdnPEH4tmbUUODw8PbwHLRx5Okot4e9DXDQR4eHh4F3iz4NE2YOVH/CzZ0b4FDw8Pb8/bFLTaA7pN9bZJkzr64eHh4S14bZIiOfTzzWpDTr7ReHh4eO/AmxW62iaqNix9uU48PDy8H+W1ASCff1bJKpIReHh4eBd4mynyo3xWBpuV2fDw8PDu8doC2KystUlh5KHlQH0PDw8P74n3C3YxkpdJTEjXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
