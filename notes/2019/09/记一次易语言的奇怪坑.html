@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html">
+    
+    
+    <title>记一次易语言的奇怪坑 | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="日常笔记,E">
+    <meta name="description" content="明明啥也没干，可程序就是出了bug。">
+<meta name="keywords" content="日常笔记,E">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记一次易语言的奇怪坑">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="明明啥也没干，可程序就是出了bug。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-07T17:15:15.143Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记一次易语言的奇怪坑">
+<meta name="twitter:description" content="明明啥也没干，可程序就是出了bug。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个敲代码的沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb1230.com/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">记一次易语言的奇怪坑</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">记一次易语言的奇怪坑</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-07T16:24:33.000Z" itemprop="datePublished" class="page-time">
+  2019-09-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/变量/">变量</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+<article id="post-记一次易语言的奇怪坑"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">记一次易语言的奇怪坑</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-08 00:24:33" datetime="2019-09-07T16:24:33.000Z"  itemprop="datePublished">2019-09-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/变量/">变量</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>明明啥也没干，可程序就是出了bug。<a id="more"></a></p>
+<blockquote>
+<p>重要提示:<br>本文是水文，仅做记录吐槽用，并没有分析底层原因。</p>
+</blockquote>
+<p>昨天给别人写插件的时候，发现一个很奇怪的坑，</p>
+<p>给一个子程序(这里称为<code>函数A</code>)传了文本型参数(这里称为<code>原变量</code>)，但没有在函数A里对原变量做任何修改，只是读取它的文本值，可在调用完函数A后，原变量莫名奇妙的变成了空文本，或者是乱码，像是被非法修改了内存一样。</p>
+<p>因为易语言的设定是「只要你给我传一个非基本类型的数据变量，我就强制你传的是变量地址而不是变量内容」，</p>
+<p>于是我长了个心眼，把原变量拷贝了一份(这里称为<code>新变量</code>)再使用，</p>
+<p>但其实就是<code>新变量 ＝ 原变量</code>罢了，因为易语言下的<code>＝</code>实际上是申请一个新变量， 所以操作新变量并不会改变原变量。</p>
+<p>可就算这么做了，奇怪的事情还是发生了，原变量依旧像前面一样被非法篡改，简直把我搞懵了。</p>
+<p>只好进一步的分析，发现函数A里又把原变量传给了另一个函数(这里称为<code>函数B</code>)，函数B里对新变量做了编码再覆盖操作，可是用前面的方法稍加改造后仍然如此，让我差点怀疑易语言的赋值是不是只拷贝了地址。</p>
+<p>再用简单粗暴的<code>调试输出</code>分析了有使用原变量的几处代码后，发现使用前后的原变量内容都没有变化，只有在调用完函数A之后才发生变化，哪怕是在函数A快调用结束之前也没有变化。</p>
+<p>所以就更懵逼了，这显然是很不科学的，</p>
+<p>而且忘记补充了，我在win10下是没有这个问题的，是换到win7和2008下才出现的。</p>
+<p>但是我真的已经尽力了，从快接近底层的地方已经去排查一遍也没有办法，只好简单粗暴的使用了<code>新变量 ＝ 到文本(到字节集(原变量))</code>，然后就非常正常了。</p>
+<p>但真的很迷惑啊，难道赋值操作并没有拷贝变量吗，用了几年易语言的我表示真的不能理解(吐血…)</p>
+<p>本文完。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-07T17:15:15.143Z" itemprop="dateUpdated">2019-09-08 01:15:15</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/E/">E</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常笔记/">日常笔记</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&source=明明啥也没干，可程序就是出了bug。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次易语言的奇怪坑》 — Notes&url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2019/08/CentOS7添加6in4隧道.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CentOS7添加6in4隧道</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'E-aStrangeBug',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': '记一次易语言的奇怪坑',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&source=明明啥也没干，可程序就是出了bug。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次易语言的奇怪坑》 — Notes&url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW4CQQwEQP7/6UTKCSnM0rZnFg7FCREgU4uETduPR3z7+bs93/9/W/31+lXPz0ne4XHihoeHh9c6enLo6/vXF2L1SPWE1YuFh4eHd46XF4P8H19fgmqBSYoEHh4e3rfxrl+1t11OSg4eHh7e9/PyVrvaQFcbcTw8PLxv4OUNbnLEScqaF5LNWQseHh5ezOsNwD57//h8Dw8PD681VU++spMGt7pk0Dvbi3fDw8PDO8DLI9TqUCpvzXtRb2ElCw8PD28rb29gOsdUV6zefDx4eHh4x3jJT/3rkDRfz6o25b1ChYeHh3c/r8futdfViLZQNvDw8PBu4fVG+L0FgmopKl8OPDw8vA/xJm13cohJIPLmYuHh4eEd5lWDg+tCkgQZvbC48AMADw8P7xgvOXp1JWuycJDHx1EYgYeHh7eVVx3n71oIyItEfobl43h4eHhbedUwopqUNkf+xUhieUI8PDy8w7x8uaoH6C0iJKO45Unw8PDwjvF2hQ69QlJ9h/xjwMPDwzvB6wUQk7C12l4nS13RB4CHh4e3ldcbSvW+9HuNdT5IW6bUeHh4eJt41XY5b3l7F65azaKlATw8PLxjvPwHf68w5MOtfAnszZnx8PDwbuFNisRkUSAvMIVig4eHh3eMl0cAu2LZCbVwcfHw8PAO85IXz0divSY+b7tfbEbg4eHhbeVVg4DJoGse/jbLFR4eHt5WXnW9adega9LKF8ZyeHh4eLfwemHBaMAfHzcvVMulKzw8PLwxrxeYTr51e+FF9T4eHh7eaV5+rGozPV87yAtDtB+Bh4eHt5XXG4D1xlonKtjy+Xh4eHgf5eVNdh5J5KFD9cx4eHh438PLF7AmxaP3zsswAg8PD+8AL49fJy1ydTBWDUTw8PDw7uFNBmBJqajGstXYt0nCw8PD6/B+AZ9Iu2DHcfbGAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
