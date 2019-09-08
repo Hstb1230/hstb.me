@@ -6,7 +6,7 @@
   <link href="/notes/atom.xml" rel="self"/>
   
   <link href="https://i.hstb1230.com/notes/"/>
-  <updated>2019-09-07T17:15:15.143Z</updated>
+  <updated>2019-09-08T12:55:31.380Z</updated>
   <id>https://i.hstb1230.com/notes/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>易语言取小数位数</title>
+    <link href="https://i.hstb1230.com/notes/2019/09/%E6%98%93%E8%AF%AD%E8%A8%80%E5%8F%96%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0.html"/>
+    <id>https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html</id>
+    <published>2019-09-08T10:52:45.000Z</published>
+    <updated>2019-09-08T12:55:31.380Z</updated>
+    
+    <content type="html"><![CDATA[<p>写了两遍，第二次写是因为发现还有<code>1e-005</code>这种操作.</p><a id="more"></a><figure class="highlight plain"><figcaption><span>getDoubleLength.e</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">.版本 2</span><br><span class="line"></span><br><span class="line">.子程序 取小数位数, 整数型, , 最高6位</span><br><span class="line">.参数 小数数值, 双精度小数型, 可空</span><br><span class="line">.参数 小数文本, 文本型, 可空</span><br><span class="line">.局部变量 数值, 文本型</span><br><span class="line">.局部变量 xLoc, 整数型, , , 小数点或e的文本位置</span><br><span class="line">.局部变量 nLeft, 文本型</span><br><span class="line">.局部变量 nRight, 文本型</span><br><span class="line">.局部变量 len, 双精度小数型</span><br><span class="line"></span><br><span class="line">.判断开始 (是否为空 (小数数值) ＝ 假)</span><br><span class="line">    数值 ＝ 到文本 (小数数值)</span><br><span class="line">.判断 (是否为空 (小数文本) ＝ 假)</span><br><span class="line">    数值 ＝ 小数文本</span><br><span class="line">.默认</span><br><span class="line">    返回 (0)</span><br><span class="line">.判断结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “e”, , 假)</span><br><span class="line">.如果真 (xLoc ≠ -1)</span><br><span class="line">    nLeft ＝ 取文本左边 (数值, xLoc － 1)</span><br><span class="line">    nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">    len ＝ 取小数位数 (, nLeft) － 到整数 (nRight)</span><br><span class="line">    .如果真 (len ＜ 0)</span><br><span class="line">        返回 (0)</span><br><span class="line">    .如果真结束</span><br><span class="line">    返回 (len)</span><br><span class="line">.如果真结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “.”, , 假)</span><br><span class="line">.如果真 (xLoc ＝ -1)</span><br><span class="line">    返回 (0)</span><br><span class="line">.如果真结束</span><br><span class="line">nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">.判断循环首 (nRight ≠ “” 且 取文本右边 (nRight, 1) ＝ “0”)</span><br><span class="line">    .如果真 (取文本长度 (nRight) ＝ 1)</span><br><span class="line">        nRight ＝ “”</span><br><span class="line">        跳出循环 ()</span><br><span class="line">    .如果真结束</span><br><span class="line">    nRight ＝ 取文本左边 (nRight, 取文本长度 (nRight) － 1)</span><br><span class="line">.判断循环尾 ()</span><br><span class="line">返回 (取文本长度 (nRight))</span><br></pre></td></tr></table></figure><p>附件：</p><ul><li><a href="/notes/2019/09/易语言取小数位数/代码图.png" title="代码图.png">代码图.png</a></li><li><a href="/notes/2019/09/易语言取小数位数/getDoubleLength.e" title="getDoubleLength.e">getDoubleLength.e</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;写了两遍，第二次写是因为发现还有&lt;code&gt;1e-005&lt;/code&gt;这种操作.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="E" scheme="https://i.hstb1230.com/notes/categories/E/"/>
+    
+    
+      <category term="E" scheme="https://i.hstb1230.com/notes/tags/E/"/>
+    
+      <category term="日常丢人" scheme="https://i.hstb1230.com/notes/tags/%E6%97%A5%E5%B8%B8%E4%B8%A2%E4%BA%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次易语言的奇怪坑</title>
@@ -124,11 +148,11 @@
       <category term="HTTPS" scheme="https://i.hstb1230.com/notes/categories/Python3/requests/HTTPS/"/>
     
     
-      <category term="HTTPS" scheme="https://i.hstb1230.com/notes/tags/HTTPS/"/>
-    
       <category term="Python3" scheme="https://i.hstb1230.com/notes/tags/Python3/"/>
     
       <category term="requests" scheme="https://i.hstb1230.com/notes/tags/requests/"/>
+    
+      <category term="HTTPS" scheme="https://i.hstb1230.com/notes/tags/HTTPS/"/>
     
       <category term="proxy" scheme="https://i.hstb1230.com/notes/tags/proxy/"/>
     

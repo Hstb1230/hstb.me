@@ -12,28 +12,28 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html">
     
     
-    <title>记一次易语言的奇怪坑 | Notes</title>
+    <title>易语言取小数位数 | Notes</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="日常笔记,E">
-    <meta name="description" content="明明啥也没干，可程序就是出了bug。">
-<meta name="keywords" content="日常笔记,E">
+    <meta name="keywords" content="E,日常丢人">
+    <meta name="description" content="写了两遍，第二次写是因为发现还有1e-005这种操作.">
+<meta name="keywords" content="E,日常丢人">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次易语言的奇怪坑">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html">
+<meta property="og:title" content="易语言取小数位数">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html">
 <meta property="og:site_name" content="Notes">
-<meta property="og:description" content="明明啥也没干，可程序就是出了bug。">
+<meta property="og:description" content="写了两遍，第二次写是因为发现还有1e-005这种操作.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-07T17:15:15.143Z">
+<meta property="og:updated_time" content="2019-09-08T12:55:31.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次易语言的奇怪坑">
-<meta name="twitter:description" content="明明啥也没干，可程序就是出了bug。">
+<meta name="twitter:title" content="易语言取小数位数">
+<meta name="twitter:description" content="写了两遍，第二次写是因为发现还有1e-005这种操作.">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -115,7 +115,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">记一次易语言的奇怪坑</div>
+        <div class="flex-col header-title ellipsis">易语言取小数位数</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -137,15 +137,15 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">记一次易语言的奇怪坑</h1>
+        <h1 class="title">易语言取小数位数</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-09-07T16:24:33.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-09-08T10:52:45.000Z" itemprop="datePublished" class="page-time">
   2019-09-08
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/变量/">变量</a></li></ul></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a></li></ul>
 
             
         </h5>
@@ -159,16 +159,16 @@
 
 <div class="container body-wrap">
     
-<article id="post-记一次易语言的奇怪坑"
+<article id="post-易语言取小数位数"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">记一次易语言的奇怪坑</h1>
+        <h1 class="post-card-title">易语言取小数位数</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-09-08 00:24:33" datetime="2019-09-07T16:24:33.000Z"  itemprop="datePublished">2019-09-08</time>
+            <time class="post-time" title="2019-09-08 18:52:45" datetime="2019-09-08T10:52:45.000Z"  itemprop="datePublished">2019-09-08</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/变量/">变量</a></li></ul></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/E/">E</a></li></ul>
 
 
 
@@ -176,23 +176,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>明明啥也没干，可程序就是出了bug。<a id="more"></a></p>
-<blockquote>
-<p>重要提示:<br>本文是水文，仅做记录吐槽用，并没有分析底层原因。</p>
-</blockquote>
-<p>昨天给别人写插件的时候，发现一个很奇怪的坑，</p>
-<p>给一个子程序(这里称为<code>函数A</code>)传了文本型参数(这里称为<code>原变量</code>)，但没有在函数A里对原变量做任何修改，只是读取它的文本值，可在调用完函数A后，原变量莫名奇妙的变成了空文本，或者是乱码，像是被非法修改了内存一样。</p>
-<p>因为易语言的设定是「只要你给我传一个非基本类型的数据变量，我就强制你传的是变量地址而不是变量内容」，</p>
-<p>于是我长了个心眼，把原变量拷贝了一份(这里称为<code>新变量</code>)再使用，</p>
-<p>但其实就是<code>新变量 ＝ 原变量</code>罢了，因为易语言下的<code>＝</code>实际上是申请一个新变量， 所以操作新变量并不会改变原变量。</p>
-<p>可就算这么做了，奇怪的事情还是发生了，原变量依旧像前面一样被非法篡改，简直把我搞懵了。</p>
-<p>只好进一步的分析，发现函数A里又把原变量传给了另一个函数(这里称为<code>函数B</code>)，函数B里对新变量做了编码再覆盖操作，可是用前面的方法稍加改造后仍然如此，让我差点怀疑易语言的赋值是不是只拷贝了地址。</p>
-<p>再用简单粗暴的<code>调试输出</code>分析了有使用原变量的几处代码后，发现使用前后的原变量内容都没有变化，只有在调用完函数A之后才发生变化，哪怕是在函数A快调用结束之前也没有变化。</p>
-<p>所以就更懵逼了，这显然是很不科学的，</p>
-<p>而且忘记补充了，我在win10下是没有这个问题的，是换到win7和2008下才出现的。</p>
-<p>但是我真的已经尽力了，从快接近底层的地方已经去排查一遍也没有办法，只好简单粗暴的使用了<code>新变量 ＝ 到文本(到字节集(原变量))</code>，然后就非常正常了。</p>
-<p>但真的很迷惑啊，难道赋值操作并没有拷贝变量吗，用了几年易语言的我表示真的不能理解(吐血…)</p>
-<p>本文完。</p>
+            <p>写了两遍，第二次写是因为发现还有<code>1e-005</code>这种操作.</p>
+<a id="more"></a>
+
+<figure class="highlight plain"><figcaption><span>getDoubleLength.e</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">.版本 2</span><br><span class="line"></span><br><span class="line">.子程序 取小数位数, 整数型, , 最高6位</span><br><span class="line">.参数 小数数值, 双精度小数型, 可空</span><br><span class="line">.参数 小数文本, 文本型, 可空</span><br><span class="line">.局部变量 数值, 文本型</span><br><span class="line">.局部变量 xLoc, 整数型, , , 小数点或e的文本位置</span><br><span class="line">.局部变量 nLeft, 文本型</span><br><span class="line">.局部变量 nRight, 文本型</span><br><span class="line">.局部变量 len, 双精度小数型</span><br><span class="line"></span><br><span class="line">.判断开始 (是否为空 (小数数值) ＝ 假)</span><br><span class="line">    数值 ＝ 到文本 (小数数值)</span><br><span class="line">.判断 (是否为空 (小数文本) ＝ 假)</span><br><span class="line">    数值 ＝ 小数文本</span><br><span class="line">.默认</span><br><span class="line">    返回 (0)</span><br><span class="line">.判断结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “e”, , 假)</span><br><span class="line">.如果真 (xLoc ≠ -1)</span><br><span class="line">    nLeft ＝ 取文本左边 (数值, xLoc － 1)</span><br><span class="line">    nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">    len ＝ 取小数位数 (, nLeft) － 到整数 (nRight)</span><br><span class="line">    .如果真 (len ＜ 0)</span><br><span class="line">        返回 (0)</span><br><span class="line">    .如果真结束</span><br><span class="line">    返回 (len)</span><br><span class="line">.如果真结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “.”, , 假)</span><br><span class="line">.如果真 (xLoc ＝ -1)</span><br><span class="line">    返回 (0)</span><br><span class="line">.如果真结束</span><br><span class="line">nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">.判断循环首 (nRight ≠ “” 且 取文本右边 (nRight, 1) ＝ “0”)</span><br><span class="line">    .如果真 (取文本长度 (nRight) ＝ 1)</span><br><span class="line">        nRight ＝ “”</span><br><span class="line">        跳出循环 ()</span><br><span class="line">    .如果真结束</span><br><span class="line">    nRight ＝ 取文本左边 (nRight, 取文本长度 (nRight) － 1)</span><br><span class="line">.判断循环尾 ()</span><br><span class="line">返回 (取文本长度 (nRight))</span><br></pre></td></tr></table></figure>
+
+<p>附件：</p>
+<ul>
+<li><a href="/notes/2019/09/易语言取小数位数/代码图.png" title="代码图.png">代码图.png</a></li>
+<li><a href="/notes/2019/09/易语言取小数位数/getDoubleLength.e" title="getDoubleLength.e">getDoubleLength.e</a></li>
+</ul>
 
         </div>
 
@@ -200,12 +193,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-07T17:15:15.143Z" itemprop="dateUpdated">2019-09-08 01:15:15</time>
+    最后更新时间：<time datetime="2019-09-08T12:55:31.380Z" itemprop="dateUpdated">2019-09-08 20:55:31</time>
 </span><br>
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html</a>
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html</a>
         
     </div>
     <footer>
@@ -225,7 +218,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/E/">E</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常笔记/">日常笔记</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/E/">E</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常丢人/">日常丢人</a></li></ul>
 
 
             
@@ -235,7 +228,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&title=《易语言取小数位数》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -245,22 +238,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&source=明明啥也没干，可程序就是出了bug。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&title=《易语言取小数位数》 — Notes&source=写了两遍，第二次写是因为发现还有1e-005这种操作." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次易语言的奇怪坑》 — Notes&url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《易语言取小数位数》 — Notes&url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -280,21 +273,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/notes/2019/09/易语言取小数位数.html" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">易语言取小数位数</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2019/08/CentOS7添加6in4隧道.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2019/09/记一次易语言的奇怪坑.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">CentOS7添加6in4隧道</h4>
+        <h4 class="title">记一次易语言的奇怪坑</h4>
       </a>
     </div>
   
@@ -317,14 +303,14 @@
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            id: 'E-aStrangeBug',
+            id: 'E-getDoubleLength',
             owner: 'hstb1230',
             repo: 'hstb1230.github.io',
             oauth: {
                 client_id: '54e7459b39803a59182c',
                 client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
             },
-			'title': '记一次易语言的奇怪坑',
+			'title': '易语言取小数位数',
 			'desc': '',
         })
         gitment.render('comments')
@@ -398,7 +384,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&title=《易语言取小数位数》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -408,22 +394,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&title=《记一次易语言的奇怪坑》 — Notes&source=明明啥也没干，可程序就是出了bug。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&title=《易语言取小数位数》 — Notes&source=写了两遍，第二次写是因为发现还有1e-005这种操作." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记一次易语言的奇怪坑》 — Notes&url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《易语言取小数位数》 — Notes&url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/记一次易语言的奇怪坑.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/易语言取小数位数.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -434,7 +420,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACu0lEQVR42u3aQW4CQQwEQP7/6UTKCSnM0rZnFg7FCREgU4uETduPR3z7+bs93/9/W/31+lXPz0ne4XHihoeHh9c6enLo6/vXF2L1SPWE1YuFh4eHd46XF4P8H19fgmqBSYoEHh4e3rfxrl+1t11OSg4eHh7e9/PyVrvaQFcbcTw8PLxv4OUNbnLEScqaF5LNWQseHh5ezOsNwD57//h8Dw8PD681VU++spMGt7pk0Dvbi3fDw8PDO8DLI9TqUCpvzXtRb2ElCw8PD28rb29gOsdUV6zefDx4eHh4x3jJT/3rkDRfz6o25b1ChYeHh3c/r8futdfViLZQNvDw8PBu4fVG+L0FgmopKl8OPDw8vA/xJm13cohJIPLmYuHh4eEd5lWDg+tCkgQZvbC48AMADw8P7xgvOXp1JWuycJDHx1EYgYeHh7eVVx3n71oIyItEfobl43h4eHhbedUwopqUNkf+xUhieUI8PDy8w7x8uaoH6C0iJKO45Unw8PDwjvF2hQ69QlJ9h/xjwMPDwzvB6wUQk7C12l4nS13RB4CHh4e3ldcbSvW+9HuNdT5IW6bUeHh4eJt41XY5b3l7F65azaKlATw8PLxjvPwHf68w5MOtfAnszZnx8PDwbuFNisRkUSAvMIVig4eHh3eMl0cAu2LZCbVwcfHw8PAO85IXz0divSY+b7tfbEbg4eHhbeVVg4DJoGse/jbLFR4eHt5WXnW9adega9LKF8ZyeHh4eLfwemHBaMAfHzcvVMulKzw8PLwxrxeYTr51e+FF9T4eHh7eaV5+rGozPV87yAtDtB+Bh4eHt5XXG4D1xlonKtjy+Xh4eHgf5eVNdh5J5KFD9cx4eHh438PLF7AmxaP3zsswAg8PD+8AL49fJy1ydTBWDUTw8PDw7uFNBmBJqajGstXYt0nCw8PD6/B+AZ9Iu2DHcfbGAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3aQY7jMAwEwPn/p2evuwhsd1OSkQXKp8DjKCwNIMkkf37i6/ev6/P+/Z3PEdrrfuQNFx4eHt5C6PdD3z/zGcTVCEm498/n8eDh4eGd4139QB5oG0qyhifxPFjw8PDwvpKXMxJkPmV4eHh4/xcvzwO0wd1vKnh4eHjfw2tTqMmT7XbSTtbmXAseHh5ezNu1xL/5+Uh9Dw8PD2+5qr6SOJg9OSt3XUaLh4eHd4CXL7ht0WslIZv8VjF9eHh4eFt5eTm/LXHNpqAFP7wA4OHh4R3g5UEn1OjHyjv55F7GgIeHh3eMlx9/81JWm8hYT2o8dEbg4eHhbeUlyNmdfMNYT2Es5VHw8PDwyi1h1iiQbBLJ4XjlGP1Q38PDw8M7wGvTEOuA2WTlZTY8PDy8d3jJUbVNpLYNUrPS1+XU4OHh4R3j5YtvNGi8MSTjt+W0yzcGPDw8vE28/JCalJ3aQldefkuO/peTiIeHh3eYN1uO8+RCnkqYpTOipis8PDy8TbyVVOxKEWv2TNGsgIeHh/ciL2+QapMUbUtWsi09JCPw8PDwtvJmDaNJemK9UbUtv+Hh4eGd5iWPzg7KbUmsHS3aSPDw8PBe5LVhrSQU9n53mIbAw8PDK3nta3zeUjDbQpJyWpSqwMPDwzvAmw3aFqhmSYrZdD98Cw8PD28TL28RWJm59vDdpioe/mN4eHh4B3hJEG2pvm0UaAFRYgIPDw/vRV57te0CdS9DmSLBw8PDO8H7La8krHxBTw7x7e/+81c8PDy8A7wNu8qoWDU7NOef8fDw8E7z8s2gTVisINc3JDw8PLzTvPXKUftMm85o0xx4eHh438Nrj90raY7Z1EdzhoeHh/cFvHtq29SVbzkPseHh4eEd460v2StNWsVC397Hw8PDO8BrX/hn6ddttbit4+Dh4eGVvD+gFUEFrqzesQAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
