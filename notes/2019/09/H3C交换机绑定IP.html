@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html">
+    
+    
+    <title>H3C交换机绑定IPv4 | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="日常丢人,IP">
+    <meta name="description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
+<meta name="keywords" content="日常丢人,IP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H3C交换机绑定IPv4">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-11-15T18:15:28.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H3C交换机绑定IPv4">
+<meta name="twitter:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>一个敲代码的沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://i.hstb1230.com/about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">H3C交换机绑定IPv4</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">H3C交换机绑定IPv4</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-21T14:54:54.000Z" itemprop="datePublished" class="page-time">
+  2019-09-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/">H3C</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/Switch/">Switch</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/Switch/IP/">IP</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#user-bind"><span class="post-toc-text">user-bind</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ip-source-binding"><span class="post-toc-text">ip source binding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#arp-filter-binding"><span class="post-toc-text">arp filter binding</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-H3C交换机绑定IP"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">H3C交换机绑定IPv4</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-21 22:54:54" datetime="2019-09-21T14:54:54.000Z"  itemprop="datePublished">2019-09-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/">H3C</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/Switch/">Switch</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/H3C/Switch/IP/">IP</a></li></ul></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>这边提到的是IPv4静态绑定，慢慢整理ing. <a id="more"></a></p>
+<h2 id="user-bind"><a href="#user-bind" class="headerlink" title="user-bind"></a><code>user-bind</code></h2><ul>
+<li><p>使用范围<br>二层以太网端口视图</p>
+</li>
+<li><p>指令格式<br><code>user-bind { ip-address</code><em><code>ip-address</code></em><code>| ip-address</code><em><code>ip-address</code></em><code>mac-address</code><em><code>mac-address</code></em><code>| mac-address</code><em><code>mac-address</code></em><code>} [ vlan</code><em><code>vlan-id</code></em><code>]</code></p>
+</li>
+<li><p>说明<br><code>ip-address</code>和<code>mac-address</code>至少要指定一项.<br>如果使用了<code>ARP Detection</code>功能，需要指定<code>vlan</code>.<br><code>mac-address</code>的格式是 <strong><code>xxxx-xxxx-xxxx</code></strong> 而不是<code>xx:xx:xx:xx:xx:xx</code>.</p>
+</li>
+<li><p>举例<code>[1]</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在端口GigabitEthernet1/0/1上配置一条IPv4静态绑定表项（绑定IP＋MAC）。</span></span><br><span class="line">&lt;Sysname&gt; system-view</span><br><span class="line">[Sysname] interface gigabitethernet 1/0/1</span><br><span class="line">[Sysname-GigabitEthernet1/0/1] user-bind ip-address 192.168.0.1 mac-address 0001-0001-0001</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意事项<br>第7版中已经删除该指令。<br>某些型号的第5版也不支持该指令.</p>
+</li>
+</ul>
+<h2 id="ip-source-binding"><a href="#ip-source-binding" class="headerlink" title="ip source binding"></a><code>ip source binding</code></h2><p>该指令有两种格式，视使用范围而定。</p>
+<ol>
+<li><p>系统视图(针对全局所有端口都生效)<br><code>ip source binding ip-address</code><em><code>ip-address</code></em> <code>mac-address</code><em><code>mac-address</code></em></p>
+</li>
+<li><p>二层以太网端口视图<br><code>ip source binding { ip-address</code><em><code>ip-address</code></em><code>| ip-address</code><em><code>ip-address</code></em><code>mac-address</code><em><code>mac-address</code></em><code>| mac-address</code><em><code>mac-address</code></em><code>} [ vlan</code><em><code>vlan-id</code></em><code>]</code></p>
+</li>
+</ol>
+<ul>
+<li><p>说明<br>端口优先使用端口上的静态绑定表项对收到的报文进行匹配，若匹配失败，再与全局静态绑定表项进行匹配。<code>[1]</code></p>
+</li>
+<li><p>注意事项<code>[1]</code><br>[1] 一个表项不能在同一个端口上重复绑定，但可以在不同端口上绑定。<br>[2] 当IPv4静态绑定表项与IP Source Guard功能配合时，静态绑定表项中的VLAN参数不作为过滤报文的特征项，VLAN参数指定与否，不影响IP Source Guard功能对报文的过滤结果。<br>[3] 在IPv4静态绑定表项与ARP Detection功能配合时，静态绑定表项中必须指定VLAN参数，且该VLAN为使能ARP Detection功能的VLAN，否则ARP报文将无法通过IPv4静态绑定表项的检查。<br>[4] 配置静态表项时，如果系统中已经存在相同内容的动态表项，则新添加的静态表项将会覆盖已有的动态表项。</p>
+</li>
+</ul>
+<h2 id="arp-filter-binding"><a href="#arp-filter-binding" class="headerlink" title="arp filter binding"></a><code>arp filter binding</code></h2><p>这个指令可以限制特定源IP和MAC通过，但本质上并不能算绑定IP，只是因为有限制，所以设备也必须使用IP和MAC，并不能用DHCP获取到该IP。</p>
+<ul>
+<li>使用范围<br>二层以太网端口视图 / 二层聚合接口视图</li>
+<li>指令格式<br><code>arp filter binding</code><em><code>ip-address</code><em><code></code></em><code>mac-address</code></em></li>
+<li>注意事项<code>[1]</code><br>每个端口最多支持配置 <strong>8</strong> 组允许通过的ARP报文的源IP地址和源MAC地址。<br>不能在同一端口下同时配置命令 <strong><code>arp filter source</code></strong> 和 <strong><code>arp filter binding</code></strong> 。</li>
+<li>举例<code>[1]</code><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在GigabitEthernet1/0/1下开启ARP过滤保护功能，</span></span><br><span class="line"><span class="comment"># 允许源IP地址为1.1.1.1、源MAC地址为2-2-2的ARP报文通过。</span></span><br><span class="line">&lt;Sysname&gt; system-view</span><br><span class="line">[Sysname] interface gigabitethernet 1/0/1</span><br><span class="line">[Sysname-GigabitEthernet1/0/1] arp filter binding 1.1.1.1 2-2-2</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写这篇文章的时候，本来想抛弃<code>user-bind</code>的，因为在实践过程中发现就算提前指定了个IP给设备，设备依旧会获取到一个新IP，但是又不能上网。而最近在操作<code>S5120</code>的时候，发现它明明是第五版命令，但二层端口下也没有<code>user-bind</code>，然后去找其他绑定IP的方法。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为知识面窄，搞不清楚<code>arp filter binding</code>、<code>arp filter source</code>、<code>ip verify source</code>、<code>ip source binding</code>这几个指令，大佬也不带我，于是去华三官网查文档，才发现只有<code>ip source binding</code>是用来绑定IP的，其他是安全性命令。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特别是<code>arp filter source</code>，它是用来保护网关免受ARP攻击的，和我想的绑定IP相差甚远；<code>arp filter binding</code>只能算绑定了半个IP，因为它的作用是只允许指定IP和MAC通过，还要在DHCP上面绑定了IP或者设备上设成静态IP才能算真的绑定了；<code>ip verify source</code>也可以看做绑定命令，但是更像一个缓存，只是在同个设备第二次获取IP的时候不用再请求DHCP，并没有真正绑定。这也就解释了为什么当时用<code>?</code>查指令帮助的时候，有些命令跟的参数不是具体的IP或MAC，而是<code>ip-address</code>和<code>mac-address</code>。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但是操作<code>E528</code>的时候，发现二层端口下没有<code>ip source binding</code>指令，只能用<code>user-bind</code>，去官网查了下<code>S5120</code>的<code>ip source binding</code>，发现这两个指令的参数是一样的，但坑在于，<code>ip source binding</code>的说明中有提到使用<code>arp detection trust</code>时必须指定一个VLAN，而<code>user-bind</code>的说明没提到，以前绑定IP的时候都没有指定<code>VLAN</code>，所以就出现了开头的那种情况，然而就算整了，依旧会从DHCP服务器上获取IP。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到最后还是没能搞定这个鬼问题，似乎只能在DHCP服务器上做静态绑定，而交换机本身只能做到限制罢了。（期待被打脸的那天）</p>
+<p>参考链接：</p>
+<ul>
+<li><code>[1]</code><a href="http://www.h3c.com/cn/Service/Document_Software/" target="_blank" rel="noopener">H3C Document</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-11-15T18:15:28.777Z" itemprop="dateUpdated">2019-11-16 02:15:28</time>
+</span><br>
+
+
+        
+        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html</a>
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IP/">IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常丢人/">日常丢人</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2019/09/易语言取小数位数.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">易语言取小数位数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'H3C-bindIP',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'H3C交换机绑定IPv4',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2019</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aS24CMRAFQO5/abJFSjK81yaRxi6vooGMXSxa/fHjEa/ny/r+5PV58mnyzsdfLAwMjNsynperPVby/uv/vd731/dgYGAcwFh59fX3kyfJO9+cGQMDAyN49XXal4T4fC8MDAyMNoBGqVtZHmNgYGDMitgk4M5acu0PhIGBcRojD4v///efzDcwMDBuxXiWKx8ArJSs9akwMDC2ZszaZ7NhZHvQup2HgYGxKWOWtCWbzUrNpKz94QkGBsYBjCT5Wy8+k6tmsyQSAwNjb0a7wUp36zpBTNp8bz7FwMDYlFGEs1FIXQnWxeATAwNja8bKwHLlakVbJA8HnBgYGBsx2vZZ275PBp8f+FkxMDA2ZbRlanvZom3n5QVt0TXEwMC4OaPNGdtt8iRy/fIZBgbG3oxPjRhXrlmstPkwMDD2Zqynfev9rtlY4tcMFwMDY1NGnq59tqHWNu+KyxYYGBgbMfLW/3VAzNt2nxoMvKnIMTAwtmO0268fbjYAeBPcMTAwDmDMniTgtuidXUrDwMA4mXEdjle69CsNvjrgYmBgbMGYDQlWCt1Zoy26ZoGBgbER41muPATng8ylwhUDA+MARhvm2kZbm1bmRexw8ImBgXFbRh5kZ5ck8lDeDh4wMDBOY+SBr03m2tSz/VEwMDAwkkMn48m8rM2L52LCgIGBcRgjvzwxa6jN9sLAwDiBsRLsVoadbasOAwPjTEZ7xWE2YkzaankxPBxqYmBg3I/xBXbDQc/FZuKZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
