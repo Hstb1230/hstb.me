@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-15T18:15:28.777Z">
+<meta property="og:updated_time" content="2019-11-17T18:26:29.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="H3C交换机绑定IPv4">
 <meta name="twitter:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
@@ -219,7 +219,7 @@
 
 </li>
 </ul>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写这篇文章的时候，本来想抛弃<code>user-bind</code>的，因为在实践过程中发现就算提前指定了个IP给设备，设备依旧会获取到一个新IP，但是又不能上网。而最近在操作<code>S5120</code>的时候，发现它明明是第五版命令，但二层端口下也没有<code>user-bind</code>，然后去找其他绑定IP的方法。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为知识面窄，搞不清楚<code>arp filter binding</code>、<code>arp filter source</code>、<code>ip verify source</code>、<code>ip source binding</code>这几个指令，大佬也不带我，于是去华三官网查文档，才发现只有<code>ip source binding</code>是用来绑定IP的，其他是安全性命令。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特别是<code>arp filter source</code>，它是用来保护网关免受ARP攻击的，和我想的绑定IP相差甚远；<code>arp filter binding</code>只能算绑定了半个IP，因为它的作用是只允许指定IP和MAC通过，还要在DHCP上面绑定了IP或者设备上设成静态IP才能算真的绑定了；<code>ip verify source</code>也可以看做绑定命令，但是更像一个缓存，只是在同个设备第二次获取IP的时候不用再请求DHCP，并没有真正绑定。这也就解释了为什么当时用<code>?</code>查指令帮助的时候，有些命令跟的参数不是具体的IP或MAC，而是<code>ip-address</code>和<code>mac-address</code>。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但是操作<code>E528</code>的时候，发现二层端口下没有<code>ip source binding</code>指令，只能用<code>user-bind</code>，去官网查了下<code>S5120</code>的<code>ip source binding</code>，发现这两个指令的参数是一样的，但坑在于，<code>ip source binding</code>的说明中有提到使用<code>arp detection trust</code>时必须指定一个VLAN，而<code>user-bind</code>的说明没提到，以前绑定IP的时候都没有指定<code>VLAN</code>，所以就出现了开头的那种情况，然而就算整了，依旧会从DHCP服务器上获取IP。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到最后还是没能搞定这个鬼问题，似乎只能在DHCP服务器上做静态绑定，而交换机本身只能做到限制罢了。（期待被打脸的那天）</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;写这篇文章的时候，本来想抛弃<code>user-bind</code>的，因为在实践过程中发现就算提前指定了个IP给设备，设备依旧会获取到一个新IP，但是又不能上网。而最近在操作<code>S5120</code>的时候，发现它明明是第五版命令，但二层端口下也没有<code>user-bind</code>，然后去找其他绑定IP的方法。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;因为知识面窄，搞不清楚<code>arp filter binding</code>、<code>arp filter source</code>、<code>ip verify source</code>、<code>ip source binding</code>这几个指令，大佬也不带我，于是去华三官网查文档，才发现只有<code>ip source binding</code>是用来绑定IP的，其他是安全性命令。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;特别是<code>arp filter source</code>，它是用来保护网关免受ARP攻击的，和我想的绑定IP相差甚远；<code>arp filter binding</code>只能算绑定了半个IP，因为它的作用是只允许指定IP和MAC通过，还要在DHCP上面绑定了IP或者设备上设成静态IP才能算真的绑定了；<code>ip verify source</code>也可以看做绑定命令，但是更像一个缓存，只是在同个设备第二次获取IP的时候不用再请求DHCP，并没有真正绑定。这也就解释了为什么当时用<code>?</code>查指令帮助的时候，有些命令跟的参数不是具体的IP或MAC，而是<code>ip-address</code>和<code>mac-address</code>。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;但是操作<code>E528</code>的时候，发现二层端口下没有<code>ip source binding</code>指令，只能用<code>user-bind</code>，去官网查了下<code>S5120</code>的<code>ip source binding</code>，发现这两个指令的参数是一样的，但坑在于，<code>ip source binding</code>的说明中有提到使用<code>arp detection trust</code>时必须指定一个VLAN，而<code>user-bind</code>的说明没提到，以前绑定IP的时候都没有指定<code>VLAN</code>，所以就出现了开头的那种情况，然而就算整了，依旧会从DHCP服务器上获取IP。<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;到最后还是没能搞定这个鬼问题，似乎只能在DHCP服务器上做静态绑定，而交换机本身只能做到限制罢了。（期待被打脸的那天）<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这篇文章其实写好很久了, 当初花了两三天测验, 可能是有什么事情, 哪里疏忽了, 就一直没发, 最近想想还是发了出来, 如果有什么错误请见谅, 提出后我会尽量修改. </p>
 <p>参考链接：</p>
 <ul>
 <li><code>[1]</code><a href="http://www.h3c.com/cn/Service/Document_Software/" target="_blank" rel="noopener">H3C Document</a></li>
@@ -231,7 +231,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-11-15T18:15:28.777Z" itemprop="dateUpdated">2019-11-16 02:15:28</time>
+    最后更新时间：<time datetime="2019-11-17T18:26:29.585Z" itemprop="dateUpdated">2019-11-18 02:26:29</time>
 </span><br>
 
 
