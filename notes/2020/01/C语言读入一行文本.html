@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html">
+    
+    
+    <title>C语言读入一行文本 | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C,scanf">
+    <meta name="description" content="常见的坑问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言读入一行文本">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="常见的坑问题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-31T15:12:33.000Z">
+<meta property="article:modified_time" content="2020-01-31T18:56:34.206Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="C">
+<meta property="article:tag" content="scanf">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>不敲代码 • 沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../"  >
+                <i class="icon icon-lg icon-home"></i>
+                Main
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">C语言读入一行文本</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">C语言读入一行文本</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-01-31T15:12:33.000Z" itemprop="datePublished" class="page-time">
+  2020-01-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/C/">C</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/C/scanf/">scanf</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C语言"><span class="post-toc-text">C语言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gets"><span class="post-toc-text">gets</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#scanf"><span class="post-toc-text">scanf</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getchar"><span class="post-toc-text">getchar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#缺陷版本"><span class="post-toc-text">缺陷版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#改进版本"><span class="post-toc-text">改进版本</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#C"><span class="post-toc-text">C++</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#getline"><span class="post-toc-text">getline</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#cin-getline"><span class="post-toc-text">cin.getline</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-C语言读入一行文本"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">C语言读入一行文本</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-01-31 23:12:33" datetime="2020-01-31T15:12:33.000Z"  itemprop="datePublished">2020-01-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/C/">C</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/C/scanf/">scanf</a></li></ul></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>常见的坑问题, <a id="more"></a>方法可能不是特别完整, 但应该够用.</p>
+<h2 id="C语言"><a href="#C语言" class="headerlink" title="C语言"></a>C语言</h2><h3 id="gets"><a href="#gets" class="headerlink" title="gets"></a>gets</h3><figure class="highlight c"><figcaption><span>C-gets.c</span><a href="/notes/downloads/code/C语言读入一行文本/C-gets.c">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">	gets(s);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此方法不会读入换行</p>
+<h3 id="scanf"><a href="#scanf" class="headerlink" title="scanf"></a>scanf</h3><figure class="highlight c"><figcaption><span>C-scanf.c</span><a href="/notes/downloads/code/C语言读入一行文本/C-scanf.c">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>];</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%[^\n\r]"</span>, &amp;s);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此方法不会读入换行</p>
+<blockquote>
+<p><code>%[]</code>表示输入集合, <code>^</code>表示排除<br>完整的换行应该为<code>\n\r</code>, 如果只排除了<code>\n</code>, 那么在某些Linux评测机上会出现错误</p>
+</blockquote>
+<h3 id="getchar"><a href="#getchar" class="headerlink" title="getchar"></a>getchar</h3><h4 id="缺陷版本"><a href="#缺陷版本" class="headerlink" title="缺陷版本"></a>缺陷版本</h4><figure class="highlight c"><figcaption><span>C-getchar.c</span><a href="/notes/downloads/code/C语言读入一行文本/C-getchar.c">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>] = {<span class="number">0</span>};</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>((s[i++] = getchar()) != <span class="string">'\n'</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此方法会读入换行, 而且比较难避免不同评测环境下的换行不同问题.</p>
+<h4 id="改进版本"><a href="#改进版本" class="headerlink" title="改进版本"></a>改进版本</h4><figure class="highlight c"><figcaption><span>C-getchar-better.c</span><a href="/notes/downloads/code/C语言读入一行文本/C-getchar-better.c">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">20</span>] = {<span class="number">0</span>};</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="number">1</span>) {</span><br><span class="line">		s[i] = getchar();</span><br><span class="line">		<span class="keyword">if</span>(s[i] == <span class="string">'\n'</span> || s[i] == <span class="string">'\r'</span>) <span class="keyword">break</span>;</span><br><span class="line">		i++;</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h3 id="getline"><a href="#getline" class="headerlink" title="getline"></a>getline</h3><figure class="highlight c"><figcaption><span>CPP-getline.cpp</span><a href="/notes/downloads/code/C语言读入一行文本/CPP-getline.cpp">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="built_in">string</span> s;</span><br><span class="line">	getline(<span class="built_in">cin</span>, s);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此方法不会读入换行,<br>相比C语言的所有方法都好的地方就是不受到长度限制, 避免内存溢出攻击.<br>但<code>getline</code>函数实际上有三个参数:</p>
+<ol>
+<li><code>input</code>    -    获取数据来源的流</li>
+<li><code>str</code>    -    放置数据的目标 string</li>
+<li><code>delim</code>    -    分隔字符</li>
+</ol>
+<p>因为分割字符<code>delim</code>的默认值为换行符, 因此可以起到只读一行的效果.</p>
+<h3 id="cin-getline"><a href="#cin-getline" class="headerlink" title="cin.getline"></a>cin.getline</h3><figure class="highlight c"><figcaption><span>CPP-cin-getline.cpp</span><a href="/notes/downloads/code/C语言读入一行文本/CPP-cin-getline.cpp">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="keyword">char</span> s[<span class="number">1024</span>];</span><br><span class="line">	<span class="built_in">cin</span>.getline(s, <span class="number">1024</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cin</span>.getline(s, <span class="number">1024</span>, <span class="string">'\n'</span>);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>此方法不会读入换行<br>需要注意的是:</p>
+<ul>
+<li>该方法(第一个参数)针对的是<code>char*</code>类型变量</li>
+<li>第二个参数是读入的字符串大小<code>count</code></li>
+<li>第三个参数(分隔符<code>delim</code>)忽略时, 为<code>\n</code></li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>[1] <a href="https://zh.cppreference.com/w/c/io/fscanf" target="_blank" rel="noopener">https://zh.cppreference.com/w/c/io/fscanf</a><br>[2] <a href="https://zh.cppreference.com/w/cpp/io/basic_istream/getline" target="_blank" rel="noopener">https://zh.cppreference.com/w/cpp/io/basic_istream/getline</a><br>[3] <a href="https://www.cnblogs.com/morui/p/11046579.html" target="_blank" rel="noopener">https://www.cnblogs.com/morui/p/11046579.html</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-01-31T18:56:34.206Z" itemprop="dateUpdated">2020-02-01 02:56:34</time>
+</span><br>
+
+
+        
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/C/" rel="tag">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/scanf/" rel="tag">scanf</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&title=《C语言读入一行文本》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&title=《C语言读入一行文本》 — Notes&source=常见的坑问题," data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C语言读入一行文本》 — Notes&url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">H3C交换机绑定IPv4</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'C-getLine',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'C语言读入一行文本',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2020</span>
+            <span>
+                
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&title=《C语言读入一行文本》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&title=《C语言读入一行文本》 — Notes&source=常见的坑问题," data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《C语言读入一行文本》 — Notes&url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD5UlEQVR42u3bSY7bQBAEQP3/0zLgk40xpcyq5ixw9EkQKLIZHKBYyzwe8Xr+XsnnP9fH71+f8+MxmzNcne3AwoEDBw4cwa1erdfHJOdJrvv6++QmE5pohzhw4MCB4xDH7AKzyJUH9faBtbvFgQMHDhxfy9H+KgmfbcqXB2AcOHDgwPFTONrC3ywwt+dvHycOHDhw4Libo02Q9mlbXoicpXa310px4MCBA0danVsNNHzPz18234EDBw4c/xnHs1zJ4EISMtvi4D6URneHAwcOHDjWHG3K1DaT9ulfXmrcXwUHDhw4cOw5ZqF0MwZxX1o4G8V7896BAwcOHDjmEwLRv24mF9gPQLRJ4L4siAMHDhw4TnHkm2jHC2ZDcjPQfGDiDTQOHDhw4FhzzJKxNry1cLPCX94Ae3NOHDhw4MCx5tg0gfZhb7PpTVlwuHDgwIEDR8CRp17teFw7MBGNssXHz/aPAwcOHDhOcbQ3lofkzUZnyVhbxMSBAwcOHGc5ziZ1bRKVjErMXgJuh8CBAwcOHC+TtzbRSm4pL9ttyn/74uBf8x04cODAgWPBsQ9RLdwsYM9Su+TIy1E5HDhw4MCx4Mh/sE/e2lGGFr1tNV3uHwcOHDhwLDhOlflmRb22EDnbT3FmHDhw4MCxOHM+HLAZa8sH3TblyAOFRRw4cODAcYgjjzL3NXva6+bBvsDCgQMHDhyHOGaD0Xe0f04VFvOyIA4cOHDgOMsxK7HlSVfR9Rolh/cVN3HgwIEDxymONrwln1uUzVhDXsQc/qXgwIEDB46AYx8OZ7e6D4Eb+ktcHDhw4MCx5mg3NyvStcMNSTlvWPKbpXA4cODAgWNdHGwbUW2al4DmxPtkDwcOHDhwnOW4ryTXhvBN8pY8kui6OHDgwIFjxNGW0mZjcO0YRNsMyx/nmxInDhw4cOA4xNHOPmyGBmbH5Ij5Y7t818CBAwcOHAuOpBW0aT61pb28HTWjjMI5Dhw4cOBYcDzLlRvPIPJhiLZwWbSacODAgQPHDRyz5O0Ux6z4ODvyH20nHDhw4MCx5tg3ePbNp7ZFlDec8geDAwcOHDj2HG1QbJtPj9HKw3Z7TNF2woEDBw4cI45TxcHNYERb5ssfQD3cgAMHDhw41hz74DdrF80+b/pEh18LcODAgQPHS44kuLbfn3o++VDCqT3jwIEDB45THMlYQB6S25GC/ThC++7wplaKAwcOHDg+hWPTEGpZ9ynlKoXDgQMHDhyfztEmcqcql3nC2Y5i4MCBAweOsxxtcTAffWiD7r7VlDMdazvhwIEDB47FQEPS/tm0hdqELb/upmSJAwcOHDgCjl/cd+xvFFoWKgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

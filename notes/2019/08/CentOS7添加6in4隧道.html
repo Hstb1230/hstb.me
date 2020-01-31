@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     
 
     
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html">
     
     
     <title>CentOS7添加6in4隧道 | Notes</title>
@@ -23,17 +23,18 @@
     
     <meta name="keywords" content="IPv6,隧道">
     <meta name="description" content="阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道">
-<meta name="keywords" content="IPv6,隧道">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7添加6in4隧道">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html">
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-26T08:09:55.656Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-21T08:37:14.000Z">
+<meta property="article:modified_time" content="2019-10-26T08:09:55.656Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="IPv6">
+<meta property="article:tag" content="隧道">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7添加6in4隧道">
-<meta name="twitter:description" content="阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -44,7 +45,7 @@
     <!-- custom head -->
     
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <div id="loading" class="active"></div>
@@ -77,21 +78,21 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/archives"  >
+              <a href="/notes/archives/"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/tags"  >
+              <a href="/notes/tags/"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/categories"  >
+              <a href="/notes/categories/"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
@@ -186,8 +187,7 @@
             <p>阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道</p>
 <a id="more"></a>
 <h1 id="检查环境"><a href="#检查环境" class="headerlink" title="检查环境"></a>检查环境</h1><p>首先要检查系统是否开启IPv6<br>编辑<code>\etc\sysctl.conf</code>，确保包含如下配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 = 0</span><br><span class="line">net.ipv6.conf.default.disable_ipv6 = 0</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 0</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 &#x3D; 0</span><br><span class="line">net.ipv6.conf.default.disable_ipv6 &#x3D; 0</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 &#x3D; 0</span><br></pre></td></tr></table></figure>
 <p>如有修改，请重启系统。</p>
 <h1 id="脚本信息"><a href="#脚本信息" class="headerlink" title="脚本信息"></a>脚本信息</h1><p>保存以下命令为文件(如<code>he-tunnel.sh</code>)</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">LOCAL_IP6=<span class="string">"2001:470:abcd:ef::2"</span> </span><br><span class="line">LOCAL_IP4=<span class="string">"192.168.1.1"</span></span><br><span class="line">REMOTE_IP6=<span class="string">"2001:470:abcd:ef::1"</span> </span><br><span class="line">REMOTE_IP4=<span class="string">"1.1.1.1"</span></span><br><span class="line">sudo ip tunnel del he-sit</span><br><span class="line">sudo ip tunnel add he-sit mode sit remote <span class="variable">$REMOTE_IP4</span> <span class="built_in">local</span> <span class="variable">$LOCAL_IP4</span> ttl 255</span><br><span class="line">sudo ip link <span class="built_in">set</span> dev he-sit up</span><br><span class="line">sudo ip -6 addr add <span class="variable">$LOCAL_IP6</span>/64 dev he-sit</span><br><span class="line">sudo ip -6 route add default via <span class="variable">$REMOTE_IP6</span> dev he-sit</span><br></pre></td></tr></table></figure>
@@ -201,7 +201,6 @@
 <h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>运行脚本前，请先确保主机能ping通HE的服务器IP，<br>如果能ping通，但运行脚本后仍访问不了IPv6网站，请更换其他地区的隧道服务器。</p>
 <p>第一次运行脚本会输出<code>delete tunnel &quot;he-sit&quot; failed: No such device</code>，无需在意。</p>
 <h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping -6 -c 5 -i 3 -I he-sit 2001:470:abcd:ef::1</span><br></pre></td></tr></table></figure>
-
 <p><code>2001:470:abcd:ef::1</code>为前面的<code>REMOTE_IP6</code>，如果能通就说明配置正确。</p>
 <h1 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h1><p>编辑<code>/etc/rc.d/rc.local</code>，在末尾追加一行<code>/usr/local/bin/he-tunnel.sh</code>(视脚本的具体路径而定)</p>
 <h1 id="部分排错"><a href="#部分排错" class="headerlink" title="部分排错"></a>部分排错</h1><ul>
@@ -262,7 +261,7 @@
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html</a>
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
         
     </div>
     <footer>
@@ -282,7 +281,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IPv6/">IPv6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/隧道/">隧道</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IPv6/" rel="tag">IPv6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/%E9%9A%A7%E9%81%93/" rel="tag">隧道</a></li></ul>
 
 
             
@@ -292,7 +291,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -302,22 +301,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -340,7 +339,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/notes/2019/09/记一次易语言的奇怪坑.html" id="post-prev" class="post-nav-link">
+      <a href="/notes/2019/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%98%93%E8%AF%AD%E8%A8%80%E7%9A%84%E5%A5%87%E6%80%AA%E5%9D%91.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">记一次易语言的奇怪坑</h4>
       </a>
@@ -349,7 +348,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2019/08/Python3保存requests的cookies.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Python3保存requests的cookies</h4>
       </a>
@@ -431,7 +430,7 @@
             
                 <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -455,7 +454,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&title=《CentOS7添加6in4隧道》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -465,22 +464,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&title=《CentOS7添加6in4隧道》 — Notes&source=阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CentOS7添加6in4隧道》 — Notes&url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7添加6in4隧道.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -491,7 +490,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQW4bMQwF0Nz/0inQVYE2k/9JyTHQp5VhezR6WogCyY+PeHz+Hu3nP8ffs331a7KGwwMPDw9vtPSvxjPjq3k2vz7/J18zHh4e3m1eHgyeF/38zXOQeF5Vvh48PDy89+E9X2qfw0n+1GZmPDw8vHfjJUf27JvPeODh4eG9Dy+ZLrkct69Pkrz5evDw8PBew7tXALv3+S3qe3h4eP8l73Mx8pBwqqxVrxAPDw/vAi9PpN4IJHVaYZYsxsPDw7vAS+6is8W1jVx56iHfXDw8PLyzvOSVCbtN9W7CQ365x8PDw7vHS1IDZ//fHv35hhbVNjw8PLwFLy8+5aX6Fnn24o6Hh4d3j5eXo/LtyA/3/eYWQQIPDw/vKG9/dW5bBGZHfB4A8PDw8O7xXnOUzwLPpo6Hh4eH9xpe3qfUph424aR99puIh4eHh3eUl7dJzcLJ2at59CweHh7eNd6stJ8D8maFNq0cJXDx8PDwLvDaMn97X03SDftgsMpP4+Hh4ZW8JD1645t9oeuboIWHh4f3Q7w8RZsD8it1e6H/RwEMDw8P7yhv1asVpw/2v7ZJkI9ZnMHDw8OLeW2L1ayNIH+2DQNR8QwPDw/vEG9WuMq3YFbWyknfbBkeHh7eBV57KG+O77w9K6cWm4uHh4d3gdcu5Wy71azZqyDh4eHhHeXNps6vzrO2rdlVHg8PD++VvE0SdnPEH4tmbUUODw8PbwHLRx5Okot4e9DXDQR4eHh4F3iz4NE2YOVH/CzZ0b4FDw8Pb8/bFLTaA7pN9bZJkzr64eHh4S14bZIiOfTzzWpDTr7ReHh4eO/AmxW62iaqNix9uU48PDy8H+W1ASCff1bJKpIReHh4eBd4mynyo3xWBpuV2fDw8PDu8doC2KystUlh5KHlQH0PDw8P74n3C3YxkpdJTEjXAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADKElEQVR42u3aQW7jQAwEwPz/09lrgI3lbo4C2HTpZKyV0ZR86CU5X1/x9X15/bzneoXrz4/uv17n+rlHFzY2NvabsHPSo29z3v9/lax5vs9fVsbGxsZexz4BPMLMYin5lzZEsbGxsbHzpdvwm239hsIGGxsb+4PZSQmRlCvDEiJYBxsbG/sz2W3rfxY5s/ImeU1/2EvDxsbGfnl2PhV9/c9/Mt/GxsbGfmH2d3nd2+jJ9zDb7cPVsLGxsRex8wA4aevnQ4JZ02q2f2xsbOwd7LyVk2wiKWPawzp5mVHsChsbG3sdOw+kPCrasMnDrC2BfvkWGxsbexF7FiGzAMtjbBaT7UgYGxsbexP7vCy5jqW2MdSWH/kK2NjY2PvY+X/624OPbZjlI972aNGTCgwbGxv7zdltO34WRW04ne+hnm9jY2Njvzl7FgNtXLWly73jAWxsbOyt7JPoaknnRUXeJ3sSpdjY2NiL2G3bPR8VnARMvt17XzQ2Njb2PnYbJ+ef8xeXN5WGFRg2Njb2Cvb1QtcvqA2n2QihXR8bGxt7H/uuQeysFDlvYM3KJ2xsbOyt7DZm8iM7bbv/fGjx5AAQNjY29jr27PFFZVMOFU6O9STtKmxsbOxN7LYAmEVRXvAk4DY+sbGxsT+BnW+oHay2jad2JyetK2xsbOyt7POyIb8nbxvNjhY9CUVsbGzspexZq+grvpLWTzsGHg4PsLGxsRex87Z7++B2rpr8DLOWEzY2NvZudhskbduoLVfaMUPekIpKEWxsbOw3ZLft/hnvrjicjTewsbGxd7Pz44xtsOXjgZMhRP4SfylFsLGxsRexz4/XzLaSjA3y0UXxU2FjY2OvYyfLtd8m998bUcVYGhsbG3sF+6QMaA/HtK2ffA9JfBZvHRsbG/ut2LPhQb6V2Xg4b1e1zz2amWBjY2O/MPucFFU85dR1VpwUY2ZsbGzsdey2ZZ88rG0ezUbF+cgBGxsbG/ukDZSvOVuhDj9sbGzsD2bPIme20eRoUftjYGNjY29ln5QE7WGde0cRefmBjY2NvZU9a/TfO9ZtYUnZk+wHGxsb+83Z/wAZnQJdW4TqWwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

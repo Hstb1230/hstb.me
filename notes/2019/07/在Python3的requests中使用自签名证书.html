@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     
 
     
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html">
     
     
     <title>在Python3的requests中使用自签名证书 | Notes</title>
@@ -21,19 +21,22 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="HTTPS,Python3,requests,proxy">
+    <meta name="keywords" content="Python3,requests,HTTPS,proxy">
     <meta name="description" content="在requests下使用代理访问https网站时出现了错误">
-<meta name="keywords" content="HTTPS,Python3,requests,proxy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Python3的requests中使用自签名证书">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html">
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="在requests下使用代理访问https网站时出现了错误">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-10T10:10:11.596Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-24T03:27:31.000Z">
+<meta property="article:modified_time" content="2019-08-10T10:10:11.596Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="Python3">
+<meta property="article:tag" content="requests">
+<meta property="article:tag" content="HTTPS">
+<meta property="article:tag" content="proxy">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Python3的requests中使用自签名证书">
-<meta name="twitter:description" content="在requests下使用代理访问https网站时出现了错误">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -44,7 +47,7 @@
     <!-- custom head -->
     
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <div id="loading" class="active"></div>
@@ -77,21 +80,21 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/archives"  >
+              <a href="/notes/archives/"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/tags"  >
+              <a href="/notes/tags/"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/categories"  >
+              <a href="/notes/categories/"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
@@ -201,11 +204,8 @@
 
 <p>大概说是证书校验错误(<code>certificate verify failed</code>)，于是百度一番</p>
 <h1 id="初步解决"><a href="#初步解决" class="headerlink" title="初步解决"></a>初步解决</h1><ul>
-<li><p>在<code>get</code>/<code>post</code>等请求方法中加上参数<code>verify=False</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.get(url, verify=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>或修改整个session的属性</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.verify = <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
+<li>在<code>get</code>/<code>post</code>等请求方法中加上参数<code>verify=False</code><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.get(url, verify=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></li>
+<li>或修改整个session的属性<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.verify = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -227,7 +227,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 <li><code>[FiddlerRoot.cer]</code>为你从Fiddler中导出的cer文件路径(相对或绝对路径)</li>
 <li><code>[FiddlerRoot.pem]</code>为导出的pem文件路径.</li>
 </ul>
-<p>因为Windows不带OpenSSL程序，为此又特地<a href="https://i.hstb1230.com/Windows10-64bit-build-OpenSSL.html">摸索了几天</a>，头大</p>
+<p>因为Windows不带OpenSSL程序，为此又特地<a href="https://i.hstb1230.com/Windows10-64bit-build-OpenSSL.html" title="" target="">摸索了几天</a>，头大</p>
 <p>执行命令后，将pem文件路径传给<code>verify</code>，或者修改整个Session对象的<code>verify</code>属性即可.</p>
 <p>同时，也可以给<code>verify</code>赋值pem文件的所在目录，但要先用OpenSSL附带的<code>c_rehash.pl</code>处理该文件夹.</p>
 <figure class="highlight python"><figcaption><span>get_https_3.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 声明一个Session对象</span></span><br><span class="line">s = requests.Session()</span><br><span class="line"><span class="comment"># 修改代理信息</span></span><br><span class="line">s.proxies = &#123;</span><br><span class="line">    <span class="string">"http"</span>: <span class="string">"http://127.0.0.1:8888/"</span>,</span><br><span class="line">    <span class="string">"https"</span>: <span class="string">"http://127.0.0.1:8888/"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 设置自定义证书</span></span><br><span class="line"><span class="comment"># # 假设证书在代码目录下的cert文件夹里，文件名为FiddlerRoot.pem</span></span><br><span class="line"><span class="comment"># # 直接使用相对路径</span></span><br><span class="line">s.verify = <span class="string">r'cert\FiddlerRoot.pem'</span></span><br><span class="line"><span class="comment"># # 如果使用了c_rehash.pl对cert文件夹做了处理，可以修改为如下一行代码</span></span><br><span class="line">s.verify = <span class="string">r'cert'</span></span><br><span class="line">s.get(<span class="string">'https://httpbin.org/user-agent'</span>)</span><br></pre></td></tr></table></figure>
@@ -244,19 +244,19 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>本文代码(附件):</p>
 <ul>
-<li><a href="/notes/2019/07/在Python3的requests中使用自签名证书/get_https_1.py" title="get_https_1.py">get_https_1.py</a></li>
-<li><a href="/notes/2019/07/在Python3的requests中使用自签名证书/get_https_2.py" title="get_https_2.py">get_https_2.py</a></li>
-<li><a href="/notes/2019/07/在Python3的requests中使用自签名证书/get_https_3.py" title="get_https_3.py">get_https_3.py</a></li>
-<li><a href="/notes/2019/07/在Python3的requests中使用自签名证书/c_rehash.pl" title="c_rehash.pl">c_rehash.pl</a>
+<li><a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/get_https_1.py" title="get_https_1.py">get_https_1.py</a></li>
+<li><a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/get_https_2.py" title="get_https_2.py">get_https_2.py</a></li>
+<li><a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/get_https_3.py" title="get_https_3.py">get_https_3.py</a></li>
+<li><a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6/c_rehash.pl" title="c_rehash.pl">c_rehash.pl</a>
 
 </li>
 </ul>
 <p>参考链接:</p>
 <ol>
-<li><a href="https://www.cnblogs.com/tianqianlan/p/9431295.html" target="_blank" rel="noopener">REQUESTS库的文档高级用法</a></li>
-<li><a href="https://www.th3r3p0.com/random/python-requests-and-burp-suite.html" target="_blank" rel="noopener">Python Requests and Burp Suite</a></li>
-<li><a href="https://stackoverflow.com/questions/46503129/how-to-capture-python-https-traffic-in-fiddler" target="_blank" rel="noopener">How to capture python https traffic in fiddler? - Stack Overflow</a></li>
-<li><a href="https://stackoverflow.com/questions/28195834/how-to-capture-python-sslhttps-connection-through-fiddler2" target="_blank" rel="noopener">How to capture python SSL(HTTPS) connection through fiddler2 - Stack Overflow</a>
+<li><a href="https://www.cnblogs.com/tianqianlan/p/9431295.html" title="" target="">REQUESTS库的文档高级用法</a></li>
+<li><a href="https://www.th3r3p0.com/random/python-requests-and-burp-suite.html" title="" target="">Python Requests and Burp Suite</a></li>
+<li><a href="https://stackoverflow.com/questions/46503129/how-to-capture-python-https-traffic-in-fiddler" title="" target="">How to capture python https traffic in fiddler? - Stack Overflow</a></li>
+<li><a href="https://stackoverflow.com/questions/28195834/how-to-capture-python-sslhttps-connection-through-fiddler2" title="" target="">How to capture python SSL(HTTPS) connection through fiddler2 - Stack Overflow</a>
 </li>
 </ol>
 
@@ -271,7 +271,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html</a>
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
         
     </div>
     <footer>
@@ -291,7 +291,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/HTTPS/">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Python3/">Python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/requests/">requests</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Python3/" rel="tag">Python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/proxy/" rel="tag">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/requests/" rel="tag">requests</a></li></ul>
 
 
             
@@ -301,7 +301,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&title=《在Python3的requests中使用自签名证书》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&title=《在Python3的requests中使用自签名证书》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -311,22 +311,22 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&title=《在Python3的requests中使用自签名证书》 — Notes&source=在requests下使用代理访问https网站时出现了错误" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&title=《在Python3的requests中使用自签名证书》 — Notes&source=在requests下使用代理访问https网站时出现了错误" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Python3的requests中使用自签名证书》 — Notes&url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Python3的requests中使用自签名证书》 — Notes&url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -349,7 +349,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/notes/2019/08/Python3保存requests的cookies.html" id="post-prev" class="post-nav-link">
+      <a href="/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Python3保存requests的cookies</h4>
       </a>
@@ -358,7 +358,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2019/02/JavaScript取网址请求串.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">JavaScript取网址请求串</h4>
       </a>
@@ -440,7 +440,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
             
                 <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -464,7 +464,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&title=《在Python3的requests中使用自签名证书》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&title=《在Python3的requests中使用自签名证书》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -474,22 +474,22 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&title=《在Python3的requests中使用自签名证书》 — Notes&source=在requests下使用代理访问https网站时出现了错误" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&title=《在Python3的requests中使用自签名证书》 — Notes&source=在requests下使用代理访问https网站时出现了错误" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Python3的requests中使用自签名证书》 — Notes&url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《在Python3的requests中使用自签名证书》 — Notes&url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/07/在Python3的requests中使用自签名证书.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -500,7 +500,7 @@ I've got to change .cer(DER format) file into .pem(PEM format). And I realized c
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNklEQVR42u3aW67iMBAFwLv/TTO/IyHCOW0jEVP5QrmJcXmkafrx9xdfj6fr//vPzzz/9Xm1/BvzO5svbGxs7JuwH5dXws63mH++Xj85iOt3sbGxsc9jX4eZV185u5MDrjHJPl/ex8bGxv5hdhswrhOG68NaD4HY2NjY2C07L/e0icfmMhY2Njb2cez8536SVOTV+DYVaYtcG2pp2NjY2F/Pzrui3//5I/1tbGxs7C9mP8prlhLkbYZZWKoV2NjY2Aexd41CJuWkNj3Ih3Vm+8fGxsY+m50zZsM9u1YukLMOMzY2NvbXs/NG7EpqsdI8blsFUXjDxsbGPo7dFo/yQJi/1SYzbTiMamnY2NjYt2W34adlJKvNetT5gFGde2FjY2Mfwc7L9O36edCaFarerImNjY19EHulTJ83YpNSUZtUtMiXjV5sbGzsI9jDABC8lQ9QfqIhUQwJYWNjY9+c3f6sb0dqihbsKNTNmsHY2NjYZ7DzdGK9ybrSmp0Nd0a5FzY2NvZx7JVkoG275uvsKkVFk0rY2NjYt2LPXlgJIXWetFDGwsbGxv419izYtOX7fLVZKSoJjdjY2NjnsfNyzCwNaBsM2wZxguCKjY2NfQY7ga2nKPkwTf7XlQPFxsbGPoOdv7zeKpgd0ErpqignYWNjY9+W3RZ9VoZ7kgRj9kyeRL38N8fGxsY+iN3+6P9ECJwFrfoZbGxs7OPY+UbzMlN+HFHyUB7im0PBxsbGPoidJyEtuG0n5EG03WHR9MXGxsa+IXt96TyxWRnNmY0BvSkqYWNjYx/EnhWVZm3XPLVoS0VFkxgbGxv7aPauLeaba78xf74IYNjY2NhHsNuyfjv0Mxu+WSkhvTwmbGxs7B9gt4vubce2yUa7f2xsbOwz2I/yavF5cjIrb7WBNqp4YWNjY9+K3f7Xv9JYTT7P5ozyZ+ojwMbGxr4Juw1ayaLrp543BpKk6GUGho2NjX0Qez141AX6uJGwq5yEjY2Njb03gF0nMLMSUtEexsbGxv5hdpsk5KFuVpZq29LY2NjYp7KTotJsK20JqS4PlakRNjY29nnsvCiTpxYr99tvzI8JGxsb+zj2PxF4U++Dw5XEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEiUlEQVR42u3aQW7jMAwF0N7/0h1gVrOo3U9SxoTJ8ypoWtl6LiDxi19f8fX99/r389VPkm/vx69+e/X798/z9cSFCRMmTJhekun79roa+uonZ0d7YtrJyD+MiQkTJkyYljMlwyW3qU7yfpNx//l+1c5fQLQFwYQJEyZMH8DUm151K3B/x/xV9Z4HEyZMmDB9MtMkCO6FtvkIecSMCRMmTJg+k2lyJJks6tXyOC9uq1uTx7NwTJgwYcL0Yky9I8D3+Px4fxMmTJgwYfqvTN+Dax7IJoXrpAUnL5J/mSkmTJgwYVrLlEyyt3XotctU4+DJYWoe+GLChAkTpr1MvcWyujBPlvlTh6Cjl4QJEyZMmNYy5UePeex7NjvNn23+CqPXiQkTJkyYVjFVw9DkoXs/qUbDSavQZHvxQ7yLCRMmTJjejqm6JiaPWz2AnDTiTApgTJgwYcL0rkzJNJIitjpCPr1eMVxt67nMwjFhwoQJ0yqmpHTMY9xTRW/y0PnLqB7ZlvNpTJgwYcL0wkz5jauLbi+orQayvddZ/rfAhAkTJkzLmXptMVW++dFmb0NQDYgvEwJMmDBhwrSW6QmIySZjfmh6atOACRMmTJi2M1W/7i261QC3F/5WRzhwYcKECROmJUy9lpdeUTpvFUo2FqeeHxMmTJgwvR/T5OEmW4dJK8/kwDV/PZgwYcKEaTtTNahNUPLittqyM/mdXnyMCRMmTJg2Mk2C0UnBPM9aq404OeUPv4kJEyZMmJYzJSFs7wjzuYbXamibjBAVvZgwYcKEaSFTMu3JxKrFZx4697Y15SfBhAkTJkzLmXqHfGePKp9oD8qPZn95BkyYMGHCtJapt7gmk68u8L0oOUGc3AsTJkyYML0HUx59nip0E8rqZqUa7DaPWjFhwoQJ01qm/Agzedy84TU/tkxK2d5GoVyuY8KECROmVUy9RXeCm/9V/qp6/x2Fu2PChAkTpoVMSdGYl5p56VvdcFQX/pw72qxgwoQJE6a3YKouyclj9crRXiNO9XMeDWPChAkTpr1M+QTy4XKa/KqW4tXqvzAyJkyYMGFaxZQvk0kNmC+0p8Lc+ZYl+hYTJkyYMK1lSiLaPA4+FeZWj1TzuLl6yIoJEyZMmLYzTdo6qzeuwuWxb4+40LqKCRMmTJjWMk1KxyrN5MByHt2OdkyYMGHChGk5U/5nvdbVeTiblLvz38k3CpgwYcKEaQtTflT5RCw7Qc9fYfL5l9EwYcKECdNbMPVC1UmQWm0VyrcOvSaky/tiwoQJE6a1TAlQrwQ929AzWex7wXT5fBUTJkyYML0k03fxmt8y31jkr+1+Ic83IpezwIQJEyZMa5km0+6FrdVFvbpZqcJNmpMwYcKECdMWpjzMzfuAqsttskhPQts5KCZMmDBh2s7UW7CrBXO1kO4dc06KWEyYMGHChClv38nhekt1r1WoiYgJEyZMmD6A6dQEek05vW/zbcSx0hcTJkyYML0kUxLyVpmqJevkjnmBXQ2XMWHChAnTdqYnwtZ5Q8/ZwrUa8jbJMGHChAnTazH9Ab88k8X65INtAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     
 
     
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html">
     
     
     <title>JavaScript取网址请求串 | Notes</title>
@@ -23,17 +23,18 @@
     
     <meta name="keywords" content="日常笔记,JavaScript">
     <meta name="description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
-<meta name="keywords" content="日常笔记,JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript取网址请求串">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html">
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-07T01:34:30.791Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-02-03T17:23:27.000Z">
+<meta property="article:modified_time" content="2019-08-07T01:34:30.791Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="日常笔记">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript取网址请求串">
-<meta name="twitter:description" content="准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -44,7 +45,7 @@
     <!-- custom head -->
     
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <div id="loading" class="active"></div>
@@ -77,21 +78,21 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/archives"  >
+              <a href="/notes/archives/"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/tags"  >
+              <a href="/notes/tags/"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/categories"  >
+              <a href="/notes/categories/"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
@@ -181,7 +182,7 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQuery</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> href = <span class="built_in">window</span>.location.href; <span class="comment">// url</span></span><br><span class="line">  <span class="keyword">var</span> host = <span class="built_in">window</span>.location.host; <span class="comment">// 域名</span></span><br><span class="line">  <span class="keyword">var</span> query = href.substring(</span><br><span class="line">    href.lastIndexOf(host) + host.length, <span class="comment">// 要加长度</span></span><br><span class="line">    href.length );</span><br><span class="line">  <span class="keyword">return</span> query;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>效果：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当前URL：http://localhost/manage/?test#123456</span><br><span class="line">调用结果：/manage/?test#123456</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当前URL：http:&#x2F;&#x2F;localhost&#x2F;manage&#x2F;?test#123456</span><br><span class="line">调用结果：&#x2F;manage&#x2F;?test#123456</span><br></pre></td></tr></table></figure>
 
 <p>使用场景：登录状态失效或不存在时，在跳转到登录页前获取当前功能页地址并传递给接口，登录后成功后跳转至该页面，优化用户体验。</p>
 
@@ -196,7 +197,7 @@
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html</a>
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
         
     </div>
     <footer>
@@ -216,7 +217,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常笔记/">日常笔记</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/" rel="tag">日常笔记</a></li></ul>
 
 
             
@@ -226,7 +227,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&title=《JavaScript取网址请求串》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -236,22 +237,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Notes&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&title=《JavaScript取网址请求串》 — Notes&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Notes&url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Notes&url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -274,7 +275,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/notes/2019/07/在Python3的requests中使用自签名证书.html" id="post-prev" class="post-nav-link">
+      <a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">在Python3的requests中使用自签名证书</h4>
       </a>
@@ -283,7 +284,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2017/10/升级HTTPS需要注意的坑.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2017/10/%E5%8D%87%E7%BA%A7HTTPS%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9D%91.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">升级HTTPS需要注意的坑</h4>
       </a>
@@ -365,7 +366,7 @@
             
                 <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -389,7 +390,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&title=《JavaScript取网址请求串》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -399,22 +400,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&title=《JavaScript取网址请求串》 — Notes&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&title=《JavaScript取网址请求串》 — Notes&source=准确来说应该是取域名后面的那串文本，但是实在是不知道叫什么。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Notes&url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript取网址请求串》 — Notes&url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/02/JavaScript取网址请求串.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/02/JavaScript%E5%8F%96%E7%BD%91%E5%9D%80%E8%AF%B7%E6%B1%82%E4%B8%B2.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -425,7 +426,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3awW7bMBAEUP//T7dA0UOBIsoMlxv78HQybEXiYwCSmN3XK75+/bn+/+bf6/nX9p6vvnltXHh4eHhHQ89fltyZT1OOyceDh4eH9zO856E8f54s68l0jJ6Gh4eH91be8+F4cgR/nsTkVzw8PLxP5p0t4nkkkWwteHh4eJ/AayOGdqHPj+bt/deyFjw8PLyY1xbAPuHzYn0PDw8Pb1BVPyuMPR+I26V8NEI8PDy8rcWvjmuTQSeH5nxqkidEWQseHh7emNcuzW2JK99U5g1YxdDx8PDwxry24NQCzpoM2kn8cmPAw8PDu8rLh54fapPntEWvs0nHw8PD2+a1D50MbhJhtJOIh4eHd5fXvj4vX02ihFtbCB4eHt4er41H24N128I1P6bj4eHh/TwvWfonMWv75LNJx8PDw9vg3Ypco0L+pIh11CKGh4eHt8E7i0cn5f+2wNZuRXh4eHjbvLPF/ayIVTeblm0E3zRd4eHh4V3i5VFC8tB2m2nfnhfA/n6Ph4eHt8bLI4a7rQOTstnzc/Dw8PD2eJNGqySunTQltNtAnVLj4eHhjXm3Gq2Kon4ZTOQFOTw8PLw93lnQ0Ia2Z0FDkUNP8mk8PDy8AW9yUJ4v+nnTQLFF4eHh4a3xWnB7z2SDGRXh8PDw8BZ4+VI+P3znB/Hkr9riGR4eHt4tXjugSYtVMpU5LPn34OHh4W3w5htDu/Sf3TmPRfDw8PBu8c5arM6KWHnBLA9BvpkOPDw8vAVeW+jKt5CzolcbWODh4eG9izcPAiZhaxJVHLYO4OHh4S3z2pg1L4zNA9xRyoKHh4f3Abz2kN0GE+0mFCUueHh4eG/itYPID8dnUxNNKx4eHt4ary16TZbss5JYu7Xg4eHh7fHaAthkI5mHwnlZDg8PD2+B9xt4lZ3SszXiJAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADH0lEQVR42u3aUW7jMAwFwN7/0tkL1M4jqSxidvwVNKmscYCyfNTPT3y94uvqd+9/cvXu/fr39z1wYWNjYz+EnTDyG9xvLgEkjy/Z55s1sbGxsdexk9vkt0y222Nf3Te3YGNjY2Pn/9vnq1Ux2NjY2Nhzdt4GVEtR/rjzz2NjY2P/BXYSKpWDm2KJqr77n7I0bGxs7K9n51PR73/9kfk2NjY29hezX8Wr14rMW5rebi93go2Njb2IPYn+5+PhpHXJjwHl+8fGxsbeys7/9PdC/PzdyRA3Hw9jY2Njb2LnW5mH+9VWJH80SZHDxsbG3srOF622EPfbOnDsprg+NjY29lb2BD85HHOshSiGUNjY2Nib2M0/+oORQF6QzjZI0TwEGxsb++Hs6rby2nhq2FBd5/LBYWNjYy9i52WgFw99jt0rYNjY2Nj72JPQv9oe9MYGZwfP2NjY2FvZ88AoD/GTT+aFMP9KoiwNGxsbeyk7H8r2tvvpUOmyFcHGxsZexO6FRL1WJI+ceiuXQyVsbGzsFewcfLbB6B3oyR/35bvY2NjY69jN+XCrCE2ajVODZ2xsbOxN7Op49VS4k4dNvYM71QeEjY2NvZvdG+VWS+C8zThcwLCxsbEfwk5akVNFolr2qgdxyt8tNjY29gr2qZYgOXyTvM7bobygvmk/sLGxsR/O7gU91cJTDap6n8xjLGxsbOx97GTEOxnT5g9lMmwuFzBsbGzsFey8zOSk3oi32vb02pvCN4+NjY39KHayXHX4Wv1MdTxcHfo2ZyPY2NjYj2L3gpsEmYRQ1fLTO530SwHDxsbGXseuhjh5LJWXnHnTEn1V2NjY2KvZOakX6FSbjbwVKRRXbGxs7BXsV/HKG488DKqOHPLjRG/m29jY2Ngr2KO6N97WvM2YFF1sbGzsTez8OE61kTgV/U8O9FyujI2Njb2OnReMXsTfazwmoVJUwLCxsbH/JLsaQlXHDL2xQT6uwMbGxsauDn0/sU41+j9WwLCxsbG/mN1rEvLmpNpC5EUxbz+wsbGxt7KrjEnLMTmaUx0PH5tvY2NjY38v+x+ezdmFAxPsIAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

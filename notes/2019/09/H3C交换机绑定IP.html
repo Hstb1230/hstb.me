@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     
 
     
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html">
     
     
     <title>H3C交换机绑定IPv4 | Notes</title>
@@ -23,17 +23,18 @@
     
     <meta name="keywords" content="日常丢人,IP">
     <meta name="description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
-<meta name="keywords" content="日常丢人,IP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="H3C交换机绑定IPv4">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html">
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-17T18:26:29.585Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-21T14:54:54.000Z">
+<meta property="article:modified_time" content="2019-11-17T18:26:29.585Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="日常丢人">
+<meta property="article:tag" content="IP">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="H3C交换机绑定IPv4">
-<meta name="twitter:description" content="这边提到的是IPv4静态绑定，慢慢整理ing.">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -44,7 +45,7 @@
     <!-- custom head -->
     
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <div id="loading" class="active"></div>
@@ -77,21 +78,21 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/archives"  >
+              <a href="/notes/archives/"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/tags"  >
+              <a href="/notes/tags/"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/categories"  >
+              <a href="/notes/categories/"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
@@ -185,17 +186,11 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <p>这边提到的是IPv4静态绑定，慢慢整理ing. <a id="more"></a></p>
 <h2 id="user-bind"><a href="#user-bind" class="headerlink" title="user-bind"></a><code>user-bind</code></h2><ul>
-<li><p>使用范围<br>二层以太网端口视图</p>
-</li>
-<li><p>指令格式<br><code>user-bind { ip-address</code><em><code>ip-address</code></em><code>| ip-address</code><em><code>ip-address</code></em><code>mac-address</code><em><code>mac-address</code></em><code>| mac-address</code><em><code>mac-address</code></em><code>} [ vlan</code><em><code>vlan-id</code></em><code>]</code></p>
-</li>
-<li><p>说明<br><code>ip-address</code>和<code>mac-address</code>至少要指定一项.<br>如果使用了<code>ARP Detection</code>功能，需要指定<code>vlan</code>.<br><code>mac-address</code>的格式是 <strong><code>xxxx-xxxx-xxxx</code></strong> 而不是<code>xx:xx:xx:xx:xx:xx</code>.</p>
-</li>
-<li><p>举例<code>[1]</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在端口GigabitEthernet1/0/1上配置一条IPv4静态绑定表项（绑定IP＋MAC）。</span></span><br><span class="line">&lt;Sysname&gt; system-view</span><br><span class="line">[Sysname] interface gigabitethernet 1/0/1</span><br><span class="line">[Sysname-GigabitEthernet1/0/1] user-bind ip-address 192.168.0.1 mac-address 0001-0001-0001</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>注意事项<br>第7版中已经删除该指令。<br>某些型号的第5版也不支持该指令.</p>
-</li>
+<li>使用范围<br>二层以太网端口视图</li>
+<li>指令格式<br><code>user-bind { ip-address</code><em><code>ip-address</code></em><code>| ip-address</code><em><code>ip-address</code></em><code>mac-address</code><em><code>mac-address</code></em><code>| mac-address</code><em><code>mac-address</code></em><code>} [ vlan</code><em><code>vlan-id</code></em><code>]</code></li>
+<li>说明<br><code>ip-address</code>和<code>mac-address</code>至少要指定一项.<br>如果使用了<code>ARP Detection</code>功能，需要指定<code>vlan</code>.<br><code>mac-address</code>的格式是 <strong><code>xxxx-xxxx-xxxx</code></strong> 而不是<code>xx:xx:xx:xx:xx:xx</code>.</li>
+<li>举例<code>[1]</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在端口GigabitEthernet1/0/1上配置一条IPv4静态绑定表项（绑定IP＋MAC）。</span></span><br><span class="line">&lt;Sysname&gt; system-view</span><br><span class="line">[Sysname] interface gigabitethernet 1/0/1</span><br><span class="line">[Sysname-GigabitEthernet1/0/1] user-bind ip-address 192.168.0.1 mac-address 0001-0001-0001</span><br></pre></td></tr></table></figure></li>
+<li>注意事项<br>第7版中已经删除该指令。<br>某些型号的第5版也不支持该指令.</li>
 </ul>
 <h2 id="ip-source-binding"><a href="#ip-source-binding" class="headerlink" title="ip source binding"></a><code>ip source binding</code></h2><p>该指令有两种格式，视使用范围而定。</p>
 <ol>
@@ -236,7 +231,7 @@
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html</a>
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
         
     </div>
     <footer>
@@ -256,7 +251,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IP/">IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常丢人/">日常丢人</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/IP/" rel="tag">IP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/%E6%97%A5%E5%B8%B8%E4%B8%A2%E4%BA%BA/" rel="tag">日常丢人</a></li></ul>
 
 
             
@@ -266,7 +261,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -276,22 +271,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -311,12 +306,19 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/notes/2020/01/C%E8%AF%AD%E8%A8%80%E8%AF%BB%E5%85%A5%E4%B8%80%E8%A1%8C%E6%96%87%E6%9C%AC.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C语言读入一行文本</h4>
+      </a>
+    </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2019/09/易语言取小数位数.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2019/09/%E6%98%93%E8%AF%AD%E8%A8%80%E5%8F%96%E5%B0%8F%E6%95%B0%E4%BD%8D%E6%95%B0.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">易语言取小数位数</h4>
       </a>
@@ -398,7 +400,7 @@
             
                 <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -422,7 +424,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&title=《H3C交换机绑定IPv4》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -432,22 +434,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&title=《H3C交换机绑定IPv4》 — Notes&source=这边提到的是IPv4静态绑定，慢慢整理ing." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《H3C交换机绑定IPv4》 — Notes&url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C交换机绑定IP.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/09/H3C%E4%BA%A4%E6%8D%A2%E6%9C%BA%E7%BB%91%E5%AE%9AIP.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -458,7 +460,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aS24CMRAFQO5/abJFSjK81yaRxi6vooGMXSxa/fHjEa/ny/r+5PV58mnyzsdfLAwMjNsynperPVby/uv/vd731/dgYGAcwFh59fX3kyfJO9+cGQMDAyN49XXal4T4fC8MDAyMNoBGqVtZHmNgYGDMitgk4M5acu0PhIGBcRojD4v///efzDcwMDBuxXiWKx8ArJSs9akwMDC2ZszaZ7NhZHvQup2HgYGxKWOWtCWbzUrNpKz94QkGBsYBjCT5Wy8+k6tmsyQSAwNjb0a7wUp36zpBTNp8bz7FwMDYlFGEs1FIXQnWxeATAwNja8bKwHLlakVbJA8HnBgYGBsx2vZZ275PBp8f+FkxMDA2ZbRlanvZom3n5QVt0TXEwMC4OaPNGdtt8iRy/fIZBgbG3oxPjRhXrlmstPkwMDD2Zqynfev9rtlY4tcMFwMDY1NGnq59tqHWNu+KyxYYGBgbMfLW/3VAzNt2nxoMvKnIMTAwtmO0268fbjYAeBPcMTAwDmDMniTgtuidXUrDwMA4mXEdjle69CsNvjrgYmBgbMGYDQlWCt1Zoy26ZoGBgbER41muPATng8ylwhUDA+MARhvm2kZbm1bmRexw8ImBgXFbRh5kZ5ck8lDeDh4wMDBOY+SBr03m2tSz/VEwMDAwkkMn48m8rM2L52LCgIGBcRgjvzwxa6jN9sLAwDiBsRLsVoadbasOAwPjTEZ7xWE2YkzaankxPBxqYmBg3I/xBXbDQc/FZuKZAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADKUlEQVR42u3awXKjMBAE0Pz/T2fPqaxx90hUGeVxSmGM9eDQmRl9fcXH96/j+spXZ37/nR/Xd/i648DGxsZ+CDv/sVc/k3wreQTXmPa7b14VNjY29nHs6yhqf6b9NInA9vG9MWJjY2NjX165Hk75HbCxsbGxW3YbNtfLbUMu/xQbGxv7r7HzpnyCXA+ePORu76VhY2Njfzw7n4p+/t+3zLexsbGxP5i9a9PMShAmY+O9BzY2NvZJ7DwA8lZRmxrtls12M+jLdWJjY2MfwU4wt2yXKZtH6yXTjzPY2NjYx7HbJa6XE8kAeOWaqALDxsbGPoidjGPbSGtHrStD5fyxYmNjY5/HbuNhFmazSWtyz9kGI2xsbOxT2W35MStg8jJj1k5KwhgbGxv7r7FXRrbX1+RFTlsybZtvY2NjY388e9dyZwVGEjMJLL8eGxsb+1R2e7tZmO2KwJUHVNRG2NjY2A9htwta+bFZWM5GFO012NjY2M9ltxtr2iZUXkjk5cqszfRypxI2Njb2Eey2kTRr8eT4NmXqFhg2Njb2Qew7gmpllJsUIe2Dq9tM2NjY2I9i5w2g2ZXJt9b7PElTKXqf2NjY2A9kt/h80fnIdtcWn7ZQwcbGxj6PvbLcJNJ2NYba4cHLF4aNjY19BLtd1q5CZdZaarf7RO8ZGxsb++HsJCTWS4gkIPNR8WxsEL1zbGxs7CPYewe6eSs/HwzMhgdRUwkbGxv7gezk3/f2TB5dbSzlEfvmU2xsbOzj2CtD1jZU2micDQ/erBAbGxv7IHZeZuQDg3acsFLGzMYb2NjY2Oex2/Fq26bPG0bJQ1yJ0v/00rCxsbEPYiehst6an5U6bdQNpyLY2NjYh7LbQe+s9d+OftsGFjY2Nvap7O/yWNnQMywYSlL0gLCxsbEPYq/kXjJkTT7dNSTYFbHY2NjYT2QnoTUbIbTROCtO2jYTNjY29qnsfFNOHmN3N5tmIwpsbGxs7KRIyEuUfFi798VgY2NjY+dDgrbBlONnMYaNjY19Kjtv97TX5KGVN5vyV7Whl4aNjY398ex80LtyZgZrRw75oBobGxv7CPY/EXedCBmPM3cAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

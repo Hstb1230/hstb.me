@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
     
 
     
@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html">
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html">
     
     
     <title>Python3保存requests的cookies | Notes</title>
@@ -23,17 +23,20 @@
     
     <meta name="keywords" content="日常笔记,Python3,requests,cookie">
     <meta name="description" content="用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.">
-<meta name="keywords" content="日常笔记,Python3,requests,cookie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python3保存requests的cookies">
-<meta property="og:url" content="https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html">
 <meta property="og:site_name" content="Notes">
 <meta property="og:description" content="用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-16T08:12:56.239Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-08-12T09:07:50.000Z">
+<meta property="article:modified_time" content="2019-08-16T08:12:56.239Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="日常笔记">
+<meta property="article:tag" content="Python3">
+<meta property="article:tag" content="requests">
+<meta property="article:tag" content="cookie">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python3保存requests的cookies">
-<meta name="twitter:description" content="用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.">
     
         <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
     
@@ -44,7 +47,7 @@
     <!-- custom head -->
     
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body>
     <div id="loading" class="active"></div>
@@ -77,21 +80,21 @@
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/archives"  >
+              <a href="/notes/archives/"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/tags"  >
+              <a href="/notes/tags/"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/notes/categories"  >
+              <a href="/notes/categories/"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
@@ -191,8 +194,8 @@
 <h2 id="恢复变量"><a href="#恢复变量" class="headerlink" title="恢复变量"></a>恢复变量</h2><figure class="highlight python"><figcaption><span>pickle-load.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件中读取cookies</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'cookie'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># 使用update方法或者直接赋值</span></span><br><span class="line">    s.cookies.update(pickle.load(f))</span><br><span class="line">    <span class="comment"># s.cookies = pickle.load(f)</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><ul>
-<li><a href="/notes/2019/08/Python3保存requests的cookies/pickle-save.py" title="pickle-save.py">pickle-save.py</a></li>
-<li><a href="/notes/2019/08/Python3保存requests的cookies/pickle-load.py" title="pickle-load.py">pickle-load.py</a>
+<li><a href="/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies/pickle-save.py" title="pickle-save.py">pickle-save.py</a></li>
+<li><a href="/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies/pickle-load.py" title="pickle-load.py">pickle-load.py</a>
 </li>
 </ul>
 
@@ -207,7 +210,7 @@
 
 
         
-        <br />转载请说明出处：<a href="https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html" target="_blank" rel="external">https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html</a>
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
         
     </div>
     <footer>
@@ -227,7 +230,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Python3/">Python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/cookie/">cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/requests/">requests</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/日常笔记/">日常笔记</a></li></ul>
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Python3/" rel="tag">Python3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/cookie/" rel="tag">cookie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/requests/" rel="tag">requests</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/%E6%97%A5%E5%B8%B8%E7%AC%94%E8%AE%B0/" rel="tag">日常笔记</a></li></ul>
 
 
             
@@ -237,7 +240,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&title=《Python3保存requests的cookies》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&title=《Python3保存requests的cookies》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -247,22 +250,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&title=《Python3保存requests的cookies》 — Notes&source=用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&title=《Python3保存requests的cookies》 — Notes&source=用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3保存requests的cookies》 — Notes&url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3保存requests的cookies》 — Notes&url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -285,7 +288,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/notes/2019/08/CentOS7添加6in4隧道.html" id="post-prev" class="post-nav-link">
+      <a href="/notes/2019/08/CentOS7%E6%B7%BB%E5%8A%A06in4%E9%9A%A7%E9%81%93.html" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">CentOS7添加6in4隧道</h4>
       </a>
@@ -294,7 +297,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/notes/2019/07/在Python3的requests中使用自签名证书.html" id="post-next" class="post-nav-link">
+      <a href="/notes/2019/07/%E5%9C%A8Python3%E7%9A%84requests%E4%B8%AD%E4%BD%BF%E7%94%A8%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6.html" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">在Python3的requests中使用自签名证书</h4>
       </a>
@@ -376,7 +379,7 @@
             
                 <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
@@ -400,7 +403,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&title=《Python3保存requests的cookies》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&title=《Python3保存requests的cookies》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -410,22 +413,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&title=《Python3保存requests的cookies》 — Notes&source=用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&title=《Python3保存requests的cookies》 — Notes&source=用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3保存requests的cookies》 — Notes&url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python3保存requests的cookies》 — Notes&url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/Python3保存requests的cookies.html" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2019/08/Python3%E4%BF%9D%E5%AD%98requests%E7%9A%84cookies.html" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -436,7 +439,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3awW7rMAwEwPz/T6eXdyjQxl6SYp8P41OQOoomBSR6qdcrvt7fru/vfHr98/7rT3367PX9xy48PDy8wdSvh06QOaz3Tj5nPDw8vG3epxU1WZTf8XVqhGTOeHh4eM/kVYvmZNGfj4yHh4f3NF5ecOeY6sh4eHh4T+BNItTrorkXXiTjHM5a8PDw8DqZQGHo//t6pb+Hh4eHN+6q582w6j2Fgrg1z3/j4OHh4S3w8gU3D16rmCS8mMwTDw8P7ywv+YLqMax8Wc8D4mbIi4eHh7fAS6KHPE6tYvKNJ9lsClEFHh4e3oBXjRKqTanqzzF6Mvj5WTw8PLwF3vxo1GT5zrefA40xPDw8vEO8jYf/HDaJhqPQBA8PD2+Ndz2t6mJ9NqKtFtm/pNR4eHh4C7zJIYDez5Eweg02PDw8vG3e5LBUtVCujp/36262EDw8PLyjvDyoLafCQQk+PyJwcw8eHh7eH/ImRwSqpN5hhajgxsPDw1vgJSVsNVqtRsM5oFru4+Hh4e3xquXsZAPo/XVeiOPh4eGd4uXt/LzNn08uL5qrEQkeHh7eHm/eAKuW1NVJ56V5ecfDw8PDa/Emy3fOThb0cjibjI+Hh4e3wMtL5OrX5NvAa3BFsQgeHh7eAi+fXB435BFDtXmWByh4eHh4e7w8lp302SYHAkbbDB4eHt4abwLLl/gckH/jzbaEh4eH94e8XjGdl+anIolmGwwPDw+vxXsXr7z5lB/DmhTlN5sKHh4e3gKvt+DulctJ86wXIuPh4eGd5SWLe7Ix5DFB3r6qbgw3JyPw8PDwjvIm+eek9XUqgPj4Dh4eHt4DeEmRnW8beRjRbLDh4eHhPYBXLaOrAW4v6o0OXeHh4eEd5c3L4moUW402qv8SPDw8vD1e74G/2rbvHbpKQttjZ7Xw8PDw7nlfd2e7YF+2DScAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADL0lEQVR42u3aQW4jMQwEwPz/084DAtvd1BjI0DWnYBNrVPKBS7Z+fuLn8ef5++/PPvX65+S9r9+Vr1Y/2NjY2DdhP14+r9nPNpQf0OuVz/f5dGVsbGzsdey8/OSfzYvNM0BSzIb7xMbGxv5idlJmZiUnB1/w9WBjY2N/PTtpKtpyla+QHxk2Njb297CTMtMWqvxQXr8xH3J9ZJaGjY2N/e/Zs8D1f/78kXwbGxsb+x+zH+WTD5WujW9nu326JjY2NvYidl4A8oNIBklXRQJ5m4GNjY29ld2WlrZpaYPh9rfD92JjY2MvYifD9080D/lFn1l4EL0dGxsbewU73/q1jNnf519D1HthY2Njr2An/zPPl56Fx0dXaoKdR90YNjY29m3ZecuRF7O8MWjDg7xYvtk/NjY29iL2J4ZE55FwG13MqhI2Njb2JnZ7LSYfLbUDpnwwlB/rm31iY2Nj35ydj41mY6aT6DdpNoZRMTY2NvYi9kmAesLLB1JtQ3LUhGBjY2Pflt1iTkLck27pqpKJjY2NvYl9UlTOS1QeS7RrHg2VsLGxsW/Fzsc0s8KWx7FthNA2TtjY2Nhb2Vc1Bu1lzeRwrxoqFWkDNjY29g3ZyYs/UUKuakiOQgJsbGzsFez2A8ngJt9oW1nafb75nrGxsbFXsJOGpN3orL05GT/NDhcbGxt7B7stPAmmHRXN2p78CtHT0oWNjY29iJ1vNAkAZsh80N/GDNFNJWxsbOybs/NR0VXBQBv0titEeQg2Njb2CvYsyj0Z3Cehbzv6b8skNjY29j52fmky2W6+uVkwcD5mwsbGxt7KPhn6tMUpb1fy4273iY2Njb2PfdIGtGOm9uBmBezNnrGxsbG/gJ0skfNmn23DgGE2go2NjX1b9qN82oHU0dAnZtcxMDY2NvYi9qwAzEb8sws9ycBoNq7CxsbG3sSeDfTbCCH/m3Y8NIucsbGxsfex2zsts4s+Vw2Yzg8OGxsb+5vZ7cWddusnkUPRCGFjY2Njl69PytjJIQ7zbWxsbOxF7GSLeaSatC556cqHXMWusLGxsRex26szJxcxTw4u/5LyEoiNjY19c/Yv1p0CXZlyVEEAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
