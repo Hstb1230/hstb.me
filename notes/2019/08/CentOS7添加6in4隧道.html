@@ -30,7 +30,7 @@
 <meta property="og:description" content="阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-21T08:37:14.000Z">
-<meta property="article:modified_time" content="2019-10-26T08:09:55.656Z">
+<meta property="article:modified_time" content="2020-02-03T16:48:58.566Z">
 <meta property="article:author" content="Hstb">
 <meta property="article:tag" content="IPv6">
 <meta property="article:tag" content="隧道">
@@ -184,8 +184,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道</p>
-<a id="more"></a>
+            <p>阿里云ECS对原生IPv6的支持依旧艰难，只好用上了HE的6in4隧道<a id="more"></a></p>
 <h1 id="检查环境"><a href="#检查环境" class="headerlink" title="检查环境"></a>检查环境</h1><p>首先要检查系统是否开启IPv6<br>编辑<code>\etc\sysctl.conf</code>，确保包含如下配置：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 &#x3D; 0</span><br><span class="line">net.ipv6.conf.default.disable_ipv6 &#x3D; 0</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 &#x3D; 0</span><br></pre></td></tr></table></figure>
 <p>如有修改，请重启系统。</p>
@@ -256,7 +255,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-26T08:09:55.656Z" itemprop="dateUpdated">2019-10-26 16:09:55</time>
+    最后更新时间：<time datetime="2020-02-03T16:48:58.566Z" itemprop="dateUpdated">2020-02-04 00:48:58</time>
 </span><br>
 
 

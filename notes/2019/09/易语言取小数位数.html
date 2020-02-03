@@ -30,7 +30,7 @@
 <meta property="og:description" content="写了两遍，第二次写是因为发现还有1e-005这种操作.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-08T10:52:45.000Z">
-<meta property="article:modified_time" content="2019-09-08T12:55:31.380Z">
+<meta property="article:modified_time" content="2020-02-03T16:48:41.767Z">
 <meta property="article:author" content="Hstb">
 <meta property="article:tag" content="日常丢人">
 <meta property="article:tag" content="E">
@@ -177,9 +177,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>写了两遍，第二次写是因为发现还有<code>1e-005</code>这种操作.</p>
-<a id="more"></a>
-
+            <p>写了两遍，第二次写是因为发现还有<code>1e-005</code>这种操作.<a id="more"></a></p>
 <figure class="highlight plain"><figcaption><span>getDoubleLength.e</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">.版本 2</span><br><span class="line"></span><br><span class="line">.子程序 取小数位数, 整数型, , 最高6位</span><br><span class="line">.参数 小数数值, 双精度小数型, 可空</span><br><span class="line">.参数 小数文本, 文本型, 可空</span><br><span class="line">.局部变量 数值, 文本型</span><br><span class="line">.局部变量 xLoc, 整数型, , , 小数点或e的文本位置</span><br><span class="line">.局部变量 nLeft, 文本型</span><br><span class="line">.局部变量 nRight, 文本型</span><br><span class="line">.局部变量 len, 双精度小数型</span><br><span class="line"></span><br><span class="line">.判断开始 (是否为空 (小数数值) ＝ 假)</span><br><span class="line">    数值 ＝ 到文本 (小数数值)</span><br><span class="line">.判断 (是否为空 (小数文本) ＝ 假)</span><br><span class="line">    数值 ＝ 小数文本</span><br><span class="line">.默认</span><br><span class="line">    返回 (0)</span><br><span class="line">.判断结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “e”, , 假)</span><br><span class="line">.如果真 (xLoc ≠ -1)</span><br><span class="line">    nLeft ＝ 取文本左边 (数值, xLoc － 1)</span><br><span class="line">    nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">    len ＝ 取小数位数 (, nLeft) － 到整数 (nRight)</span><br><span class="line">    .如果真 (len ＜ 0)</span><br><span class="line">        返回 (0)</span><br><span class="line">    .如果真结束</span><br><span class="line">    返回 (len)</span><br><span class="line">.如果真结束</span><br><span class="line">xLoc ＝ 寻找文本 (数值, “.”, , 假)</span><br><span class="line">.如果真 (xLoc ＝ -1)</span><br><span class="line">    返回 (0)</span><br><span class="line">.如果真结束</span><br><span class="line">nRight ＝ 取文本右边 (数值, 取文本长度 (数值) － xLoc)</span><br><span class="line">.判断循环首 (nRight ≠ “” 且 取文本右边 (nRight, 1) ＝ “0”)</span><br><span class="line">    .如果真 (取文本长度 (nRight) ＝ 1)</span><br><span class="line">        nRight ＝ “”</span><br><span class="line">        跳出循环 ()</span><br><span class="line">    .如果真结束</span><br><span class="line">    nRight ＝ 取文本左边 (nRight, 取文本长度 (nRight) － 1)</span><br><span class="line">.判断循环尾 ()</span><br><span class="line">返回 (取文本长度 (nRight))</span><br></pre></td></tr></table></figure>
 
 <p>附件：</p>
@@ -194,7 +192,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-09-08T12:55:31.380Z" itemprop="dateUpdated">2019-09-08 20:55:31</time>
+    最后更新时间：<time datetime="2020-02-03T16:48:41.767Z" itemprop="dateUpdated">2020-02-04 00:48:41</time>
 </span><br>
 
 

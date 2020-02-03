@@ -30,7 +30,7 @@
 <meta property="og:description" content="用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-08-12T09:07:50.000Z">
-<meta property="article:modified_time" content="2020-01-31T19:15:49.476Z">
+<meta property="article:modified_time" content="2020-02-03T16:49:17.486Z">
 <meta property="article:author" content="Hstb">
 <meta property="article:tag" content="日常丢人">
 <meta property="article:tag" content="Python3">
@@ -186,8 +186,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.</p>
-<a id="more"></a>
+            <p>用了几天requests后, 发现它的cookie只在本次运行脚本中有效, 这样肯定不行的.<a id="more"></a></p>
 <p>所以要提前保存Cookie, 在下次运行脚本时使用.</p>
 <p>目前只看到一个方法, 但是应该不止, 以后会继续补充.</p>
 <h1 id="使用pickle"><a href="#使用pickle" class="headerlink" title="使用pickle"></a>使用pickle</h1><h2 id="保存变量"><a href="#保存变量" class="headerlink" title="保存变量"></a>保存变量</h2><figure class="highlight python"><figcaption><span>pickle-save.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">s = requests.Session()</span><br><span class="line">s.get(<span class="string">'https://aq.qq.com/cn2/index'</span>)</span><br><span class="line">print(s.cookies)</span><br><span class="line"><span class="comment"># 将cookies写到文件</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'cookie'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    pickle.dump(s.cookies, f)</span><br></pre></td></tr></table></figure>
@@ -205,7 +204,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-01-31T19:15:49.476Z" itemprop="dateUpdated">2020-02-01 03:15:49</time>
+    最后更新时间：<time datetime="2020-02-03T16:49:17.486Z" itemprop="dateUpdated">2020-02-04 00:49:17</time>
 </span><br>
 
 
