@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html">
+    
+    
+    <title>PAT(Base) 1052 卖个萌 | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="C语言">
+    <meta name="description" content="题目链接: https:&#x2F;&#x2F;pintia.cn&#x2F;problem-sets&#x2F;994805260223102976&#x2F;problems&#x2F;99480527388395110">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT(Base) 1052 卖个萌">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="题目链接: https:&#x2F;&#x2F;pintia.cn&#x2F;problem-sets&#x2F;994805260223102976&#x2F;problems&#x2F;99480527388395110">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-17T21:30:25.000Z">
+<meta property="article:modified_time" content="2020-02-17T22:09:53.267Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="C语言">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>不敲代码 • 沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../"  >
+                <i class="icon icon-lg icon-home"></i>
+                Main
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PAT(Base) 1052 卖个萌</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PAT(Base) 1052 卖个萌</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-17T21:30:25.000Z" itemprop="datePublished" class="page-time">
+  2020-02-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/PAT/">PAT</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#题目描述"><span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入格式"><span class="post-toc-text">输入格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出格式"><span class="post-toc-text">输出格式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入样例"><span class="post-toc-text">输入样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出样例"><span class="post-toc-text">输出样例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解题思路"><span class="post-toc-text">解题思路</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析"><span class="post-toc-text">解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#坑点"><span class="post-toc-text">坑点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Code"><span class="post-toc-text">Code</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-PAT(Base)-1052-卖个萌"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PAT(Base) 1052 卖个萌</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-18 05:30:25" datetime="2020-02-17T21:30:25.000Z"  itemprop="datePublished">2020-02-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/PAT/">PAT</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>题目链接: <a href="https://pintia.cn/problem-sets/994805260223102976/problems/99480527388395110" target="_blank" rel="noopener">https://pintia.cn/problem-sets/994805260223102976/problems/99480527388395110</a> <a id="more"></a></p>
+</blockquote>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>萌萌哒表情符号通常由“手”、“眼”、“口”三个主要部分组成。简单起见，我们假设一个表情符号是按下列格式输出的：</p>
+<pre><code>[左手]([左眼][口][右眼])[右手]</code></pre>
+<p>现给出可选用的符号集合，请你按用户的要求输出表情。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入首先在前三行顺序对应给出手、眼、口的可选符号集。每个符号括在一对方括号 []内。题目保证每个集合都至少有一个符号，并不超过 10 个符号；每个符号包含 1 到 4 个非空字符。</p>
+<p>之后一行给出一个正整数 K，为用户请求的个数。随后 K 行，每行给出一个用户的符号选择，顺序为左手、左眼、口、右眼、右手——这里只给出符号在相应集合中的序号（从 1 开始），数字间以空格分隔。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对每个用户请求，在一行中输出生成的表情。若用户选择的序号不存在，则输出 <code>Are you kidding me? @\/@</code>。</p>
+<h2 id="输入样例"><a href="#输入样例" class="headerlink" title="输入样例"></a>输入样例</h2><pre><code>[╮][╭][o][~\][&#x2F;~]  [&lt;][&gt;]
+ [╯][╰][^][-][&#x3D;][&gt;][&lt;][@][⊙]
+[Д][▽][_][ε][^]  ...
+4
+1 1 2 2 2
+6 8 1 5 5
+3 3 4 3 3
+2 10 3 9 3</code></pre>
+
+<h2 id="输出样例"><a href="#输出样例" class="headerlink" title="输出样例"></a>输出样例</h2><pre><code>╮(╯▽╰)╭
+&lt;(@Д&#x3D;)&#x2F;~
+o(^ε^)o
+Are you kidding me? @\&#x2F;@</code></pre>
+
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><ul>
+<li>前三行分别是手、眼、口的符号集，每个符号头尾为<code>[</code>和<code>]</code>,<br>可以先标记前一个<code>[</code>的位置, 找到<code>]</code>后再截取出符号.</li>
+<li>用数组存储符号集, 也方便后面判断序号是否合法.</li>
+<li>文本中可能会出现干扰文本, 比如第三行的<code>...</code></li>
+</ul>
+<h3 id="坑点"><a href="#坑点" class="headerlink" title="坑点"></a>坑点</h3><ul>
+<li>Dev-C++没法正常输出某些颜文字的问题, </li>
+<li>题目描述不清楚, 或者说是样例不全, 可能会因此疏忽而出现段错误,</li>
+<li>疏忽了C语言字符串中, 单个<code>\</code>表示转义, 无法通过测试点.</li>
+<li>输出文本包含一对括号.</li>
+<li>不能用<code>s[i]</code>判断是否到字符串结尾, 而应该用<code>.length</code>方法.</li>
+<li>如果会正则的话, 这题应该会更简单一些.</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a><code>Code</code></h3><p>因为有一些调试性质的代码, 所以会略乱.</p>
+<figure class="highlight cpp"><figcaption><span>answer</span><a href="/notes/downloads/code/PAT(Base)\1052-卖个萌\answer.cpp">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_face</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &amp; face)</span> </span>{</span><br><span class="line">	face.clear();</span><br><span class="line">	<span class="keyword">int</span> start;</span><br><span class="line">	<span class="keyword">int</span> len = s.length();</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) {</span><br><span class="line">		<span class="keyword">if</span>(s[i] == <span class="string">'['</span>)</span><br><span class="line">			start = i + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(s[i] == <span class="string">']'</span>) {</span><br><span class="line">			<span class="comment">// cout &lt;&lt; start &lt;&lt; ' ' &lt;&lt; i &lt;&lt; endl;</span></span><br><span class="line">			face.push_back(s.substr(start, i - start));</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_face</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; face)</span> </span>{</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; face.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; face.size(); i++) {</span><br><span class="line">		<span class="keyword">if</span>(i &gt; <span class="number">0</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"    "</span>;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; face[i];</span><br><span class="line">	}</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">	<span class="built_in">string</span> a, b, c;</span><br><span class="line">	getline(<span class="built_in">cin</span>, a);</span><br><span class="line">	getline(<span class="built_in">cin</span>, b);</span><br><span class="line">	getline(<span class="built_in">cin</span>, c);</span><br><span class="line"><span class="comment">//	cout &lt;&lt; a &lt;&lt; endl &lt;&lt; b &lt;&lt; endl &lt;&lt; c &lt;&lt; endl;</span></span><br><span class="line">	<span class="function"><span class="built_in">vector</span>&lt; <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; &gt; <span class="title">face</span><span class="params">(<span class="number">3</span>)</span></span>;</span><br><span class="line">	get_face(a, face[<span class="number">0</span>]); <span class="comment">// hand</span></span><br><span class="line">	get_face(b, face[<span class="number">1</span>]); <span class="comment">// eye</span></span><br><span class="line">	get_face(c, face[<span class="number">2</span>]); <span class="comment">// mouth</span></span><br><span class="line"><span class="comment">//	print_face(face[0]);</span></span><br><span class="line"><span class="comment">//	print_face(face[1]);</span></span><br><span class="line"><span class="comment">//	print_face(face[2]);</span></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">	<span class="keyword">int</span> q, w, e, r, t; <span class="comment">// left_hand, left_eye, mouth, right_eye, right_hand</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; q &gt;&gt; w &gt;&gt; e &gt;&gt; r &gt;&gt; t;</span><br><span class="line">		<span class="keyword">if</span>(</span><br><span class="line">			q &lt;= <span class="number">0</span> || w &lt;= <span class="number">0</span> || e &lt;= <span class="number">0</span> || r &lt;= <span class="number">0</span> || t &lt;= <span class="number">0</span></span><br><span class="line">			|| q &gt; face[<span class="number">0</span>].size() || w &gt; face[<span class="number">1</span>].size() || e &gt; face[<span class="number">2</span>].size()</span><br><span class="line">			|| r &gt; face[<span class="number">1</span>].size() || t &gt; face[<span class="number">0</span>].size()</span><br><span class="line">		) {</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"Are you kidding me? @\\/@\n"</span>);</span><br><span class="line">		} <span class="keyword">else</span> {</span><br><span class="line">			<span class="built_in">printf</span>(</span><br><span class="line">				<span class="string">"%s(%s%s%s)%s\n"</span>,</span><br><span class="line">				face[<span class="number">0</span>][q - <span class="number">1</span>].c_str(),</span><br><span class="line">				face[<span class="number">1</span>][w - <span class="number">1</span>].c_str(),</span><br><span class="line">				face[<span class="number">2</span>][e - <span class="number">1</span>].c_str(),</span><br><span class="line">				face[<span class="number">1</span>][r - <span class="number">1</span>].c_str(),</span><br><span class="line">				face[<span class="number">0</span>][t - <span class="number">1</span>].c_str()</span><br><span class="line">			);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-02-17T22:09:53.267Z" itemprop="dateUpdated">2020-02-18 06:09:53</time>
+</span><br>
+
+
+        
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/C%E8%AF%AD%E8%A8%80/" rel="tag">C语言</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&title=《PAT(Base) 1052 卖个萌》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&title=《PAT(Base) 1052 卖个萌》 — Notes&source=
+题目链接: https://pintia.cn/problem-sets/994805260223102976/problems/99480527388..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PAT(Base) 1052 卖个萌》 — Notes&url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2020/02/C%E8%AF%AD%E8%A8%80%E8%AE%A1%E7%AE%97%E7%B4%A0%E6%95%B0.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">C语言计算素数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'Tue Feb 18 2020 05:30:25 GMT+0800 (中国标准时间)',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'PAT(Base) 1052 卖个萌',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2020</span>
+            <span>
+                
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&title=《PAT(Base) 1052 卖个萌》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&title=《PAT(Base) 1052 卖个萌》 — Notes&source=
+题目链接: https://pintia.cn/problem-sets/994805260223102976/problems/99480527388..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PAT(Base) 1052 卖个萌》 — Notes&url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://i.hstb1230.com/notes/2020/02/PAT(Base)-1052-%E5%8D%96%E4%B8%AA%E8%90%8C.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3awY6jMBAE0Pz/T2cve4g0AqrcmMlIj1NEkMPzwe5U+/WKr/fH9Xnn/NvPO0ej/XzmfXq9dlx4eHh4g1c/Gm5y//xXfk5WO30XU4CHh4e3jXe0op7//PlWkcASTPI+h/fx8PDwvoyXf06K6fO3wsPDw/u7vEkZnfzifAQ8PDy8Z3h5WDCJdO8ql7dkLXh4eHgbukjf83lLfw8PDw9v3FVPFtx2I8lHm7zn/xHw8PDwNvDyBTf/4TyKXYs/6vfEw8PD28DLi+n2yXzbyGPlNjrBw8PD28Fbi27XFvS8cZUX5RebAR4eHt5mXtteao9PJeD8ToTEw8PDe5y3o6+UF9Y3NMPw8PDwbuXlh6WSMjcvmttgIimmD/t7eHh4eLfy8tb+JGLIJ3Et9r3YKvDw8PA28CYLd36woG1xtWHHxXvi4eHhbePNQ4Q2CG4PIqy9Dx4eHt5dvHzBbQ8H5C2uSdxwAcbDw8Pbxpscupo0vdbGSaLkIgPGw8PDK3lrhWzbwp+U4O1hgiLMxcPDwxvz1pb1ZKtow+L220iBh4eHdxOvLVsnBwLyNn8bTBxOBx4eHt4G3to/9zYsyA8HLB6oykl4eHh4Y958CW5Jd8XB9b8EPDw8vG28HJwX33c1uuqYGA8PD28DbxKYThr585ZYch8PDw/ved780FVSpucF9OIIeHh4eJt5zy/x7TN5Ew4PDw/vt3hrW0g+Whva1u0xPDw8vFt57/JKRmi3kLbxVkwWHh4e3gZeu/jm8UQ7EXmc0bbH8PDw8Hbw8qMDCaAtzZNJHG0MeHh4eNt4k2NPa6++9szo0BUeHh7eL/GS8joPdtdiheJwGB4eHt7X8NoW19qU5VEvHh4e3vO8tvk0ORqVh7zz4AMPDw9vB2/+hz+fiDyWzQvo2/p7eHh4eNe8fyobAyd8rbPmAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
