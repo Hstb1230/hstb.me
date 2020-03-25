@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html">
+    
+    
+    <title>Android隐式启动其他Activity | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android">
+    <meta name="description" content="跟上次一样, 常规操作却又闪退.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android隐式启动其他Activity">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="跟上次一样, 常规操作却又闪退.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-21T20:29:10.000Z">
+<meta property="article:modified_time" content="2020-03-22T18:26:52.602Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>不敲代码 • 沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../"  >
+                <i class="icon icon-lg icon-home"></i>
+                Main
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android隐式启动其他Activity</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android隐式启动其他Activity</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-21T20:29:10.000Z" itemprop="datePublished" class="page-time">
+  2020-03-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#同应用内启动"><span class="post-toc-text">同应用内启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Java代码"><span class="post-toc-text">Java代码</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AndroidManifest-xml"><span class="post-toc-text">AndroidManifest.xml</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#错误日志"><span class="post-toc-text">错误日志</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析"><span class="post-toc-text">分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#修正"><span class="post-toc-text">修正</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#其他应用内启动"><span class="post-toc-text">其他应用内启动</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#疏忽型错误"><span class="post-toc-text">疏忽型错误</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#权限型错误"><span class="post-toc-text">权限型错误</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原因"><span class="post-toc-text">原因</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决方法"><span class="post-toc-text">解决方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AndroidManifest-xml-1"><span class="post-toc-text">AndroidManifest.xml</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android/隐式启动其他Activity"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android隐式启动其他Activity</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-22 04:29:10" datetime="2020-03-21T20:29:10.000Z"  itemprop="datePublished">2020-03-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/Android/">Android</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>跟上次一样, 常规操作却又闪退. <a id="more"></a></p>
+<h1 id="同应用内启动"><a href="#同应用内启动" class="headerlink" title="同应用内启动"></a>同应用内启动</h1><h2 id="Java代码"><a href="#Java代码" class="headerlink" title="Java代码"></a>Java代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"com.example.demo.action.SECOND"</span>);</span><br><span class="line">startActivity(intent);</span><br></pre></td></tr></table></figure>
+<h2 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a><code>AndroidManifest.xml</code></h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SecondActivity"</span>  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.example.demo.action.SECOND"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="错误日志"><a href="#错误日志" class="headerlink" title="错误日志"></a>错误日志</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.content.ActivityNotFoundException: No Activity found to handle Intent &#123; act&#x3D;com.example.demo.action.SECOND &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>错误意思大致是没有找到Activity.</p>
+<p>在<a href="https://stackoverflow.com/questions/15614561/android-content-activitynotfoundexception-no-activity-found-to-handle-intent-sp" target="_blank" rel="noopener">StackOverflow</a>上使用错误日志搜到相似问题, 但那位仁兄是<code>Intent</code>启动的<code>activity name</code>与<code>AndroidManifest.xml</code>不一致导致的, </p>
+<p>后面看着他的<code>AndroidManifest.xml</code>中有<code>label</code>属性和<code>category</code>标签, 就都加上去, 然后就不闪退了.</p>
+<p>依次添加, 发现是<strong>缺少<code>category</code>标签</strong>导致的闪退.</p>
+<h2 id="修正"><a href="#修正" class="headerlink" title="修正"></a>修正</h2><p>在<code>AndroidManifest.xml</code>的对应<code>activity</code>的<code>intent-filter</code>下添加 <strong><code>category</code></strong> 标签即可:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SecondActivity"</span>  &gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.example.demo.action.SECOND"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="其他应用内启动"><a href="#其他应用内启动" class="headerlink" title="其他应用内启动"></a>其他应用内启动</h1><h2 id="疏忽型错误"><a href="#疏忽型错误" class="headerlink" title="疏忽型错误"></a>疏忽型错误</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No Activity found to handle Intent</span><br></pre></td></tr></table></figure>
+<p>一般就是不存在这个action, 最大的可能性就是<strong>忘记安装</strong>对应的app到同一设备.</p>
+<h2 id="权限型错误"><a href="#权限型错误" class="headerlink" title="权限型错误"></a>权限型错误</h2><p>要启动的app包名为<code>com.demo.app</code>, 对应的<code>activity</code>的<code>action</code>为<code>com.demo.app.second</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.lang.SecurityException: Permission Denial: starting Intent &#123; act=com.demo.app.second cmp=com.demo.app/.SecondActivity &#125; ...</span><br></pre></td></tr></table></figure>
+
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>目标activity设置(或默认)其标签的属性 <strong><code>android:exported</code> 值为 <code>false</code></strong> , 即禁止其他app启动该activity.</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>从原因入手, 在目标activity的xml标签中设置属性 <strong><code>android:exported</code>值为<code>true</code></strong> .</p>
+<h3 id="AndroidManifest-xml-1"><a href="#AndroidManifest-xml-1" class="headerlink" title="AndroidManifest.xml"></a><code>AndroidManifest.xml</code></h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SecondActivity"</span> <span class="attr">android:exported</span>=<span class="string">"false"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.demo.app.second"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>[1] <a href="https://stackoverflow.com/questions/15614561/android-content-activitynotfoundexception-no-activity-found-to-handle-intent-sp" target="_blank" rel="noopener">StackOverflow</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-03-22T18:26:52.602Z" itemprop="dateUpdated">2020-03-23 02:26:52</time>
+</span><br>
+
+
+        
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes/">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Android/" rel="tag">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&title=《Android隐式启动其他Activity》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&title=《Android隐式启动其他Activity》 — Notes&source=跟上次一样, 常规操作却又闪退." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android隐式启动其他Activity》 — Notes&url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/notes/2020/03/Android/%E9%80%9A%E8%BF%87%E5%8C%B9%E9%85%8DData%E5%90%AF%E5%8A%A8Activity.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android通过匹配Data启动Activity</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2020/03/Android/%E4%BD%BF%E7%94%A8%E6%8F%90%E7%A4%BA%E6%A1%86%E9%97%AA%E9%80%80.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android使用提示框闪退</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'Sun Mar 22 2020 04:29:10 GMT+0800 (中国标准时间)',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'Android隐式启动其他Activity',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2020</span>
+            <span>
+                
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&title=《Android隐式启动其他Activity》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&title=《Android隐式启动其他Activity》 — Notes&source=跟上次一样, 常规操作却又闪退." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android隐式启动其他Activity》 — Notes&url=https://i.hstb1230.com/notes/2020/03/Android/%E9%9A%90%E5%BC%8F%E5%90%AF%E5%8A%A8%E5%85%B6%E4%BB%96Activity.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD70lEQVR42u3aS07DQBAFwNz/0rBFCtjvdY9BSOUVCvZ4prLo9Of1iq+PL9fXT97/vn7q/fPrK3/79T2HLxw4cODAER812dDm9deHTNbZ8F0/hQMHDhw4znIkW0+CaBIIi82VQT0JzDdnx4EDBw4cv86RpGT5tjbh/JoSBw4cOHD8F47Zf69D6T6l3IdnHDhw4MBxlqMNb9eLJilfHp5nJb/Ha6U4cODAgSONdK88aP2Xvx+Z78CBAwcOHGWylJTekiSqXSEJgY+0u3DgwIEDx6HJgbZgNyv/zX4F5JT5EMPN+jhw4MCB4wGOWaEtT/nyjeaftIG8fjEOHDhw4Ag42rJaXpLLG1ebFlcbvG/2hgMHDhw4jnK0QfRUMTEZXNgPQERfBg4cOHDgOMTRhthZCS8vNbYtq1mB8seyIA4cOHDgWHDkgbMdZcjHC2Y72ax28zXjwIEDB441Rx4a89JeTjYrO7bhtv3KceDAgQPHnuN3SnJtkN63o5I7ceDAgQPHKY48pdm3i/IBuHbAIkn2VgMNOHDgwIFjwbFpJrXb3aSCZ4uDOHDgwIHjLMdsECE/0mp8rSwdtj8Cvgm0OHDgwIFjzTELivnx8gDcjui17aibZ3HgwIEDxyGOPCU7PIgWDDe0BcTN8AQOHDhw4NhztAeepXNtkG5Tr3a0YnjhwIEDB46SIy/JtU+1IwttGtkG1GiHOHDgwIFjxHEqULXFuFkgTBLFVSDHgQMHDhwPcLQBrB1c2CeTbSmwSFBx4MCBA8cDHLMmzaZxlRDnxcFknVUXDgcOHDhwBBz5hvKBtnx8LT9SHuDb8Pzj5CAOHDhw4Cg52rGA2YuToYeEuKUZpoI4cODAgeMQR57FPLGhU2MNm5Vx4MCBA8cpjnahU8lSzj0rDq7aVDhw4MCBY8SRh5/N6MNmtbyAWDeZ3u/BgQMHDhxrjjzKzAJtEnRn688G6YpCJA4cOHDgGHG0AwqbMbUZ/aw4eP0jIJrvwIEDBw4cI458Q3mAzA/cJmz5s5t7cODAgQPH5p6zbZt8gKAdkmhXG/5EwIEDBw4chzjasNeOJrQHm6Vh7VhekdHiwIEDB46Yo23SzIJcsqE8bLcFylVxEAcOHDhwjNpO+ZUbb5KxtuE0Sw6HtUkcOHDgwHHoapmSreSNq6Sh1RYri74cDhw4cOAoOZ4ObO3nbSurHdS4QceBAwcOHIc4Tm2lfv26ONiufIOFAwcOHDj+lGMz7tA2t9p0cZYi4sCBAweOv+JoRxlODUZshuqiE+HAgQMHjkMcSdCaDQ3ka+ZFydmPgOhcOHDgwIFjzTEr1Z1tJs0GI/LDtAkeDhw4cOAYcXwCbGtUhuIFbt4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html">
+    
+    
+    <title>Android Studio删除module | Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android Studio">
+    <meta name="description" content="引言 因为一些奇奇怪怪的原因(比如打错名字云云), 想要删了Module重建,结果按「delete」键一点反应也没有,右键Module, 看了菜单好一会, 没想到不能直接删除一个Module,   一开始脑抽, 想着直接去项目文件夹下删除对应Module, 然而这肯定是不现实的,  初步摸索使用「Load&#x2F;Unload Module」在右键菜单看了一会, 找到「Load&#x2F;Unload Modul">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio删除module">
+<meta property="og:url" content="https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html">
+<meta property="og:site_name" content="Notes">
+<meta property="og:description" content="引言 因为一些奇奇怪怪的原因(比如打错名字云云), 想要删了Module重建,结果按「delete」键一点反应也没有,右键Module, 看了菜单好一会, 没想到不能直接删除一个Module,   一开始脑抽, 想着直接去项目文件夹下删除对应Module, 然而这肯定是不现实的,  初步摸索使用「Load&#x2F;Unload Module」在右键菜单看了一会, 找到「Load&#x2F;Unload Modul">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module/Load_or_Unload_Module.png">
+<meta property="og:image" content="https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module/%E5%88%9B%E5%BB%BA%E5%90%8C%E5%90%8DModule.png">
+<meta property="article:published_time" content="2020-03-25T20:34:04.000Z">
+<meta property="article:modified_time" content="2020-03-25T22:12:13.876Z">
+<meta property="article:author" content="Hstb">
+<meta property="article:tag" content="Android Studio">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module/Load_or_Unload_Module.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Notes" href="/notes/atom.xml">
+    
+    <link rel="shortcut icon" href="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="stylesheet" href="/notes/css/style.css?v=1.6.16">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(https://img.1sls.cn/RandImg/ZhihuEmotions)">
+      <div class="brand">
+        <a href="/notes/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Hstb</h5>
+		  <h6>不敲代码 • 沙雕网友</h6>
+          <a href="mailto:i@hstb1230.com" title="i@hstb1230.com" class="mail">i@hstb1230.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../"  >
+                <i class="icon icon-lg icon-home"></i>
+                Main
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/archives/"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/tags/"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/categories/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/notes/../about/"  >
+                <i class="icon icon-lg icon-info-circle"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android Studio删除module</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android Studio删除module</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-25T20:34:04.000Z" itemprop="datePublished" class="page-time">
+  2020-03-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/Android-Studio/">Android Studio</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#引言"><span class="post-toc-text">引言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#初步摸索"><span class="post-toc-text">初步摸索</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用「Load-Unload-Module」"><span class="post-toc-text">使用「Load&#x2F;Unload Module」</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#重建同名Module"><span class="post-toc-text">重建同名Module</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用「Invaildate-Caches-Restart」清除缓存"><span class="post-toc-text">使用「Invaildate Caches &#x2F; Restart」清除缓存</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调整「settings-gradle」"><span class="post-toc-text">调整「settings.gradle」</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#偶然出现的错误"><span class="post-toc-text">偶然出现的错误</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#正确的操作"><span class="post-toc-text">正确的操作</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android Studio/删除module"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android Studio删除module</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-26 04:34:04" datetime="2020-03-25T20:34:04.000Z"  itemprop="datePublished">2020-03-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/notes/categories/Android-Studio/">Android Studio</a></li></ul>
+
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <a id="more"></a>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
+<p>因为一些奇奇怪怪的原因(比如打错名字云云), 想要删了Module重建,<br>结果按「delete」键一点反应也没有,<br>右键Module, 看了菜单好一会, 没想到不能直接删除一个Module, </p>
+</blockquote>
+<p>一开始脑抽, 想着直接去项目文件夹下删除对应Module, 然而这肯定是不现实的, </p>
+<h1 id="初步摸索"><a href="#初步摸索" class="headerlink" title="初步摸索"></a>初步摸索</h1><h2 id="使用「Load-Unload-Module」"><a href="#使用「Load-Unload-Module」" class="headerlink" title="使用「Load/Unload Module」"></a>使用<code>「Load/Unload Module」</code></h2><p>在右键菜单看了一会, 找到<code>「Load/Unload Module」</code>, </p>
+<img src="/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module/Load_or_Unload_Module.png" class="">
+
+<p>点击了<code>app</code> Module, 再<code>「Unload」</code>, </p>
+<p>看了下项目文件夹, 发现app文件夹还在, 于是把它删了, </p>
+<p>本以为万事大吉, 然而我去重建app后, 才发现不对劲.</p>
+<h2 id="重建同名Module"><a href="#重建同名Module" class="headerlink" title="重建同名Module"></a>重建同名Module</h2><img src="/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module/%E5%88%9B%E5%BB%BA%E5%90%8C%E5%90%8DModule.png" class="">
+
+<p>左边的Module列表里也没有<code>app</code>, 而右边弹出的Activity布局文件也不正常, 提示<code>Design editor is unavailable until next gradle sync.</code>,<br>在<code>「Sync Project with Gradle Files」</code>后, 提示<code>Failed to initialize editor.</code>, 并且<code>「Event Log」</code>也提示</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Load Settings</span><br><span class="line">Cannot load settings from file &#39;···\app\app.iml&#39;: File ···\app\app.iml does not exist</span><br><span class="line">Please correct the file content</span><br></pre></td></tr></table></figure>
+<p>看上去是凉了.</p>
+<p>于是又打开<code>「Load/Unload Module」</code>, 想要删除<code>app</code>,<br>但<code>app</code>还在<code>Unloaded Modules</code>列表里, 这时候我意识到我做错了,<br>只好将其先<code>Load</code>, <code>app</code>出现在列表, 但无任何文件, 与其他已存在的Module不太一样.</p>
+<p>继续<code>「Sync Project with Gradle Files」</code>仍无法工作, </p>
+<p>于是想着能不能先删除本地文件夹, 再重建app, 但被阻止了, 提示已存在<code>app</code>,</p>
+<h2 id="使用「Invaildate-Caches-Restart」清除缓存"><a href="#使用「Invaildate-Caches-Restart」清除缓存" class="headerlink" title="使用「Invaildate Caches / Restart」清除缓存"></a>使用<code>「Invaildate Caches / Restart」</code>清除缓存</h2><p>接着摸索, 在<code>「File」</code>下面发现了这个功能, 就猜想是不是缓存的问题,<br>在操作后, Android Studio重启了, <code>Gradle Sync</code>又出现警告:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Warning: root project &#39;homework&#39;: Unable to resolve additional project configuration.</span><br><span class="line">Details: org.apache.tools.ant.BuildException: Basedir ···\app does not exist</span><br></pre></td></tr></table></figure>
+
+<p>双击后跳到<code>build.gradle (homework)</code>, 但该文件没有与<code>app</code>相关的信息, 显得有点无厘头,<br>不过可以猜测到应该是某个Gradle文件存在问题, 所以在<code>「Gradle Scripts」</code>文件夹下翻了翻, </p>
+<h2 id="调整「settings-gradle」"><a href="#调整「settings-gradle」" class="headerlink" title="调整「settings.gradle」"></a>调整<code>「settings.gradle」</code></h2><p>在<code>「settings.gradle」</code>中看到<code>include &#39;:app&#39;</code>, 将其删除,<br>重新<code>「Sync Project with Gradle Files」</code>后没有再报错, 并且<code>app</code>也从Module列表中自动清除了.</p>
+<p>看上去是解决了, 但很让我吐血,<br>因为我是带着复现后再解决的目的写这篇文章, 之前做到这的时候<code>app</code>还是在列表里删不掉, 结果现在自己没了, 没了···</p>
+<p>但我还是得写下去 (倔强=-=)</p>
+<h2 id="偶然出现的错误"><a href="#偶然出现的错误" class="headerlink" title="偶然出现的错误"></a>偶然出现的错误</h2><p>各种操作之后, Android Studio偶然的弹出一个错误(因为没复现到, 所以靠<a href="https://stackoverflow.com/questions/28668252/" target="_blank" rel="noopener">Stack Overflow</a>回忆下):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Android studio Error </span><br><span class="line">&quot;Unsupported Modules Detected: Compilation is not supported for following modules&quot;</span><br></pre></td></tr></table></figure>
+<p>于是带着<code>Unsupported Modules Detected</code>搜了下, 发现 <a href="https://stackoverflow.com/questions/28668252/" target="_blank" rel="noopener">Stack Overflow</a> 上有一篇几年前的帖子,<br>因为已经试过, 所以我忽略了<code>「Invaildate Caches / Restart」</code>的做法, 看向了<code>Shady Sherif</code>的回答</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">close the project</span><br><span class="line">close Android Studio IDE</span><br><span class="line">delete the .idea directory</span><br><span class="line">delete all .iml files</span><br><span class="line">open Android Studio IDE and import the project</span><br></pre></td></tr></table></figure>
+<p>关闭项目, 在关闭Android Studio后, 将<code>.idea</code>文件夹删除.<br>因为每个Module下都有一个<code>.iml</code>文件, 一个个删太费劲, 所以参考了 <a href="https://blog.csdn.net/zhongzhongzhen/article/details/81048011" target="_blank" rel="noopener">Windows下批量删除指定后缀文件 | CSDN</a> 后, 在项目文件夹下用cmd执行了删除命令.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">del</span> /a /f /s /q  "*.iml"</span><br></pre></td></tr></table></figure>
+<p>然后用Android Studio重新打开项目, <code>app</code>已消失, 探索结束.</p>
+<h1 id="正确的操作"><a href="#正确的操作" class="headerlink" title="正确的操作"></a>正确的操作</h1><p>在看了 <a href="https://blog.csdn.net/hyr83960944/article/details/37519299" target="_blank" rel="noopener">Android Studio如何删除module | CSDN</a> 后, 我才注意到右键菜单中还有一个<code>Open Module settings</code>,<br>选择对应Module, 在点击上方的<code>-</code>, 即可删除Module,<br>不过并不会删除Module文件夹, 需要自己去删除才算彻底删除Module.</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>[1] <a href="https://blog.csdn.net/hyr83960944/article/details/37519299" target="_blank" rel="noopener">Android Studio如何删除module | CSDN</a><br>[2] <a href="https://stackoverflow.com/questions/28668252/android-studio-error-unsupported-modules-detected-compilation-is-not-supported" target="_blank" rel="noopener">Unsupported Modules Detected | Stack Overflow</a><br>[3] <a href="https://blog.csdn.net/zhongzhongzhen/article/details/81048011" target="_blank" rel="noopener">Windows下批量删除指定后缀文件 | CSDN</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-03-25T22:12:13.876Z" itemprop="dateUpdated">2020-03-26 06:12:13</time>
+</span><br>
+
+
+        
+        <br />倘若你无意中来到我的小站，发现内容质量还可以，那么请不要抹去痕迹，尊重他人的劳动成果
+        
+    </div>
+    <footer>
+        <a href="https://i.hstb1230.com/notes/">
+            <img src="https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" alt="Hstb">
+            Hstb
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/notes/tags/Android-Studio/" rel="tag">Android Studio</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&title=《Android Studio删除module》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&title=《Android Studio删除module》 — Notes&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio删除module》 — Notes&url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/notes/2020/03/Android%20Studio/%E5%9C%A8%E4%B8%80%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%87%8C%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AAapp.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android Studio在一个项目里创建多个app</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            id: 'Thu Mar 26 2020 04:34:04 GMT+0800 (中国标准时间)',
+            owner: 'hstb1230',
+            repo: 'hstb1230.github.io',
+            oauth: {
+                client_id: '54e7459b39803a59182c',
+                client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+            },
+			'title': 'Android Studio删除module',
+			'desc': '',
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        notitle
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="https://img.1sls.cn/Pic/png/89fbaa5c2ec6ec4550e06326183be685" data-alipay="https://img.1sls.cn/Pic/jpeg/57767842bd31ce775d852935410754e9">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+
+        <p>
+            
+                <span><a href="/notes/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank"><i class="icon icon-cc"></i> 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Hstb &copy;2017 - 2020</span>
+            <span>
+                
+                <a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备15012961号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&title=《Android Studio删除module》 — Notes&pic=https://img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&title=《Android Studio删除module》 — Notes&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio删除module》 — Notes&url=https://i.hstb1230.com/notes/2020/03/Android%20Studio/%E5%88%A0%E9%99%A4module.html&via=https://i.hstb1230.com/notes" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3bUU4CQRAEUO5/aT2AYanq3gE1jy+Cssxbk5mmun084sfX5ePnb+bXvH79+rNue+Dh4eEdWHqOya+Q/zRhP70FeHh4eMd4yQbd7sb55t4eOcma8fDw8H4b73qLz+vb5Pp4eHh4/4+XbO4nCnQ8PDy8z/LyxV0vcR9z5CX1zVkLHh4eXsybhQuffX6kv4eHh4e37qrnG26yZSfHSfKuYrV4eHh4B3j5hjtrTc1K5zy8uF4nHh4e3jleHpgmG3oUrS7GDpKhBDw8PLzTvLaMTiLdtqRug+Oi6MfDw8O7lTdsxo8GBdpbszlC8PDw8N7DaxtOeWv/3PVfXAcPDw/vAC8PXmdF9qzgbo+fogGGh4eHd4zXtvbbEHb/O3XrCw8PD+8m3iZoaLf+tpHWjnzh4eHhvZM3GxrYvLIZU6izFjw8PLwDvHwpeXiRFOj7EYEXz/Hw8PCO8dotvg1h94MIsxYaHh4e3mnebOtvl56vpB3PisIIPDw8vDVvdunZMMEsK5gNYBVhLh4eHl7JawvlzYJyfDtk8PRdeHh4eB/itfFrG2HkP00K98fs4/Hw8PDmVe7wH+zbA6Pl5Q0zPDw8vNO8SNy2ndYHT/v3icIIPDw8vJt49279m1uw/5Sntw8PDw/vLbxrahtS5MX6Zrzg6Xvx8PDwjvGSRWy+6SdlcR7mFocKHh4e3jFe277Ky999dLu6fXh4eHi38r7KxyxazUPheqzqGomHh4d3gLfZfGcRRh5JJKFtW9zj4eHh3cXbXHo2atBGvfnB8CKMwMPDw7uV1xa++4J4U5Qn8S4eHh7eb+bd20JLDqGiIYeHh4f3R3h59JAsdzOqhYeHh3eOtymI962pPOxoG2N4eHh4J3jtF/58jGB2SCSffqS/h4eHh/ea9w1+a5KXN4K6PgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/notes/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="/notes/js/main.min.js?v=1.6.16"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/notes/js/search.min.js?v=1.6.16" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
