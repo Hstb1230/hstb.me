@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="一个人的星空">
+    <meta name="keyword" content="Hstb1230">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+    <link rel="alternate" type="application/atom+xml" title="Hstb" href="/atom.xml">
+    
+<link rel="stylesheet" href="/css/animate.min.css">
+
+    <!--link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css" -->
+    
+<link rel="stylesheet" href="/css/font-awesome.css">
+
+    <title>
+        
+        Visual Studio调试DLL项目｜Hstb的小世界
+        
+    </title>
+
+    <link rel="canonical" href="https://i.hstb1230.com/Debug-DLL-with-VisualStudio.html">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+	
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//img.1sls.cn/Pic/jpeg/f57345a8d105fba7bb2811f85091f030')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Hstb
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+						
+                    
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+						
+                    
+                        
+                        <li>
+                            <a href="/notes/">Notes</a>
+                        </li>
+						
+                    
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+						
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="https://bing.ioliu.cn/v1/rand">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://bing.ioliu.cn/v1/rand')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>Visual Studio调试DLL项目</h1>
+                    
+                    <span class="meta">
+                         作者 Hstb
+                        <span>
+                          日期 2020-03-28
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#Visual Studio"
+                           title="Visual Studio">Visual Studio</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            Visual Studio调试DLL项目
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>因为易语言写多了, 被奇奇怪怪的坑点弄得总想换个语言开发, 摸索了很久, 选择了C++,<br>可能是对新事物不太习惯, 最开始找了一些IDE用不太懂, 特别是配置环境什么的,<br>加上英语不好, 就更搞不清楚, 所以一直搁在那.</p>
+<p>后面发现VS这个IDE, 刚好赶上C++课设, 就试着用VS写课设, 踩了一些坑,<br>后面放假就开始愉快的用VS开发DLL项目, 还算是顺利吧.</p>
+<p>不过一直搞不清楚怎么调试DLL项目, 编译完一开始运行就提示「 不是有效的应用程序 」,<br>一些博主说要创建一个EXE项目来调用, 但没说清楚怎么调用云云.</p>
+<p>因为易语言可以直接运行调试DLL, 所以觉得这种方法有点麻烦,<br>加上可以用机器人程序挂载DLL, 做到运行时调试, 所以勉强过得去.</p>
+<p>但是每次调试都要先卸载DLL后才能编译, 完了还要加载, 而且也要开着机器人程序,<br>有时候网不好或者其他原因, 登不上去, 那就没法调代码了, 特别坑.</p>
+<p>所以还是想把这个问题解决了, 但能力有限, 找不到合适的方法解决.<br>加上中间几个月因为各种事情没有精力写DLL, 所以这个问题也就耽搁在那没有管.</p>
+<p>最近又有点时间碰DLL, 但还是没有管这个问题, 只是稍微探索了下,<br>试了一些骚操作, 不过没有成功, 接着搁置.</p>
+<p>今天修完bug后还是想摸索一下, 在半被喷的情况下和群里dalao讨论了一会, 算是摸出来了.</p>
+<h1 id="无界面调试"><a href="#无界面调试" class="headerlink" title="无界面调试"></a>无界面调试</h1><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>依赖Windows系统自带的<code>rundll32.exe</code>,<br>省去额外创建项目调用DLL的操作.</li>
+</ul>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li><p>创建一个可被<code>rundll32.exe</code>调用的特定函数<br><s>根据MSDN的说明, </s>(只能在一些<a href="https://blog.csdn.net/anda0109/article/details/40111997" target="_blank" rel="noopener">博客</a>找到)该函数原型:</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> CALLBACK <span class="title">EntryPoint</span><span class="params">(HWND hWnd, HINSTANCE hInst, LPSTR lpszCmdLine, <span class="keyword">int</span> nCmdShow)</span></span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>EntryPoint</code> 为 可自定义函数名</li>
+<li><code>lpszCmdLine</code> 为 传入的命令行参数, <code>char</code>类型</li>
+</ul>
+<figure class="highlight cpp"><figcaption><span>DLL中的实际代码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> __declspec(dllexport) </span><br><span class="line"><span class="function"><span class="keyword">void</span> __stdcall <span class="title">DllDebug</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    HWND hWnd,              <span class="comment">// 父窗口的句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">    HINSTANCE hInst,        <span class="comment">// DLL的实例句柄</span></span></span></span><br><span class="line"><span class="function"><span class="params">    LPCSTR lpszCmdLine,     <span class="comment">// DLL将要解析的字符串</span></span></span></span><br><span class="line"><span class="function"><span class="params">    <span class="keyword">int</span> nCmdShow            <span class="comment">// 显示状态</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!IsDebuggerPresent())</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    OutputDebugString(<span class="string">"Start Debugging\n"</span>);</span><br><span class="line">    <span class="comment">// TODO</span></span><br><span class="line">    OutputDebugString(<span class="string">"End Debugging\n"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>添加了一些函数头, 使用「 <code>DllDebug</code> 」作为函数名,</li>
+<li>函数本身可为空, 这里为了防止非调试时调用, 添加了限定条件,</li>
+</ul>
+</li>
+<li><p>设置项目属性<br>2.1 将「 调试 」-「 要启动的调试器 」改为「 本地 Windows 调试器 」,<br>2.2 根据平台修改「 命令 」设置,</p>
+<ul>
+<li><code>Win32</code>:「 <code>$(SystemRoot)\SysWOW64\rundll32.exe</code> 」</li>
+<li><code>x64</code>:「 <code>$(SystemRoot)\System32\rundll32.exe</code> 」</li>
+</ul>
+<p>2.3 修改「 命令参数 」为「 <code>&quot;$(TargetPath)&quot; DllDebug</code> 」</p>
+</li>
+<li><p>(可选) 如果使用了「 模块定义文件 」<br>考虑到你可能不清楚这是什么: </p>
+<blockquote>
+<p>简单来说, 就是用于帮助编译程序更好声明DLL函数入口的一个文件.</p>
+</blockquote>
+<p>这么说肯定还是很抽象: </p>
+<blockquote>
+<p>看看「 项目属性 」-「 链接器 」-「 输入 」-「 模块定义文件 」是否被设置</p>
+</blockquote>
+<p>如果没有设置, 就跳过这步</p>
+<hr>
+<p>打开「 模块定义文件 」, 在最后加入一行「 <code>DllDebug @ 99</code> 」</p>
+</li>
+<li><p>点击「 调试 」-「 开始执行 」( 或按<code>F5</code> ) 感受结果.<br>至少不会提示「  xxx.dll 不是有效的应用程序  」了吧?<br>如果会, 请检查你选择的 <strong>「 配置 」</strong> 与 <strong>「 平台 」</strong></p>
+</li>
+</ol>
+<h2 id="附加说明"><a href="#附加说明" class="headerlink" title="附加说明"></a>附加说明</h2><ol>
+<li><p>为什么接收的命令行参数<code>lpszCmdLine</code>不能是<code>wchar_t</code>类型?<br>其实是可以的, 这与<code>rundll32.exe</code>的设定有关,<br><code>rundll32</code>会判断有没有<code>W</code>结尾的函数, 有的话会优先调用<code>W</code>结尾的函数.<br>我们只需要<strong>在函数名后加上<code>W</code></strong>就好, <strong>不需要修改「 命令参数 」</strong>,<br>如果用到「 模块定义文件 」, 也需要加<code>W</code>.</p>
+</li>
+<li><p>为什么会提示「 找不到指定的模块 」?</p>
+<blockquote>
+<p>因为项目中使用了<code>lib</code>文件, <code>lib</code>文件会在DLL被加载时主动加载其对应的DLL.</p>
+</blockquote>
+<p>「  如何解决?  」使用VS工具检查DLL依赖:<br>2.1 复制编译生成文件的绝对路径, 如<code>D:\a.dll</code><br>2.2 打开「  <code>Developer Command Prompt for VS 2019</code>  」,<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>其他版本名字类似, 也可使用「  <code>Developer PowerShell</code>  」<br>2.3 使用「  <code>dumpbin</code>  」查看DLL的依赖项,</p>
+<pre><code>`dumpbin /dependents &quot;D:\a.dll&quot;`
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">···</span><br><span class="line"></span><br><span class="line">Dump of file D:\a.dll</span><br><span class="line"></span><br><span class="line">File <span class="built_in">Type</span>: DLL</span><br><span class="line"></span><br><span class="line">Image has the following dependencies:</span><br><span class="line"></span><br><span class="line">    KERNEL32.dll</span><br><span class="line">    USER32.dll</span><br><span class="line">    QYOffer.dll</span><br><span class="line"></span><br><span class="line">···</span><br></pre></td></tr></table></figure></code></pre><p>2.4 根据命令输出, 可以发现存在非系统依赖项DLL「 <code>QYOffer.dll</code> 」<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>这时候有两种做法:<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>i.  将「 <code>QYOffer.dll</code> 」复制到和DLL文件同目录下,<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>    但这种做法不现实, 因为实际部署项目的时候, 并不可能把所有文件放在同目录下.<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>ii. 设置延迟加载项<br><span style="user-select: none;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>    在 项目属性「 链接器 」-「 输入 」-「 延迟加载的DLL 」的属性值中添加「 <code>QYOffer.dll</code> 」</p>
+</li>
+</ol>
+<h1 id="带控制台调试"><a href="#带控制台调试" class="headerlink" title="带控制台调试"></a>带控制台调试</h1><h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>和 无界面调试 略有不同, 此方法是<strong>将DLL项目手动改为控制台应用项目</strong></p>
+<h2 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h2><ol>
+<li>添加<code>main</code>函数, 对, 就是你想的那样<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>修改「 项目属性 」-「 常规 」-「 配置类型 」, 改为「 <code>应用程序 (.exe)</code> 」</li>
+<li>修改「 项目属性 」-「 链接器 」-「 系统 」-「 子系统 」, 改为「 <code>控制台 (/SUBSYSTEM:CONSOLE)</code> 」</li>
+<li>点击「 调试 」-「 开始执行 」( 或按<code>F5</code> ) 感受结果.<br>如果出现编译问题, 则需要进行第5步.</li>
+<li>修改「 项目属性 」-「 C/C++ 」-「 预处理器 」-「 预处理器定义 」, 删除<code>_WINDOWS</code>, 添加<code>_CONSOLE</code>.</li>
+<li>再次进行第4步.</li>
+</ol>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>其实这个方法还挺简单的, 但会影响最终生成的文件, 所以一般只在<code>Debug</code>配置.</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>[1] <a href="https://blog.csdn.net/anda0109/article/details/40111997" target="_blank" rel="noopener">EntryPoint原型</a><br>[2] <a href="https://blog.csdn.net/iceamber2012/article/details/19356163" target="_blank" rel="noopener">Rundll32.exe 调用DLL自定义导出函数</a><br>[3] <a href="https://blog.csdn.net/zy102600/article/details/48520459" target="_blank" rel="noopener">rundll32提示找不到指定的模块</a><br>[4] <a href="https://blog.csdn.net/jirryzhang/article/details/53816577" target="_blank" rel="noopener">用VS查看程序的dll依赖项</a><br>[5] <a href="https://blog.csdn.net/shenziheng1/article/details/53188168" target="_blank" rel="noopener">无法解析的外部符号 _WinMain@16</a></p>
+
+                <hr>
+                <ul class="pager">
+				    <script type="text/javascript">
+					function tonext() {
+					    var state = { 'page_id': 1, 'user_id': 5 };
+						var title = '';
+						var nexturl = document.getElementById("next");
+						var url = next.href;
+						//history.pushState(state, title, url);
+						//return false;
+						return true;
+					}
+					</script>
+                    
+                    
+                    <li class="next">
+                        <a id="next" onclick="tonext();" href="/Windows10-64bit-build-OpenSSL.html" data-toggle="tooltip" data-placement="top"
+                           title="Windows10 64位编译OpenSSL">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+				
+				
+
+                
+
+                
+                <!-- gitment 评论框 start -->
+                <div id="container"></div>
+				<link rel="stylesheet" href="/css/gitment.css">
+				
+<script src="/js/gitment.js"></script>
+
+				<script>
+				var gitment = new Gitment({
+				id: 'Debug-DLL-with-VisualStudio',
+				owner: 'Hstb1230',
+				repo: 'hstb1230.github.io',
+				oauth: {
+				client_id: '54e7459b39803a59182c',
+				client_secret: '83d831527e4e76979e1876a0da80699ccc715702',
+				},
+				'title': 'Visual Studio调试DLL项目',
+				'desc': '',
+				'perPage': '10',
+				'maxCommentHeight': '250',
+				})
+				gitment.render('container')
+				</script>
+                <!-- gitment 评论框 end -->
+                
+
+                
+				
+				
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#无界面调试"><span class="toc-text">无界面调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#特点"><span class="toc-text">特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#附加说明"><span class="toc-text">附加说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#带控制台调试"><span class="toc-text">带控制台调试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#步骤-1"><span class="toc-text">步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-text">参考链接</span></a></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#Visual Studio"
+                           title="Visual Studio">Visual Studio</a>
+                        
+                    </div>
+                </section>
+                
+
+				
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+				
+                <p class="copyright text-muted">
+                    Copyright &copy; 2015-2020 <a href="/">Hstb的小世界</a>
+					
+						&nbsp;|&nbsp;
+						<a href="http://www.beian.miit.gov.cn/" target="_blank">闽ICP备15012961号</a>
+					
+					
+					<br />					
+                    Theme by <a target="_blank" href="https://haojen.github.io/">Haojen Ma</a> & Power by <a target="_blank" href="https://hexo.io/zh-cn/">Hexo</a> & Modified by <a target="_blank" href="https://github.com/Hstb1230/hexo-theme-Anisina">Webmaster</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("/js/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','/js/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="//img.1sls.cn/Pic/gif/8c843331da5fdfa14fdd6eb6be01a08e">
+</body>
+
+</html>

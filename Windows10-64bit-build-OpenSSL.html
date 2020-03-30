@@ -202,7 +202,7 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><hr>
-<p>本文仅记录编译OpenSSL的过程和一些心得, 并非按顺序一一列举操作的教程文. 因此, 显得啰嗦是正常的.</p>
+<p><strong>本文仅记录编译OpenSSL的过程和一些心得, 并非按顺序一一列举操作的教程文.</strong> 因此, 显得啰嗦是正常的.</p>
 <p>本文使用的系统环境为Windows10家庭版64位, Intel芯片, 用于指导Windows10其他版本的编译应该没有问题, Windows7用户应该也可以, 应该只有在配置环境变量那步有所区别.</p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><hr>
 <p>因为Python的requests库在使用HTTPS代理时会出现警告, 需要导入证书才能从根本上解决这个问题.<br>但Fiddler和BurpSuite的证书又是cer文件, 需要转换成pem才能给requests使用, 所以需要借助OpenSSL库进行转换, 只是没有找到可用的现成程序, 所以选择编译一份. </p>
@@ -235,7 +235,7 @@
 <h2 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h2><hr>
 <p>打开源代码目录, 查看README文件: </p>
 <figure class="highlight plain"><figcaption><span>INSTALLATION</span><a href="https://raw.githubusercontent.com/openssl/openssl/OpenSSL_1_1_1-stable/README" target="_blank" rel="noopener">README</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">See the appropriate file ---- 查看相应的文件: </span><br><span class="line">    INSTALL    Linux, Unix, Windows, OpenVMS, ...</span><br><span class="line">    NOTES.*    INSTALL addendums for different platforms ---- 不同平台的安装附录</span><br></pre></td></tr></table></figure>
-<p>也就是说, 我们要阅读「INSTALL」和「NOTES.WIN」这两个文件. 文件里给出了多种编译方式, 但都需要用到<code>Perl</code>, 所以先去<a href="https://www.activestate.com/products/activeperl/downloads/" title="" target="">下载</a>该程序(可能需要注册账户), 我下的是5.28版本.</p>
+<p>也就是说, 我们要阅读「 INSTALL 」和「 NOTES.WIN 」这两个文件. 文件里给出了多种编译方式, 但都需要用到<code>Perl</code>, 所以先去<a href="https://www.activestate.com/products/activeperl/downloads/" title="" target="">下载</a>该程序(可能需要注册账户), 我下的是5.28版本.</p>
 <p>安装类型随意, 硬件资源优秀的可以选<code>Complete</code>, 这里用<code>Typical</code>足够.</p>
 <img src="/Windows10-64bit-build-OpenSSL/%E5%AE%89%E8%A3%85Perl.gif" class="" title="安装Perl">
 
@@ -259,7 +259,7 @@
 <p>相关解释</p>
 <ul>
 <li><code>Configure</code> — 实际上是源代码目录下的一个文件</li>
-<li><code>VC-WIN64A</code> — 大部分64位Windows只需要用到该参数, 32位的直接用<code>VC-WIN32</code>就好.<br>后面突然觉得, 「会不会<code>A</code>是AMD,<code>I</code>是Intel」, 差点就要改成<code>VC-WIN64I</code>.</li>
+<li><code>VC-WIN64A</code> — 大部分64位Windows只需要用到该参数, 32位的直接用<code>VC-WIN32</code>就好.<br>后面突然觉得, 「 会不会<code>A</code>是AMD,<code>I</code>是Intel 」, 差点就要改成<code>VC-WIN64I</code>.</li>
 <li><code>no-asm</code> — 不使用汇编优化, 否则命令执行出错, 提示要安装NASM</li>
 <li><code>--prefix=</code> — 指定编译文件后存放的目录</li>
 <li><code>C:\Users\i\Documents\Scripts\openssl</code> — 目标路径, 前后加引号是为了防止路径中存在空格等特殊字符, 导致程序解析错参数</li>
@@ -292,7 +292,7 @@
 
 <p>你觉得这是命令行页面? 我怎么觉得更像MinGW的插件管理窗口? </p>
 <p>然后就想到, 是不是没配环境变量?</p>
-<p>但在安装时已经勾选配置环境变量, 而且执行<code>perl -v</code>也有输出, 总不能要重启才正常运行吧?<br>如果是, 那输perl之后应该更是「程序不存在」之类的错误, 最后我也重启了, 依旧是老样子.</p>
+<p>但在安装时已经勾选配置环境变量, 而且执行<code>perl -v</code>也有输出, 总不能要重启才正常运行吧?<br>如果是, 那输perl之后应该更是「 程序不存在 」之类的错误, 最后我也重启了, 依旧是老样子.</p>
 <p>然后去Perl的bin目录看了下, <s>根本没有<code>pip</code>这个文件</s>, 对不起, 我出戏了, 不知道怎么的就写到python去了, 但确实也没有<code>ppm</code>, 看样子八九凉了.</p>
 <p>然后我就想,在命令行下运行某些程序, 不带参数的话好像会进入一个单独的页面(比如<code>mysql</code>,<code>python</code>,<code>openssl</code>), 那我也试下<code>perl</code></p>
 <p>确实有反应, 但我换行输了好几个命令都没反应, 反倒跟我以前写的c语言的控制台程序一样, 把用户输入的内容原样输出. </p>
@@ -330,7 +330,7 @@
 <p>那能不能像<code>java</code>那样指定代码路径呢?</p>
 <p>先看看Perl有啥选项好了, <code>-h</code>来一波, 把允许带参数的选项都试过去了, 均不行, 佛了.</p>
 <p>难道只能原路返回?</p>
-<h3 id="切换编译工具"><a href="#切换编译工具" class="headerlink" title="切换编译工具"></a>切换编译工具</h3><p>刚刚看了下开始菜单, 发现VS还有好几个工具, 打开「适用于VS 2017的x64本机工具命令提示」, 发现换到openssl目录后<code>ml64</code>还能用, 就决定再试一试.</p>
+<h3 id="切换编译工具"><a href="#切换编译工具" class="headerlink" title="切换编译工具"></a>切换编译工具</h3><p>刚刚看了下开始菜单, 发现VS还有好几个工具, 打开「 适用于VS 2017的x64本机工具命令提示 」, 发现换到openssl目录后<code>ml64</code>还能用, 就决定再试一试.</p>
 <img src="/Windows10-64bit-build-OpenSSL/%E9%80%82%E7%94%A8%E4%BA%8EVS%202017%E7%9A%84x64%E6%9C%AC%E6%9C%BA%E5%B7%A5%E5%85%B7%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA.png" class="" title="适用于VS 2017的x64本机工具命令提示">
 
 <h1 id="二次编译"><a href="#二次编译" class="headerlink" title="二次编译"></a>二次编译</h1><hr>
@@ -376,7 +376,7 @@
 <p>这个其实和前面在VS目录中执行编译脚本的错误是同一个原因, 就是没有管理员权限, 无法写入受系统保护的目录.</p>
 <p>解决办法有两个, </p>
 <ol>
-<li>「以管理员身份」运行该工具; </li>
+<li>「 以管理员身份 」运行该工具; </li>
 <li>在编译命令中使用<code>--openssldir=</code>修改OpenSSL配置文件存放目录. </li>
 </ol>
 <p>我选择的是后者.</p>
@@ -435,7 +435,7 @@
 <p>然后重新打开cmd, 输入<code>nasm -v</code>, 有输出版本号的话就代表配置成功.</p>
 <img src="/Windows10-64bit-build-OpenSSL/%E8%BF%90%E8%A1%8CNASM-1.png" class="" title="运行NASM-1">
 
-<h2 id="重新编译"><a href="#重新编译" class="headerlink" title="重新编译"></a>重新编译</h2><p>然后再打开「适用于VS 2017的x64本机工具命令提示」, 切换执行路径到原来的<code>build</code>文件夹下.</p>
+<h2 id="重新编译"><a href="#重新编译" class="headerlink" title="重新编译"></a>重新编译</h2><p>然后再打开「 适用于VS 2017的x64本机工具命令提示 」, 切换执行路径到原来的<code>build</code>文件夹下.</p>
 <p>然后执行<code>nmake clean</code>, 清除原来的编译文件. 如果不放心的话, 可以删除并重新创建一个<code>build</code>文件夹.</p>
 <p>另外也要删除原来的<code>openssl</code>文件夹, 避免编译冲突, 也可以重命名.</p>
 <p>然后执行命令(不用带<code>no-asm</code>), 如果没有报错的话, 说明NASM已经可用.</p>
@@ -473,8 +473,8 @@
 					</script>
                     
                     <li class="previous">
-                        <a href="/BaiyueCompetition5-AWD-Think.html" data-toggle="tooltip" data-placement="top"
-                           title="第五届百越杯线下赛(AWD)感想">&larr; Previous Post</a>
+                        <a href="/Debug-DLL-with-VisualStudio.html" data-toggle="tooltip" data-placement="top"
+                           title="Visual Studio调试DLL项目">&larr; Previous Post</a>
                     </li>
                     
                     

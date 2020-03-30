@@ -95,3 +95,56 @@ function scrollCheck(scrollTarget, toggleClass, scrollHeight){
         }, 500)
     }
 })();
+
+var codeItem = document.getElementsByClassName('code');
+/*
+	添加代码复制按钮
+*/
+(function(){
+	for(var i = 0; i < codeItem.length; i++)
+	{
+		var copyButton = document.createElement("button");
+		copyButton.innerHTML = 'Copy';
+		copyButton.setAttribute("onclick", `copyCode(${i})`);
+		var copyText = document.createElement("textarea");
+		copyText.setAttribute("readonly", "readonly");
+		copyText.value = codeItem[i].lastChild.innerText;
+		// copyText.setAttribute("style", "display: contents");
+		copyText.style["display"] = "contents";
+		var rows = Number(codeItem[i].firstChild.childElementCount / 2);
+		copyText.setAttribute("rows", `${rows}`);
+		var div = document.createElement("div");
+		div.setAttribute("class", "copy");
+		div.appendChild(copyText);
+		div.appendChild(copyButton);
+		codeItem[i].insertBefore(div, codeItem[i].firstChild);
+	}
+})();
+
+function copyCode(i)
+{
+    if(i < 0 || i >= codeItem.length)
+		return;
+	codeItem[i].lastElementChild.style['display'] = 'none';
+	codeItem[i].firstChild.lastElementChild.style['display'] = 'none';
+	var codeView = codeItem[i].firstChild.firstElementChild;
+	codeView.style["display"] = "";
+	codeView.select();
+	try{
+		if(document.execCommand('copy', false, null)){
+			//success info  成功了放些提示
+			console.log("复制成功");
+			codeView.style["display"] = "none";
+			codeItem[i].lastElementChild.style['display'] = '';
+			codeItem[i].firstChild.lastElementChild.style['display'] = '';
+			return;
+		} else{
+			//fail info   失败了放些提示
+			console.log("复制失败");
+		}
+	} catch(err){
+		//fail info 失败了放些提示
+		window.prompt("复制失败了，请手动复制此内容: " + err, url); 
+		console.log("手动复制");
+	}
+}
